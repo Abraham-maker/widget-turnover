@@ -24,13 +24,13 @@
     border: solid 1px #808083;
     background-color: #fff;
     outline: none;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .form__find-order>input::placeholder {
     width: 136px;
     height: 20px;
-    font-size: 14px;
+    font-size: 16px;
     font-family: "Poppins";
     color: #424242;
 }

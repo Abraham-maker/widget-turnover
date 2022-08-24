@@ -18,9 +18,9 @@ const Login = () => {
                         Entrar
                     </span>
                 </button>
-                <p className='view-forgot__password'>¿Has olvidado la contraseña?</p>
+                <p className='view-forgot__password' onClick={() => { push('/forgot-password') }}>¿Has olvidado la contraseña?</p>
                 <hr />
-                <button className='btn-create-login'><span className='span-create'>Crear cuenta</span></button>
+                <button className='btn-create-login' onClick={() => { push('/register') }}><span className='span-create'>Crear cuenta</span></button>
             </div>
         </>
     )

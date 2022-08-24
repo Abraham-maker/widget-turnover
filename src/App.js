@@ -5,7 +5,8 @@ import "./App.css";
 import HomeRefud from "./components/Views/Home/HomeRefud";
 import GetOrders from "./components/Views/GetOrders/GetOrders";
 import Login from "./components/Views/Auth/Login";
-
+import ForgotPassword from "./components/Views/Auth/ForgotPassword";
+import Register from "./components/Views/Auth/Register";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,8 +20,14 @@ function App() {
       {modalOpen ?
         <Modal>
           <Switch>
-          <Route exact path="/">
+            <Route exact path="/">
               <Login setOpenModal={setModalOpen} />
+            </Route>
+            <Route exact path="/forgot-password">
+              <ForgotPassword setOpenModal={setModalOpen} />
+            </Route>
+            <Route exact path="/register">
+              <Register setOpenModal={setModalOpen} />
             </Route>
             {/* <Route exact path="/">
               <HomeRefud setOpenModal={setModalOpen} />
