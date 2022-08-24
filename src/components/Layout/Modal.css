@@ -1,0 +1,39 @@
+.modalBackground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+  }
+  
+  .modalContainer {
+    overflow: auto;
+    background: #fff;
+    border-radius: 24px;
+    width: 85vw;
+    height: 85vh;
+    padding: 20px 20px 16px;
+    position: relative;
+    -webkit-transition: all 500ms ease-in;
+    -moz-transition: all 500ms ease-in;
+    transition: all 500ms ease-in;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  }
+  
+  
+  footer>span {
+    font-size: 10px;
+    color: #424242;
+  }
