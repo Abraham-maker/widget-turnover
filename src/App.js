@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { WebProvider } from "./config/Context/Context";
 import "./App.css";
 import HomeRefud from "./components/Views/Home/HomeRefud";
+import HomeOptions from "./components/Views/Home/HomeOptions";
 import GetOrders from "./components/Views/GetOrders/GetOrders";
 import Login from "./components/Views/Auth/Login";
 import ForgotPassword from "./components/Views/Auth/ForgotPassword";
@@ -40,6 +41,9 @@ function App() {
               </Route>
               <Route exact path='/faqs'>
                 <FAQS setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/home-options'>
+                <HomeOptions setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
