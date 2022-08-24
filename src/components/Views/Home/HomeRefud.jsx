@@ -1,7 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import './stylesRefud/HomeRefud.css'
 
+
 const HomeRefud = () => {
+  const { push } = useHistory();
+
   return (
     <>
       <div className='container__home'>
@@ -22,7 +26,7 @@ const HomeRefud = () => {
             <p className='paragraph__home'>Quiero Reembolso</p>
             <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
           </div>
-          <button className='btn-home'><span className='span__home'>Iniciar devolución</span></button>
+          <button className='btn-home'><span className='span__home' onClick={() => {push('/get-orders')}} >Iniciar devolución</span></button>
 
         </div>
       </div>

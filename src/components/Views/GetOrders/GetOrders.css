@@ -1,0 +1,51 @@
+.container__getorder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 25%;
+}
+
+.container__getorder>img {
+    width: 220px;
+}
+
+.form__find-order {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__find-order>input {
+    width: 359px;
+    height: 52px;
+    margin: 48px 0 16px;
+    padding: 5px 0 5px 16px;
+    border-radius: 6px;
+    border: solid 1px #808083;
+    background-color: #fff;
+    outline: none;
+    font-size: 15px;
+}
+
+.form__find-order>input::placeholder {
+    width: 136px;
+    height: 20px;
+    font-size: 14px;
+    font-family: "Poppins";
+    color: #424242;
+}
+
+.btn-orders {
+    cursor: pointer;
+    height: 52px;
+    padding: 15px 0px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #424242;
+}
+
+.span-orders {
+    font-family: "Poppins";
+    font-size: 16px;
+    color: #fff;
+}
