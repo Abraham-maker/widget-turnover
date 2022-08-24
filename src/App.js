@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./components/Layout/Modal";
 import { Route, Switch } from "react-router-dom";
+import { WebProvider } from "./config/Context/Context";
 import "./App.css";
 import HomeRefud from "./components/Views/Home/HomeRefud";
 import GetOrders from "./components/Views/GetOrders/GetOrders";
@@ -18,25 +19,27 @@ function App() {
       </div>
 
       {modalOpen ?
-        <Modal>
-          <Switch>
-            <Route exact path="/">
-              <Login setOpenModal={setModalOpen} />
-            </Route>
-            <Route exact path="/forgot-password">
-              <ForgotPassword setOpenModal={setModalOpen} />
-            </Route>
-            <Route exact path="/register">
-              <Register setOpenModal={setModalOpen} />
-            </Route>
-            {/* <Route exact path="/">
+        <WebProvider>
+          <Modal>
+            <Switch>
+              <Route exact path="/">
+                <Login setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path="/forgot-password">
+                <ForgotPassword setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path="/register">
+                <Register setOpenModal={setModalOpen} />
+              </Route>
+              {/* <Route exact path="/">
               <HomeRefud setOpenModal={setModalOpen} />
             </Route>
             <Route exact path="/get-orders">
               <GetOrders />
             </Route> */}
-          </Switch>
-        </Modal>
+            </Switch>
+          </Modal>
+        </WebProvider>
         : false
       }
     </>

@@ -99,6 +99,28 @@
     cursor: pointer;
 }
 
+.btn-crear__cuenta-active {
+    position: relative;
+    top: 50px;
+    width: 359px;
+    height: 48px;
+    margin: 0 auto;
+    padding: 13px 125px 12px 126px;
+    border-radius: 6px;
+    border: none;
+    background-color: #424242;
+    cursor: pointer;
+}
+
+.span-crear__cuenta-active {
+    width: 108px;
+    height: 23px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
 .span-crear__cuenta {
     width: 108px;
     height: 23px;
@@ -135,4 +157,21 @@ input[type=checkbox]:checked+label:before {
 
 .terminos {
     text-decoration: underline;
+}
+
+.alerta__register {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #f06361;
+    font-weight: 600;
+}
+
+.alerta__register-success {
+    width: 360px;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: #5db661;
+    font-weight: 600;
 }
