@@ -27,7 +27,15 @@
     border: solid 1px #808083;
     background-color: #fff;
     outline: none;
-    font-size: 15px;
+    font-family: "Poppins";
+    font-size: 16px;
+}
+
+.container-form__login>input::placeholder {
+    font-family: "Poppins";
+    font-size: 16px;
+    letter-spacing: -0.01px;
+    color: #424242;
 }
 
 .btn-login {
@@ -40,7 +48,7 @@
 }
 
 .span-login {
-    font-family: Poppins;
+    font-family: "Poppins";
     font-size: 16px;
     font-weight: 600;
     color: #fff;
