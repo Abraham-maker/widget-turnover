@@ -9,6 +9,7 @@ import Login from "./components/Views/Auth/Login";
 import ForgotPassword from "./components/Views/Auth/ForgotPassword";
 import Register from "./components/Views/Auth/Register";
 
+
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -22,7 +23,7 @@ function App() {
         <WebProvider>
           <Modal>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/login">
                 <Login setOpenModal={setModalOpen} />
               </Route>
               <Route exact path="/forgot-password">
@@ -31,12 +32,12 @@ function App() {
               <Route exact path="/register">
                 <Register setOpenModal={setModalOpen} />
               </Route>
-              {/* <Route exact path="/">
-              <HomeRefud setOpenModal={setModalOpen} />
-            </Route>
-            <Route exact path="/get-orders">
-              <GetOrders />
-            </Route> */}
+              <Route exact path="/">
+                <HomeRefud setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path="/get-orders">
+                <GetOrders setOpenModal={setModalOpen} />
+              </Route>
             </Switch>
           </Modal>
         </WebProvider>
