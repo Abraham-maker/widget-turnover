@@ -1,0 +1,138 @@
+.container__register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: 12%;
+}
+
+.container__register>img {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+.form-regiter {
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+}
+
+.group-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+.input-email {
+    width: 732px;
+    height: 40px;
+    margin: 10px 1px 16px 0;
+    border-radius: 6px;
+    padding: 8px 0px 8px 16px;
+    border: solid 1px #808083;
+    background-color: #fff;
+    outline: none;
+    font-family: "Poppins";
+    font-size: 16px;
+}
+
+.input-email::placeholder {
+    height: 20px;
+    font-family: "Poppins";
+    font-size: 16px;
+    color: #424242;
+}
+
+.input-password {
+    font-size: 16px;
+    outline: none;
+    width: 341px;
+    height: 40px;
+    margin: 10px 32px 16px 0;
+    font-family: "Poppins";
+    border-radius: 6px;
+    border: solid 1px #808083;
+    padding: 8px 0px 8px 16px;
+}
+
+.input-password::placeholder {
+    height: 20px;
+    font-family: "Poppins";
+    font-size: 16px;
+    color: #424242;
+}
+
+
+.input-name {
+    width: 341px;
+    height: 40px;
+    padding: 8px 0px 8px 16px;
+    margin: 10px 32px 16px 0;
+    font-family: "Poppins";
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    border: solid 1px #808083;
+}
+
+.input-name::placeholder {
+    height: 20px;
+    font-family: "Poppins";
+    font-size: 16px;
+    color: #424242;
+}
+
+
+.btn-crear__cuenta {
+    position: relative;
+    top: 50px;
+    width: 359px;
+    height: 48px;
+    margin: 0 auto;
+    padding: 13px 125px 12px 126px;
+    border-radius: 6px;
+    border: none;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.span-crear__cuenta {
+    width: 108px;
+    height: 23px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    color: #424242;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]+label:before {
+    text-align: center;
+    content: "\2714";
+    display: inline-block;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    width: 24px;
+    height: 24px;
+    margin: 0 16px 0px 0;
+    border: solid 1px #808083;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked+label:before {
+    background-color: #424242;
+    border-color: #424242;
+    color: #fff;
+}
+
+.terminos {
+    text-decoration: underline;
+}

@@ -56,10 +56,9 @@
 
 .view-forgot__password {
     height: 17px;
-    font-size: 12px;
+    font-size: 14px;
     color: #4f4f4f;
     cursor: pointer;
-    font-family: "Poppins";
 }
 
 .btn-create-login {
