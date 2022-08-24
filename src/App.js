@@ -8,7 +8,7 @@ import GetOrders from "./components/Views/GetOrders/GetOrders";
 import Login from "./components/Views/Auth/Login";
 import ForgotPassword from "./components/Views/Auth/ForgotPassword";
 import Register from "./components/Views/Auth/Register";
-
+import FAQS from "./components/Views/FAQS/FAQS";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,6 +37,9 @@ function App() {
               </Route>
               <Route exact path="/get-orders">
                 <GetOrders setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/faqs'>
+                <FAQS setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
