@@ -23,17 +23,4 @@
     -moz-transition: all 500ms ease-in;
     transition: all 500ms ease-in;
   }
-  
-  footer {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  
-  }
-  
-  
-  footer>span {
-    font-size: 10px;
-    color: #424242;
-  }
+ 
