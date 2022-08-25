@@ -7,7 +7,7 @@ const BtnFaqs = () => {
     const { push } = useHistory()
     return (
         <div className='btn-question' onClick={() => {return push('/faqs')}}>
-            <i class="fa fa-question" aria-hidden="true"></i>
+            <i className="fa fa-question" aria-hidden="true"></i>
         </div>
     )
 }

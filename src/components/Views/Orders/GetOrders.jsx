@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './GetOrders.css'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
+import { WebContext } from '../../../config/Context/Context'
+
 
 const GetOrders = ({ setOpenModal }) => {
-  const [searchOrder, setSearchOrder] = useState({})
+  const { findOrder, setFindOrder, onFindOrder, messageOrder } = useContext(WebContext)
   const [open, setOpen] = useState(false);
+  const { message, status } = messageOrder
 
   const inputChange = ({ target }) => {
     const { name, value } = target;
-    setSearchOrder({ ...searchOrder, [name]: value })
+    setFindOrder({ ...findOrder, [name]: value })
   }
+
 
   return (
     <>
@@ -21,7 +25,9 @@ const GetOrders = ({ setOpenModal }) => {
         <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" />
         <div className='form__find-order'>
           <input type="text" name="email" placeholder='Introduce tu e-mail' onChange={inputChange} />
-          <button className='btn-orders'><span className='span-orders'>Obtener órdenes</span></button>
+
+          {status === 'Error' ? (<p className='alerta__get-orders'>{message}</p>) : false}
+          <button className='btn-orders' onClick={onFindOrder}><span className='span-orders'>Obtener órdenes</span></button>
         </div>
       </div>
 
