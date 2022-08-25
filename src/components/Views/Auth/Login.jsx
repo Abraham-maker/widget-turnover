@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { WebContext } from '../../../config/Context/Context';
 import './Styles/Login.css'
+import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 
 const Login = ({ setOpenModal }) => {
     const { push } = useHistory();
@@ -47,6 +48,7 @@ const Login = ({ setOpenModal }) => {
                 <button className='btn-create-login' onClick={() => { push('/register') }}><span className='span-create'>Crear cuenta</span></button>
             </div>
 
+            <BtnFaqs />
             {open ?
                 (<>
                     <div className="background">

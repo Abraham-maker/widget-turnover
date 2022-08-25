@@ -1,10 +1,10 @@
 .container__login {
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
-    position: relative;
-    top: 15%;
 }
 
 .container__login>img {

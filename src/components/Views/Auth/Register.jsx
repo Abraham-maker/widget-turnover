@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { WebContext } from '../../../config/Context/Context'
+import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 import './Styles/Register.css'
 
 const Register = ({ setOpenModal }) => {
@@ -92,6 +93,8 @@ const Register = ({ setOpenModal }) => {
 
         </div>
       </div>
+
+      <BtnFaqs />
       {open ?
         (<>
           <div className="background">

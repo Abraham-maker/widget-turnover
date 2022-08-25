@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './GetOrders.css'
+import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 
 const GetOrders = ({ setOpenModal }) => {
   const [searchOrder, setSearchOrder] = useState({})
@@ -24,21 +25,21 @@ const GetOrders = ({ setOpenModal }) => {
         </div>
       </div>
 
-
+      <BtnFaqs />
       {open ?
-      (<>
-        <div className="background">
-          <div className="popup">
-            <div className="content">
-              ¿Seguro que deseas salir?, Todo el estado actual se perderá.
-            </div>
-            <div className='container-btn'>
-              <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-              <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+        (<>
+          <div className="background">
+            <div className="popup">
+              <div className="content">
+                ¿Seguro que deseas salir?, Todo el estado actual se perderá.
+              </div>
+              <div className='container-btn'>
+                <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
+                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+              </div>
             </div>
           </div>
-        </div>
-      </>) : false}
+        </>) : false}
     </>
   )
 }

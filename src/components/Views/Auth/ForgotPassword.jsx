@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { WebContext } from '../../../config/Context/Context'
 import './Styles/ForgotPassword.css'
+import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
+
 
 const ForgotPassword = ({ setOpenModal }) => {
   const { push } = useHistory();
@@ -47,6 +49,7 @@ const ForgotPassword = ({ setOpenModal }) => {
         <p className='view-forgot__password' onClick={() => { push('/login') }}>Login</p>
       </div>
 
+      <BtnFaqs />
       {open ?
         (<>
           <div className="background">
