@@ -1,12 +1,19 @@
 import React, { useContext, useState } from 'react'
 import { WebContext } from '../../../config/Context/Context'
-import './ListOrders.css'
-
+import './styles/ListOrders.css'
+import { useHistory } from 'react-router-dom'
 
 const ListOrders = ({ setOpenModal }) => {
+  const { push } = useHistory()
   const [open, setOpen] = useState(false);
   const { orderList } = useContext(WebContext);
   const { order } = orderList
+
+  const closeModal = () => {
+    window.localStorage.removeItem('InfoLogin', true)
+    push('/')
+    setOpenModal(false)
+  }
 
   return (
     <>
@@ -49,7 +56,7 @@ const ListOrders = ({ setOpenModal }) => {
               </div>
               <div className='container-btn'>
                 <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
               </div>
             </div>
           </div>

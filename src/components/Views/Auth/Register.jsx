@@ -2,8 +2,11 @@ import React, { useContext, useState } from 'react'
 import { WebContext } from '../../../config/Context/Context'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 import './Styles/Register.css'
+import { useHistory } from 'react-router-dom'
+
 
 const Register = ({ setOpenModal }) => {
+  const { push } = useHistory()
   const [open, setOpen] = useState(false);
   const { register, setRegister, onRegister, messageRegister, checked, setChecked } = useContext(WebContext)
   const { errors, status } = messageRegister;
@@ -30,6 +33,13 @@ const Register = ({ setOpenModal }) => {
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
+
+  const closeModal = () => {
+    window.localStorage.removeItem('InfoLogin', true)
+    push('/')
+    setOpenModal(false)
+  }
+
 
   return (
     <>
@@ -104,7 +114,7 @@ const Register = ({ setOpenModal }) => {
               </div>
               <div className='container-btn'>
                 <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
               </div>
             </div>
           </div>

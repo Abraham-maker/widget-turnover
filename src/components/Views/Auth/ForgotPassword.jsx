@@ -18,6 +18,12 @@ const ForgotPassword = ({ setOpenModal }) => {
     setEmailForgotPass({ ...emailForgotPass, [name]: value })
   }
 
+  const closeModal = () => {
+    window.localStorage.removeItem('InfoLogin', true)
+    push('/')
+    setOpenModal(false)
+  }
+
   return (
     <>
       <div className='container_icons'>
@@ -59,7 +65,7 @@ const ForgotPassword = ({ setOpenModal }) => {
               </div>
               <div className='container-btn'>
                 <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
               </div>
             </div>
           </div>

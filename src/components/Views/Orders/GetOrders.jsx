@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react'
-import './GetOrders.css'
+import './styles/GetOrders.css'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 import { WebContext } from '../../../config/Context/Context'
+import { useHistory } from 'react-router-dom'
 
 
 const GetOrders = ({ setOpenModal }) => {
+  const { push } = useHistory()
   const { findOrder, setFindOrder, onFindOrder, messageOrder } = useContext(WebContext)
   const [open, setOpen] = useState(false);
   const { message, status } = messageOrder
@@ -12,6 +14,12 @@ const GetOrders = ({ setOpenModal }) => {
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setFindOrder({ ...findOrder, [name]: value })
+  }
+
+  const closeModal = () => {
+    window.localStorage.removeItem('InfoLogin', true)
+    push('/')
+    setOpenModal(false)
   }
 
 
@@ -41,7 +49,7 @@ const GetOrders = ({ setOpenModal }) => {
               </div>
               <div className='container-btn'>
                 <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
               </div>
             </div>
           </div>

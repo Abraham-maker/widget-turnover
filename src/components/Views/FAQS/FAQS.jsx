@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Accordion from './Accordion';
 import './FAQS.css'
+
+
 const FAQS = ({ setOpenModal }) => {
+    const { push } = useHistory()
     const [isActive, setIsActive] = useState(false);
     const [open, setOpen] = useState(false);
+
+    const closeModal = () => {
+        window.localStorage.removeItem('InfoLogin', true)
+        push('/')
+        setOpenModal(false)
+    }
 
     const accordionData = [
         {
@@ -48,7 +58,7 @@ const FAQS = ({ setOpenModal }) => {
                             </div>
                             <div className='container-btn'>
                                 <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+                                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
                             </div>
                         </div>
                     </div>

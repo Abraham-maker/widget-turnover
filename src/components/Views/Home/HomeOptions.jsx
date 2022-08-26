@@ -1,10 +1,20 @@
 import React, { useContext, useState } from 'react'
 import { WebContext } from '../../../config/Context/Context'
 import './stylesRefud/HomeRefud.css'
+import { useHistory } from 'react-router-dom'
+
 
 const HomeOptions = ({ setOpenModal }) => {
+  const { push } = useHistory()
   const { listOrder } = useContext(WebContext);
   const [open, setOpen] = useState(false);
+
+  const closeModal = () => {
+    window.localStorage.removeItem('InfoLogin', true)
+    push('/')
+    setOpenModal(false)
+  }
+
 
   return (
     <>
@@ -48,7 +58,7 @@ const HomeOptions = ({ setOpenModal }) => {
               </div>
               <div className='container-btn'>
                 <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                <button className='btn-accept' onClick={() => setOpenModal(false)}>Aceptar</button>
+                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
               </div>
             </div>
           </div>
