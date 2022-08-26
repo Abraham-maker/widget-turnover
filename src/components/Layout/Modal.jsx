@@ -6,6 +6,10 @@ function Modal(props) {
     <div className="modalBackground">
       <div className="modalContainer">
         {props.children}
+        
+        <footer>
+        © 2022 TurnOver 
+        </footer>
       </div>
     </div >
   );
