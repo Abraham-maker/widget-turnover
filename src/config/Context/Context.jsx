@@ -121,6 +121,9 @@ function WebProvider(props) {
             .then(response => response.json())
             .then((messageOrder) => {
                 setMessageOrder(messageOrder)
+                setTimeout(() => {
+                    setMessageOrder({})
+                }, 6000);
                 const { data } = messageOrder ?? false;
                 const { api2cart_user, turnover_user } = data;
                 if (turnover_user === null && api2cart_user !== null) {
