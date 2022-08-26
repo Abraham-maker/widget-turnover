@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import './stylesRefud/HomeRefud.css'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
@@ -6,6 +6,7 @@ import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 const HomeRefud = ({ setOpenModal }) => {
   const [open, setOpen] = useState(false);
   const { push } = useHistory();
+
 
   return (
     <>

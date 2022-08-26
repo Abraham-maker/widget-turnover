@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { WebContext } from '../../../config/Context/Context'
 import './stylesRefud/HomeRefud.css'
 
 const HomeOptions = ({ setOpenModal }) => {
+  const { listOrder } = useContext(WebContext);
   const [open, setOpen] = useState(false);
-  const { push } = useHistory();
 
   return (
     <>
@@ -19,13 +19,13 @@ const HomeOptions = ({ setOpenModal }) => {
           <div className='container__refud'>
             <p className='paragraph__home'>Quiero una talla/color diferente</p>
             <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-            <button className='btn-home-options'><span className='span__home' >Iniciar devolución</span></button>
+            <button className='btn-home-options' onClick={listOrder}><span className='span__home' >Iniciar devolución</span></button>
 
           </div>
           <div className='container__refud'>
             <p className='paragraph__home'>Quiero un estilo/producto diferente</p>
             <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-            <button className='btn-home-options'><span className='span__home' >Iniciar devolución</span></button>
+            <button className='btn-home-options' onClick={listOrder}><span className='span__home' >Iniciar devolución</span></button>
 
 
           </div>
@@ -33,7 +33,7 @@ const HomeOptions = ({ setOpenModal }) => {
             <p className='paragraph__home'>Quiero Reembolso</p>
             <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
 
-            <button className='btn-home-options'><span className='span__home' >Iniciar devolución</span></button>
+            <button className='btn-home-options' onClick={listOrder}><span className='span__home' >Iniciar devolución</span></button>
           </div>
         </div>
       </div>

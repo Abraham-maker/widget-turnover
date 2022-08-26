@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const WebContext = React.createContext();
@@ -26,8 +26,8 @@ function WebProvider(props) {
     const [findOrder, setFindOrder] = useState({})
     const { email } = findOrder
     const [messageOrder, setMessageOrder] = useState({});
+    const [orderList, setOrderlist] = useState({});
     {/* END FIND ORDER */ }
-
     {/* REQUEST LOGIN */ }
     const onSubmit = () => {
         const url = "https://www.turnover.gotopdev.com/api/v1/login"
@@ -44,6 +44,7 @@ function WebProvider(props) {
         }).then((res) => res.json()).then((infoLogin) => {
             setInfoLogin(infoLogin);
             if (infoLogin.status === 'Success') {
+                push('/home-options')
                 window.localStorage.setItem("InfoLogin", JSON.stringify(infoLogin))
                 setUser({ email: '', password: '' })
             }
@@ -133,10 +134,20 @@ function WebProvider(props) {
                 }
             })
     }
+
+    const listOrder = async () => {
+        await fetch(`https://www.turnover.gotopdev.com/api/v1/customer-orders?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&email=${email}`)
+            .then(response => response.json())
+            .then(({ data }) => {
+                setOrderlist(data);
+                push('/list-order')
+            })
+    }
+
     {/* END FIND ORDER */ }
 
     return (
-        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder }}>
+        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList }}>
             {props.children}
         </WebContext.Provider>
     )
