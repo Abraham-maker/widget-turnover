@@ -11,6 +11,7 @@ import Login from "./components/Views/Auth/Login";
 import ForgotPassword from "./components/Views/Auth/ForgotPassword";
 import Register from "./components/Views/Auth/Register";
 import FAQS from "./components/Views/FAQS/FAQS";
+import Products from "./components/Views/Orders/Products";
 
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
               </Route>
               <Route exact path='/home-options'>
                 <HomeOptions setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/product-order'>
+                <Products setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>

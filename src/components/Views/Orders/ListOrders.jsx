@@ -40,7 +40,7 @@ const ListOrders = ({ setOpenModal }) => {
                   <td>{items.order_id}</td>
                   <td>{items.status}</td>
                   <td>{items.total}€</td>
-                  <td className='productos-btn'>Productos</td>
+                  <td className='productos-btn' onClick={() => { push('/product-order') }}>Productos</td>
                 </tr>
               )
             })}
