@@ -17,11 +17,15 @@ const ListOrders = ({ setOpenModal }) => {
 
   return (
     <>
+
       <div className='container_icons'>
         <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
       </div>
-      <div className='container-table'>
+
+      <h3 id='title-listOrders'>Devoluciones</h3>
+      <div id='container-table'>
+
         <table>
           <thead>
             <tr>
@@ -40,13 +44,16 @@ const ListOrders = ({ setOpenModal }) => {
                   <td>{items.order_id}</td>
                   <td>{items.status}</td>
                   <td>{items.total}€</td>
-                  <td className='productos-btn' onClick={() => { push('/product-order') }}>Productos</td>
+                  <td id='productos-btn' onClick={() => { push('/product-order') }}>Productos</td>
                 </tr>
               )
             })}
           </tbody>
         </table>
+        
       </div>
+
+
       {open ?
         (<>
           <div className="background">

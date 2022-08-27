@@ -19,35 +19,33 @@ const Products = ({ setOpenModal }) => {
                 <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
             </div>
 
+            <div id='container-product'>
+                <h3 id='title-product'>Devoluciones</h3>
+                <div id='article-product'>
 
-            <div className='container-product'>
-                <h3 className='title-product'>Devoluciones</h3>
-                <div className='article-product'>
+                    <div id="item-product">
 
-                    <div className="item-product">
-                        <div className='items'>
-                            <div className='check-box'>
+                        <div id='items'>
+                            <div id='container-checkBox'>
                                 <input type="checkbox" name="my-checkbox" id="opt-in" />
                                 <label for="opt-in"></label>
                             </div>
                             <img src="https://us.123rf.com/450wm/redrockerz/redrockerz1601/redrockerz160100016/50854987-camisa-de-ilustraci%C3%B3n-de-bosquejo-del-dise%C3%B1o.jpg?ver=6" alt="" width={150} height={180} />
-                            <div className='items-flex'>
-                                <p className='weight'>Camisa Oversize X</p>
+                            <div>
+                                <p id='text-header'>Camisa Oversize X</p>
                                 <p className='text-normal'>Ref. 1287654</p>
                                 <p className='text-normal'>Size S</p>
                                 <p className='text-normal'>Colours</p>
                             </div>
-                            <p className='weight'>59,90€</p>
+                            <p id='text-header'>59,90€</p>
                         </div>
                     </div>
-                </div>
 
-                <button class="start-refud">
+                </div>
+                <button id="start-products">
                     <span>Iniciar Devolucion</span>
                 </button>
             </div>
-
-
 
             {open ?
                 (<>

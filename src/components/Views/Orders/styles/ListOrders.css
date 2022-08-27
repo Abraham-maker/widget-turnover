@@ -1,14 +1,22 @@
-.container-table {
-    height: 70vh;
+#container-table {
+    height: 50vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+#title-listOrders {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #141414;
 }
 
 table {
     border: 1px solid #ccc;
     border-collapse: collapse;
     table-layout: fixed;
+    width: 65vw;
 }
 
 th {
@@ -28,7 +36,7 @@ table td {
     text-align: center;
 }
 
-.productos-btn {
+#productos-btn {
     text-decoration: underline;
     cursor: pointer;
     color: #00f;

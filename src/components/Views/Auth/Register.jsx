@@ -47,61 +47,71 @@ const Register = ({ setOpenModal }) => {
         <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
       </div>
-      <div className='container__register'>
+
+      <div id='container-register'>
         <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" />
-        <div className="form-regiter">
-          <input type="email" className='input-email' placeholder='E-mail' name='email' onChange={inputChange} />
-          {emailMessage ? (<p className='alerta__register'>{emailMessage}</p>) : false}
-          <div className='group-input'>
+
+        <div id="form-regiter">
+          <input type="email" id='input-email' placeholder='E-mail' name='email' onChange={inputChange} />
+
+          {emailMessage ? (<p className='message-error'>{emailMessage}</p>) : false}
+
+          <div id='group-input'>
             <div>
-              <input type="password" className='input-password' placeholder='Contraseña' name='password' onChange={inputChange} />
-              {passwordMessage ? (<p className='alerta__register'>{passwordMessage}</p>) : false}
+              <input type="password" id='input-password' placeholder='Contraseña' name='password' onChange={inputChange} />
+              {passwordMessage ? (<p className='message-error'>{passwordMessage}</p>) : false}
             </div>
             <div>
-              <input type="password" className='input-password' placeholder='Confirmar contraseña' name='password_confirmation' onChange={inputChange} />
-              {password_confirmationMessage ? (<p className='alerta__register'>{password_confirmationMessage}</p>) : false}
+              <input type="password" id='input-password' placeholder='Confirmar contraseña' name='password_confirmation' onChange={inputChange} />
+              {password_confirmationMessage ? (<p className='message-error'>{password_confirmationMessage}</p>) : false}
             </div>
           </div>
 
-          <div className='group-input'>
+          <div id='group-input'>
             <div>
-              <input type="text" className='input-name' placeholder='Nombre' name='first_name' onChange={inputChange} />
-              {first_nameMessage ? (<p className='alerta__register'>{first_nameMessage}</p>) : false}
+              <input type="text" id='input-name' placeholder='Nombre' name='first_name' onChange={inputChange} />
+              {first_nameMessage ? (<p className='message-error'>{first_nameMessage}</p>) : false}
             </div>
             <div>
-              <input type="text" className='input-name' placeholder='Apellidos' name='last_name' onChange={inputChange} />
-              {last_nameMessage ? (<p className='alerta__register'>{last_nameMessage}</p>) : false}
-            </div>
-          </div>
-
-          <input type="text" className='input-email' placeholder='Dirección' name='address' onChange={inputChange} />
-          {addressMessage ? (<p className='alerta__register'>{addressMessage}</p>) : false}
-          <div className='group-input'>
-            <div>
-              <input type="text" className='input-name' placeholder='Codigo postal' name='postal_code' onChange={inputChange} />
-              {postal_codeMessage ? (<p className='alerta__register'>{emailMessage}</p>) : false}
-            </div>
-            <div>
-              <input type="text" className='input-name' placeholder='Ciudad' name='city' onChange={inputChange} />
-              {cityMessage ? (<p className='alerta__register'>{cityMessage}</p>) : false}
+              <input type="text" id='input-name' placeholder='Apellidos' name='last_name' onChange={inputChange} />
+              {last_nameMessage ? (<p className='message-error'>{last_nameMessage}</p>) : false}
             </div>
           </div>
 
-          <input type="checkbox" id="check1" name="terms" onChange={handleChange} />
-          <label htmlFor="check1">Estoy de acuerdo con los <span className='terminos'>Términos y Condiciones</span></label>
-          {terminos ? (<p className='alerta__register'>{terminos}</p>) : false}
-          {status === 'Success' ? (<p className='alerta__register-success'>Su nuevo registro de usuario resultó exitoso</p>) : false}
+          <input type="text" id='input-email' placeholder='Dirección' name='address' onChange={inputChange} />
+
+          {addressMessage ? (<p className='message-error'>{addressMessage}</p>) : false}
+
+          <div id='group-input'>
+            <div>
+              <input type="text" id='input-name' placeholder='Codigo postal' name='postal_code' onChange={inputChange} />
+              {postal_codeMessage ? (<p className='message-error'>{emailMessage}</p>) : false}
+            </div>
+            <div>
+              <input type="text" id='input-name' placeholder='Ciudad' name='city' onChange={inputChange} />
+              {cityMessage ? (<p className='message-error'>{cityMessage}</p>) : false}
+            </div>
+          </div>
+
+          <input type="checkbox" id="term" name="terms" onChange={handleChange} />
+
+          <label htmlFor="term">Estoy de acuerdo con los <span id='terminos'>Términos y Condiciones</span></label>
+
+          {terminos ? (<p className='message-error'>{terminos}</p>) : false}
+
+          {status === 'Success' ? (<p className='message-success'>Su nuevo registro de usuario resultó exitoso</p>) : false}
 
           {register.email === undefined || '' || register.password === undefined || '' || register.first_name === undefined || '' || register.last_name === undefined || '' || register.address === undefined || '' || register.postal_code === undefined || '' || register.city === undefined || ''
             ? (<>
-              <button className='btn-crear__cuenta' disabled><span className='span-crear__cuenta'>Crear cuenta</span></button>
+              <button id='btn-createAccount' disabled><span id='span-createAccount'>Crear cuenta</span></button>
             </>) :
             (<>
-              <button className='btn-crear__cuenta-active' onClick={onRegister}><span className='span-crear__cuenta-active'>Crear cuenta</span></button>
+              <button id='btn-createAccount-active' onClick={onRegister}><span id='span-active'>Crear cuenta</span></button>
             </>)
           }
 
         </div>
+
       </div>
 
       <BtnFaqs />

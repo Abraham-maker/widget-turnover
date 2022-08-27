@@ -1,4 +1,4 @@
-.container__register {
+#container-register {
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -6,26 +6,22 @@
     justify-content: center;
 }
 
-.container__register>img {
+#container-register>img {
     width: 220px;
     margin-bottom: 20px;
 }
 
-.form-regiter {
+#form-regiter {
     display: flex;
     flex-direction: column;
     width: 750px;
 }
 
-.group-input {
+#group-input {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
 }
 
-
-.input-email {
+#input-email {
     width: 732px;
     height: 40px;
     margin: 10px 1px 16px 0;
@@ -38,14 +34,13 @@
     font-size: 16px;
 }
 
-.input-email::placeholder {
+#input-email::placeholder {
     height: 20px;
-    font-family: "Poppins";
     font-size: 16px;
     color: #424242;
 }
 
-.input-password {
+#input-password {
     font-size: 16px;
     outline: none;
     width: 341px;
@@ -57,15 +52,14 @@
     padding: 8px 0px 8px 16px;
 }
 
-.input-password::placeholder {
+#input-password::placeholder {
     height: 20px;
-    font-family: "Poppins";
     font-size: 16px;
     color: #424242;
 }
 
 
-.input-name {
+#input-name {
     width: 341px;
     height: 40px;
     padding: 8px 0px 8px 16px;
@@ -77,15 +71,14 @@
     border: solid 1px #808083;
 }
 
-.input-name::placeholder {
+#input-name::placeholder {
     height: 20px;
-    font-family: "Poppins";
     font-size: 16px;
     color: #424242;
 }
 
 
-.btn-crear__cuenta {
+#btn-createAccount {
     position: relative;
     top: 50px;
     width: 359px;
@@ -95,10 +88,9 @@
     border-radius: 6px;
     border: none;
     background-color: #f2f2f2;
-    cursor: pointer;
 }
 
-.btn-crear__cuenta-active {
+#btn-createAccount-active {
     position: relative;
     top: 50px;
     width: 359px;
@@ -111,7 +103,7 @@
     cursor: pointer;
 }
 
-.span-crear__cuenta-active {
+#span-active {
     width: 108px;
     height: 23px;
     font-family: Poppins;
@@ -120,7 +112,7 @@
     color: #fff;
 }
 
-.span-crear__cuenta {
+#span-createAccount {
     width: 108px;
     height: 23px;
     font-family: Poppins;
@@ -154,23 +146,6 @@ input[type=checkbox]:checked+label:before {
     color: #fff;
 }
 
-.terminos {
+#terminos {
     text-decoration: underline;
-}
-
-.alerta__register {
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    color: #f06361;
-    font-weight: 600;
-}
-
-.alerta__register-success {
-    width: 360px;
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    color: #5db661;
-    font-weight: 600;
 }
