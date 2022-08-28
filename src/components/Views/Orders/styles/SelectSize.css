@@ -1,0 +1,134 @@
+#title-size {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#container-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+#article-container {
+    display: flex;
+    gap: 4em;
+    justify-content: center;
+    width: 90%;
+}
+
+#container-img>img {
+    width: 400px;
+    height: 400px;
+    border-radius: 12px;
+}
+
+#container-about {
+    background-color: #fff;
+    width: 400px;
+    height: 400px;
+}
+
+#text-flex {
+    display: flex;
+    gap: 7em;
+    font-size: 16px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#ref {
+    font-size: 12px;
+    color: #141414;
+    margin: 16px 228px 0 0;
+}
+
+#colors {
+    margin: 25px 8px 30px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#container-colors {
+    display: flex;
+    gap: 20px;
+}
+
+#color1 {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: solid 0.5px #4f4f4f;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#color2 {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #df4162;
+}
+
+#color3 {
+    cursor: pointer;
+    width: 24px;
+    border-radius: 50%;
+    height: 24px;
+    background-color: #6436e3;
+}
+
+#color4 {
+    cursor: pointer;
+    width: 24px;
+    border-radius: 50%;
+    height: 24px;
+    background-color: #238104;
+}
+
+#help-size {
+    width: 150px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    user-select: none;
+    color: #141414;
+    text-decoration: underline;
+}
+
+#select {
+    cursor: pointer;
+    width: 330px;
+    height: 48px;
+    border-radius: 6px;
+    padding: 12px 12px 12px 16px;
+    border: solid 1px #808083;
+    background-color: #fff;
+    color: #424242;
+    margin: 16px 0 0;
+    font-size: 14px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(https://cdn4.iconfinder.com/data/icons/podcast-collection/100/caret-512.png) 95% / 10% no-repeat;
+}
+
+#next-size {
+    width: 261px;
+    border: none;
+    height: 44px;
+    margin: 88px 112px 178px 18px;
+    padding: 12px 95px;
+    border-radius: 22px;
+    background-color: #424242;
+    cursor: pointer;
+}
+
+#next-span {
+    color: #fff;
+    font-family: Poppins;
+}
