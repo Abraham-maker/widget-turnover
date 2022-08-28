@@ -24,6 +24,7 @@ const RePayment = ({ setOpenModal }) => {
 
             <div id="container-rePayment">
                 <div>
+                    <p>Tu Reembolso se efectuará en el instante.</p>
                     <div id="article-re">
                         <div id="re-img">
                             <img src="https://static.lefties.com/9/photos2/2022/I/0/1/p/5912/305/657/5912305657_1_1_3.jpg?t=1659362106638" alt="" />
