@@ -13,6 +13,7 @@ import Register from "./components/Views/Auth/Register";
 import FAQS from "./components/Views/FAQS/FAQS";
 import Products from "./components/Views/Orders/Products";
 import SelectSize from "./components/Views/Orders/SelectSize";
+import ReasonRefud from "./components/Views/ReasonTheRefud/ReasonRefud";
 
 
 
@@ -58,6 +59,9 @@ function App() {
               </Route>
               <Route exact path='/about-product'>
                 <SelectSize setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/reason-refud'>
+                <ReasonRefud setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
