@@ -1,0 +1,151 @@
+#title-any {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#container-any__reason {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#article-any {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    width: 90%;
+    height: 200px;
+}
+
+#any-img>img {
+    width: 167px;
+    height: 167px;
+    border-radius: 12px;
+}
+
+#any-flex {
+    display: flex;
+    gap: 4em;
+    font-size: 16px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#ref-any {
+    width: 100%;
+    font-size: 12px;
+    color: #141414;
+    margin: 16px 228px 0 0;
+}
+
+#container-colors__any {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#container-colors__any>span {
+    font-family: Poppins;
+    font-size: 12px;
+    color: #141414;
+}
+
+#size-any {
+    font-size: 12px;
+    color: #141414;
+}
+
+#color1-any {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: solid 0.5px #4f4f4f;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#color2-any {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #df4162;
+}
+
+#color3-any {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #6436e3;
+}
+
+#color4-any {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #238104;
+}
+
+#span-any {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#container-radios__any {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#any-options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#span-free {
+    position: relative;
+    left: 9em;
+}
+
+#span-free2 {
+    position: relative;
+    left: 8em;
+}
+
+.any-date {
+    margin: 6px 0 0 30px;
+    font-size: 14px;
+    color: #424242;
+}
+
+.any-info {
+    margin: 6px 0 0 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #424242;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#btn-anyNext {
+    position: relative;
+    top: 4em;
+    display: flex;
+    justify-content: center;
+}
+
+#any-btnNext {
+    width: 261px;
+    height: 44px;
+    border-radius: 22px;
+    border: solid 0.5px #424242;
+    background-color: #f2f2f2;
+}

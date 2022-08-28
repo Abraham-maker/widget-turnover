@@ -14,6 +14,7 @@ import FAQS from "./components/Views/FAQS/FAQS";
 import Products from "./components/Views/Orders/Products";
 import SelectSize from "./components/Views/Orders/SelectSize";
 import ReasonRefud from "./components/Views/ReasonTheRefud/ReasonRefud";
+import AnyReason from "./components/Views/OptionRefud/AnyReason";
 
 
 
@@ -62,6 +63,9 @@ function App() {
               </Route>
               <Route exact path='/reason-refud'>
                 <ReasonRefud setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/any-reason'>
+                <AnyReason setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
