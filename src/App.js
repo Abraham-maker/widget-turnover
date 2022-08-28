@@ -15,6 +15,7 @@ import Products from "./components/Views/Orders/Products";
 import SelectSize from "./components/Views/Orders/SelectSize";
 import ReasonRefud from "./components/Views/ReasonTheRefud/ReasonRefud";
 import AnyReason from "./components/Views/OptionRefud/AnyReason";
+import RePayment from "./components/Views/OptionRefud/RePayment";
 
 
 
@@ -66,6 +67,9 @@ function App() {
               </Route>
               <Route exact path='/any-reason'>
                 <AnyReason setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/re-payment'>
+                <RePayment setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
