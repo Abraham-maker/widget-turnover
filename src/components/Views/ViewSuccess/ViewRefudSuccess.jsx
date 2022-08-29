@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import './Styles/ViewRePayment.css'
 
-const ViewRePayment = ({ setOpenModal }) => {
+const ViewRefudSuccess = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
 
@@ -51,4 +51,4 @@ const ViewRePayment = ({ setOpenModal }) => {
     )
 }
 
-export default ViewRePayment
+export default ViewRefudSuccess
