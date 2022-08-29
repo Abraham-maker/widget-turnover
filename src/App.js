@@ -17,6 +17,7 @@ import ReasonRefud from "./components/Views/ReasonTheRefud/ReasonRefud";
 import AnyReason from "./components/Views/OptionRefud/AnyReason";
 import RePayment from "./components/Views/OptionRefud/RePayment";
 import ReturnProductStore from "./components/Views/ReturnProduct/ReturnProductStore";
+import ReturnHome from "./components/Views/ReturnProduct/ReturnHome";
 
 
 
@@ -74,6 +75,9 @@ function App() {
               </Route>
               <Route exact path='/return-product'>
                 <ReturnProductStore setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/return-home'>
+                <ReturnHome setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
