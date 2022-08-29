@@ -19,6 +19,7 @@ import RePayment from "./components/Views/OptionRefud/RePayment";
 import ReturnProductStore from "./components/Views/ReturnProduct/ReturnProductStore";
 import ReturnHome from "./components/Views/ReturnProduct/ReturnHome";
 import ReturnCard from "./components/Views/ReturnProduct/ReturnCard";
+import ViewRePayment from "./components/Views/ViewSuccess/ViewRePayment";
 
 
 
@@ -82,6 +83,9 @@ function App() {
               </Route>
               <Route exact path='/return-card'>
                 <ReturnCard setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/view-repayment'>
+                <ViewRePayment setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
