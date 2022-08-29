@@ -8,23 +8,25 @@ import { useHistory } from 'react-router-dom'
 const Register = ({ setOpenModal }) => {
   const { push } = useHistory()
   const [open, setOpen] = useState(false);
-  const { register, setRegister, onRegister, messageRegister, checked, setChecked } = useContext(WebContext)
+  const { register, setRegister, onRegister, messageRegister, checked, setChecked, datosUser } = useContext(WebContext)
   const { errors, status } = messageRegister;
-  {/* ALERTAS */ }
-  const { terms, email, password_confirmation, address, postal_code, city, first_name, last_name, password } = errors ?? false;
 
-  const emailMessage = (email ?? [])[0];
+  const { data } = datosUser;
+  const { api2cart_user } = data;
+  const { email, last_name, first_name } = api2cart_user;
+  console.log(last_name);
+  {/* ALERTAS */ }
+  const { terms, password_confirmation, address, postal_code, city, password } = errors ?? false;
+
   const password_confirmationMessage = (password_confirmation ?? [])[0];
   const addressMessage = (address ?? [])[0];
   const postal_codeMessage = (postal_code ?? [])[0];
   const cityMessage = (city ?? [])[0];
-  const first_nameMessage = (first_name ?? [])[0];
-  const last_nameMessage = (last_name ?? [])[0];
   const passwordMessage = (password ?? [])[0];
   const terminos = (terms ?? [])[0]
   {/* END ALERTAS */ }
 
-
+  console.log(datosUser);
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setRegister({ ...register, [name]: value })
@@ -52,9 +54,8 @@ const Register = ({ setOpenModal }) => {
         <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" />
 
         <div id="form-regiter">
-          <input type="email" id='input-email' placeholder='E-mail' name='email' onChange={inputChange} />
+          <input type="email" id='input-email' placeholder='E-mail' name='email' defaultValue={email} disabled />
 
-          {emailMessage ? (<p className='message-error'>{emailMessage}</p>) : false}
 
           <div id='group-input'>
             <div>
@@ -69,12 +70,10 @@ const Register = ({ setOpenModal }) => {
 
           <div id='group-input'>
             <div>
-              <input type="text" id='input-name' placeholder='Nombre' name='first_name' onChange={inputChange} />
-              {first_nameMessage ? (<p className='message-error'>{first_nameMessage}</p>) : false}
+              <input type="text" id='input-name' placeholder='Nombre' name='first_name' defaultValue={first_name} disabled />
             </div>
             <div>
-              <input type="text" id='input-name' placeholder='Apellidos' name='last_name' onChange={inputChange} />
-              {last_nameMessage ? (<p className='message-error'>{last_nameMessage}</p>) : false}
+              <input type="text" id='input-name' placeholder='Apellidos' name='last_name' defaultValue={last_name} disabled />
             </div>
           </div>
 
@@ -85,7 +84,7 @@ const Register = ({ setOpenModal }) => {
           <div id='group-input'>
             <div>
               <input type="text" id='input-name' placeholder='Codigo postal' name='postal_code' onChange={inputChange} />
-              {postal_codeMessage ? (<p className='message-error'>{emailMessage}</p>) : false}
+              {postal_codeMessage ? (<p className='message-error'>{postal_codeMessage}</p>) : false}
             </div>
             <div>
               <input type="text" id='input-name' placeholder='Ciudad' name='city' onChange={inputChange} />
@@ -101,7 +100,7 @@ const Register = ({ setOpenModal }) => {
 
           {status === 'Success' ? (<p className='message-success'>Su nuevo registro de usuario resultó exitoso</p>) : false}
 
-          {register.email === undefined || '' || register.password === undefined || '' || register.first_name === undefined || '' || register.last_name === undefined || '' || register.address === undefined || '' || register.postal_code === undefined || '' || register.city === undefined || ''
+          {register.password === undefined || '' || '' || register.address === undefined || '' || register.postal_code === undefined || '' || register.city === undefined || ''
             ? (<>
               <button id='btn-createAccount' disabled><span id='span-createAccount'>Crear cuenta</span></button>
             </>) :

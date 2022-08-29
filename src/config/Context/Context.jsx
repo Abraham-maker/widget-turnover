@@ -20,6 +20,9 @@ function WebProvider(props) {
     const [checked, setChecked] = useState(0)
     const [register, setRegister] = useState({})
     const [messageRegister, setMessageRegister] = useState({});
+    const [datosUser, setDatosUser] = useState({})
+    const { data } = datosUser;
+    const { api2cart_user } = data ?? false;
     {/* END REGISTER*/ }
 
     {/* FIND ORDER */ }
@@ -85,12 +88,12 @@ function WebProvider(props) {
         };
 
         let body = {
-            "first_name": register.first_name,
-            "last_name": register.last_name,
+            "first_name": api2cart_user.first_name,
+            "last_name": api2cart_user.last_name,
             "postal_code": register.postal_code,
             "city": register.city,
             "address": register.address,
-            "email": register.email,
+            "email": api2cart_user.email,
             "password": register.password,
             "password_confirmation": register.password_confirmation,
             "terms": checked
@@ -109,7 +112,7 @@ function WebProvider(props) {
                 if (messageRegister.status === 'Success') {
                     setTimeout(() => {
                         setChecked(0)
-                        push('/')
+                        push('/login')
                     }, 6000);
                 }
             })
@@ -128,6 +131,7 @@ function WebProvider(props) {
                 const { data } = messageOrder ?? false;
                 const { api2cart_user, turnover_user } = data;
                 if (turnover_user === null && api2cart_user !== null) {
+                    setDatosUser(messageOrder);
                     return push('/register')
                 } else {
                     return push('/login')
@@ -147,7 +151,7 @@ function WebProvider(props) {
     {/* END FIND ORDER */ }
 
     return (
-        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList }}>
+        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser }}>
             {props.children}
         </WebContext.Provider>
     )
