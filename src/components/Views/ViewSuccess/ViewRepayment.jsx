@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import './Styles/ViewRefudSuccess.css'
+import './Styles/ViewRepayment.css'
 
-const ViewRefudSuccess = ({ setOpenModal }) => {
+const ViewRepayment = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
 
@@ -19,17 +19,17 @@ const ViewRefudSuccess = ({ setOpenModal }) => {
                 <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
             </div>
 
-            <h3 id='title-view'>Devoluciones</h3>
+            <h3 id='title-success-refud'>Devoluciones</h3>
 
-            <div id="view-container">
-                <div id="article-view">
-                    <p id='title-message'>Tu solicitud de devolución se ha efectuado con éxito.</p>
-                    <span id='paragraph-message'>Hemos enviado a tu correo electrónico el código de devolución.
-                        Muestra el código para devolver tu producto.</span>
-                    <p id='small-message'>Código devolución:</p>
-                    <input type="text" name="" id="code-devolution" value="A28-U78-XXX-I98" disabled />
+            <div id="refud-div-success">
+                <div id="article-refud-success">
+                    <p id='title-refud-success'>Tu solicitud de reembolso se ha efectuado con éxito.</p>
+                    <p id='paragraph-refud-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
 
-                    <button id='view-btn'>Continuar devolución</button>
+                    <div id='card-success'>
+                    </div>
+
+                    <button id='btn-store-success'>Ir a la tienda</button>
                 </div>
             </div>
 
@@ -47,8 +47,9 @@ const ViewRefudSuccess = ({ setOpenModal }) => {
                         </div>
                     </div>
                 </>) : false}
+
         </>
     )
 }
 
-export default ViewRefudSuccess
+export default ViewRepayment
