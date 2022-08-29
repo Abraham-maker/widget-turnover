@@ -1,0 +1,78 @@
+#title-card-refud {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#card-div-success {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+#article-card-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-card-success {
+    font-size: 18px;
+    font-weight: 500;
+    color: #424242;
+}
+
+#paragraph-card-success {
+    width: 475px;
+    font-family: Poppins;
+    font-size: 14px;
+    text-align: center;
+    color: #424242;
+}
+
+#card-refud-success {
+    width: 400px;
+    height: 222px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-stores-success {
+    width: 261px;
+    height: 44px;
+    padding: 12px 86px;
+    border: none;
+    border-radius: 22px;
+    background-color: #424242;
+    color: #fff;
+    font-family: Poppins;
+}
+
+#title-fondos {
+    margin: 0 0 8px;
+    font-family: Poppins;
+    font-size: 10px;
+    color: #808083;
+}
+
+#text-fondos {
+    font-family: Poppins;
+    font-size: 21px;
+    font-weight: 500;
+    color: #424242;
+}
+
+#title-about {
+    margin: 12px 230px 4em 1px;
+    font-family: Poppins;
+    font-size: 10px;
+    color: #424242;
+}
