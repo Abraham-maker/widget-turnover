@@ -9,11 +9,14 @@ const ListOrders = ({ setOpenModal }) => {
   const { orderList } = useContext(WebContext);
   const { order } = orderList
 
+
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
     push('/')
     setOpenModal(false)
   }
+
+
 
   return (
     <>
@@ -44,13 +47,15 @@ const ListOrders = ({ setOpenModal }) => {
                   <td>{items.order_id}</td>
                   <td>{items.status}</td>
                   <td>{items.total}€</td>
-                  <td id='productos-btn' onClick={() => { push('/product-order') }}>Productos</td>
+                  <td id='productos-btn' onClick={() => {
+                    return push(`/product-order/${items.order_id}`)
+                  }}>Productos</td>
                 </tr>
               )
             })}
           </tbody>
         </table>
-        
+
       </div>
 
 
