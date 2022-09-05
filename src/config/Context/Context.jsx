@@ -5,6 +5,7 @@ const WebContext = React.createContext();
 
 function WebProvider(props) {
     const { push } = useHistory();
+    const [loading, setLoading] = useState(false)
     {/* LOGIN */ }
     const [user, setUser] = useState({ email: '', password: '' })
     const [infoLogin, setInfoLogin] = useState({});
@@ -33,6 +34,8 @@ function WebProvider(props) {
     {/* END FIND ORDER */ }
     {/* REQUEST LOGIN */ }
     const onSubmit = () => {
+        setLoading(true);
+
         const url = "https://www.turnover.gotopdev.com/api/v1/login"
 
         const headers = {
@@ -45,6 +48,7 @@ function WebProvider(props) {
             headers,
             body: JSON.stringify(user),
         }).then((res) => res.json()).then((infoLogin) => {
+            setLoading(false);
             setInfoLogin(infoLogin);
             if (infoLogin.status === 'Success') {
                 push('/home-options')
@@ -61,6 +65,7 @@ function WebProvider(props) {
 
     {/* REQUEST FORGOT PASSWORD */ }
     const sendEmail = () => {
+        setLoading(true);
         const url = "https://www.turnover.gotopdev.com/api/v1/forgot-password";
         fetch(url, {
             method: 'POST', body: JSON.stringify(emailForgotPass),
@@ -70,6 +75,7 @@ function WebProvider(props) {
             }
         }).then(res => res.json())
             .then((informationForgot) => {
+                setLoading(false);
                 setInformationForgot(informationForgot)
                 setTimeout(() => {
                     setInformationForgot({})
@@ -80,6 +86,7 @@ function WebProvider(props) {
 
     {/* REQUEST REGISTER */ }
     const onRegister = () => {
+        setLoading(true);
         const urlRegister = "https://www.turnover.gotopdev.com/api/v1/register?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881"
 
         const headers = {
@@ -105,6 +112,7 @@ function WebProvider(props) {
             body: JSON.stringify(body),
         }).then(response => response.json())
             .then((messageRegister) => {
+                setLoading(true);
                 setMessageRegister(messageRegister)
                 setTimeout(() => {
                     setMessageRegister({})
@@ -121,10 +129,12 @@ function WebProvider(props) {
 
     {/* FIND ORDER */ }
     const onFindOrder = async () => {
+        setLoading(true);
         await fetch(`https://www.turnover.gotopdev.com/api/v1/customer?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&email=${email}`)
             .then(response => response.json())
             .then((messageOrder) => {
                 setMessageOrder(messageOrder)
+                setLoading(false);
                 setTimeout(() => {
                     setMessageOrder({})
                 }, 6000);
@@ -140,9 +150,11 @@ function WebProvider(props) {
     }
 
     const listOrder = async () => {
+        setLoading(true);
         await fetch(`https://www.turnover.gotopdev.com/api/v1/customer-orders?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&email=${email}`)
             .then(response => response.json())
             .then(({ data }) => {
+                setLoading(false);
                 setOrderlist(data);
                 push('/list-order')
             })
@@ -151,7 +163,7 @@ function WebProvider(props) {
     {/* END FIND ORDER */ }
 
     return (
-        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser }}>
+        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading }}>
             {props.children}
         </WebContext.Provider>
     )

@@ -7,10 +7,10 @@ import { useHistory } from 'react-router-dom'
 
 const GetOrders = ({ setOpenModal }) => {
   const { push } = useHistory()
-  const { findOrder, setFindOrder, onFindOrder, messageOrder } = useContext(WebContext)
+  const { findOrder, setFindOrder, onFindOrder, messageOrder, loading } = useContext(WebContext)
   const [open, setOpen] = useState(false);
   const { message, status } = messageOrder
-
+  console.log(messageOrder);
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setFindOrder({ ...findOrder, [name]: value })
@@ -38,6 +38,9 @@ const GetOrders = ({ setOpenModal }) => {
           {status === 'Error' ? (<p className='message-error'>{message}</p>) : false}
           <button id='btn-orders' onClick={onFindOrder}><span id='span-orders'>Obtener órdenes</span></button>
         </div>
+
+        {!!loading ? <span className='spinner'></span> : false}
+
       </div>
 
       <BtnFaqs />

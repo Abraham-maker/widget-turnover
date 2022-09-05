@@ -7,7 +7,7 @@ import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 const Login = ({ setOpenModal }) => {
     const { push } = useHistory();
     const [open, setOpen] = useState(false);
-    const { onSubmit, user, setUser, infoLogin } = useContext(WebContext)
+    const { onSubmit, user, setUser, infoLogin, loading } = useContext(WebContext)
     const { errors, message } = infoLogin;
     const { email } = errors ?? false;
     const { password } = errors ?? false;
@@ -51,6 +51,7 @@ const Login = ({ setOpenModal }) => {
                         Entrar
                     </span>
                 </button>
+                {!!loading ? <span className='spinner'></span> : false}
                 <p id='link-forgot' onClick={() => { push('/forgot-password') }}>¿Has olvidado la contraseña?</p>
                 <hr />
                 <button id='btn-register' onClick={() => { push('/register') }}><span id='span-register'>Crear cuenta</span></button>

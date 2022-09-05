@@ -9,13 +9,20 @@ const Products = ({ setOpenModal }) => {
     const { push } = useHistory();
     const [open, setOpen] = useState(false);
     const [products, setProducts] = useState({});
-  
+    const [selectProduct, setSelectProduct] = useState([]);
+
+
+    useEffect(() => {
+        if (selectProduct.length !== 0) {
+            window.localStorage.setItem("product_id", JSON.stringify(selectProduct))
+        }
+    }, [selectProduct])
+
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
         setOpenModal(false)
     }
-
 
     useEffect(() => {
         const findId = async () => {
@@ -29,6 +36,8 @@ const Products = ({ setOpenModal }) => {
         findId();
     }, []);
 
+
+
     return (
         <>
             <div className='container_icons'>
@@ -41,38 +50,70 @@ const Products = ({ setOpenModal }) => {
                 <div id='article-product'>
 
                     {Object.entries(products).length === 0 ? (
-                        <><p>done</p></>
+                        <>
+                            <div id='container-loading'>
+                                <div id='loading'></div>
+                            </div>
+                        </>
                     ) : (<>
-                        {products.map(productos => {
+                        {products.map((items) => {
+
                             return (
                                 <>
-                                    <div id="item-product" key={productos}>
+                                    <div id="item-product">
                                         <div id='items'>
                                             <div id='container-checkBox'>
-                                                <input type="checkbox" name="my-checkbox" id="opt-in" />
-                                                <label for="opt-in"></label>
+                                                {items.quantity_in_inventory === 0 ?
+                                                    (<>
+                                                        <small id='not-change'>No disponible para cambio</small>
+                                                    </>) :
+                                                    (<>
+                                                        <input type="radio" name="my-checkbox" id={items.product_id} onChange={() => { setSelectProduct(items.product_id) }} />
+                                                        <label for={items.product_id}></label>
+                                                    </>)}
                                             </div>
-                                            <img src="https://us.123rf.com/450wm/redrockerz/redrockerz1601/redrockerz160100016/50854987-camisa-de-ilustraci%C3%B3n-de-bosquejo-del-dise%C3%B1o.jpg?ver=6" alt="" width={150} height={180} />
+
+                                            {items.images.length === 0 ?
+                                                (<>
+                                                    <img src="https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-icono-de-foto-no-disponible-aislado-sobre-fondo-blanco-ilustraci%C3%B3n-vectorial.jpg?ver=6" alt="" width={150} height={180} />
+                                                </>) :
+                                                (<>
+                                                    <img src={items.images[0]?.http_path} alt="" width={150} height={180} />
+                                                </>)
+                                            }
+
                                             <div>
-                                                <p id='text-header'>Camisa Oversize X</p>
-                                                <p className='text-normal'>Ref. 1287654</p>
-                                                <p className='text-normal'>Size S</p>
-                                                <p className='text-normal'>Colours</p>
+                                                <p id='text-header'>{items.name} {items.model}</p>
+                                                <p className='text-normal'>Ref. {items.product_id}</p>
+                                                <p className='text-normal'>{items.options[1]?.name} {items.options[1]?.value}</p>
+                                                <p className='text-normal'>{items.options[0]?.name} {items.options[0]?.value}</p>
                                             </div>
-                                            <p id='text-header'>59,90€</p>
+                                            <p id='text-header'>{items.price}€</p>
                                         </div>
                                     </div>
+
                                 </>
+
                             )
+
                         })
 
                         }
-                    </>)}
+                    </>
+
+                    )
+                    }
 
                 </div>
-                <button id="start-products">
-                    <span>Iniciar Devolucion</span>
-                </button>
+                {
+                    selectProduct.length === 0 ?
+                        false :
+                        (<>
+                            <button id="start-products" onClick={() => { return push('/about-product/') }}>
+                                <span>Iniciar Devolucion</span>
+                            </button>
+                        </>)
+                }
             </div>
 
             {open ?

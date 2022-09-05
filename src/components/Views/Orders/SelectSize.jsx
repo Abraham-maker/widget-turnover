@@ -6,13 +6,13 @@ import { useHistory } from 'react-router-dom'
 const SelectSize = ({ setOpenModal }) => {
   const { push } = useHistory()
   const [open, setOpen] = useState(false);
-
+  const product_id = JSON.parse(localStorage.getItem('product_id', true))
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
     push('/')
     setOpenModal(false)
   }
-
+  console.log(product_id);
   return (
     <>
       <div className='container_icons'>

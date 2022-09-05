@@ -8,7 +8,7 @@ import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 const ForgotPassword = ({ setOpenModal }) => {
   const { push } = useHistory();
   const [open, setOpen] = useState(false);
-  const { emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, sendEmail } = useContext(WebContext);
+  const { emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, sendEmail, loading } = useContext(WebContext);
   const { status, message } = informationForgot;
   const { email } = informationForgot;
   const errorEmail = (email ?? [])[0];
@@ -53,6 +53,7 @@ const ForgotPassword = ({ setOpenModal }) => {
             </>) : false}
 
           <button id='btn-forgot' onClick={sendEmail}><span id='span-forgot'>Recuperar contraseña</span></button>
+          {!!loading ? <span className='spinner'></span> : false}
         </div>
         <p id='link-login' onClick={() => { push('/login') }}>Login</p>
       </div>
