@@ -11,7 +11,6 @@ const Products = ({ setOpenModal }) => {
     const [products, setProducts] = useState({});
     const [selectProduct, setSelectProduct] = useState([]);
 
-
     useEffect(() => {
         if (selectProduct.length !== 0) {
             window.localStorage.setItem("product_id", JSON.stringify(selectProduct))
@@ -75,10 +74,10 @@ const Products = ({ setOpenModal }) => {
 
                                             {items.images.length === 0 ?
                                                 (<>
-                                                    <img src="https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-icono-de-foto-no-disponible-aislado-sobre-fondo-blanco-ilustraci%C3%B3n-vectorial.jpg?ver=6" alt="" width={150} height={180} />
+                                                    <img src="https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-icono-de-foto-no-disponible-aislado-sobre-fondo-blanco-ilustraci%C3%B3n-vectorial.jpg?ver=6" alt="" width={200} height={180} />
                                                 </>) :
                                                 (<>
-                                                    <img src={items.images[0]?.http_path} alt="" width={150} height={180} />
+                                                    <img src={items.images[0]?.http_path} alt="" width={200} height={180} />
                                                 </>)
                                             }
 
@@ -109,7 +108,7 @@ const Products = ({ setOpenModal }) => {
                     selectProduct.length === 0 ?
                         false :
                         (<>
-                            <button id="start-products" onClick={() => { return push('/about-product/') }}>
+                            <button id="start-products" onClick={() => { return push(`/about-product/${selectProduct}`) }}>
                                 <span>Iniciar Devolucion</span>
                             </button>
                         </>)

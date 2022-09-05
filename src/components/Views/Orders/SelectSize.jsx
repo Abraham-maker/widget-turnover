@@ -1,18 +1,34 @@
 import React, { useState } from 'react'
 import './styles/SelectSize.css'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 const SelectSize = ({ setOpenModal }) => {
+  let params = useParams();
+  let { product_id } = params;
   const { push } = useHistory()
   const [open, setOpen] = useState(false);
-  const product_id = JSON.parse(localStorage.getItem('product_id', true))
+  const [aboutProduct, setAboutProduct] = useState({})
+  
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
     push('/')
     setOpenModal(false)
   }
-  console.log(product_id);
+
+  useEffect(() => {
+    const findIdProduct = async () => {
+      const initialUrl = `https://www.turnover.gotopdev.com/api/v1/product-info?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&product_id=${product_id}`
+      fetch(initialUrl)
+        .then(response => response.json())
+        .then(() => {
+
+        })
+    };
+    findIdProduct();
+  }, []);
+
   return (
     <>
       <div className='container_icons'>

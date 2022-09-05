@@ -65,7 +65,7 @@ function App() {
               <Route exact path='/product-order/:order_id'>
                 <Products setOpenModal={setModalOpen} />
               </Route>
-              <Route exact path='/about-product/'>
+              <Route exact path='/about-product/:product_id'>
                 <SelectSize setOpenModal={setModalOpen} />
               </Route>
               <Route exact path='/reason-refud'>
