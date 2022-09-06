@@ -9,6 +9,8 @@ const RePayment = ({ setOpenModal }) => {
     const [checkbox, setCheckbox] = useState(false)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
+    let infoProduct = JSON.parse(window.localStorage.getItem('info_product', true))
+
 
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
@@ -57,13 +59,14 @@ const RePayment = ({ setOpenModal }) => {
                                 <span>{dates.price}€</span>
                             </div>
                             <p id='ref-re'>Ref. {dates.id}</p>
-                            <p id='size-re'>Size S</p>
+                            <p id='size-re'>Size {infoProduct.talla}</p>
                             <div id='container-re'>
                                 <span>Colours</span>
-                                <div id='color1-re'></div>
+                                <span>{infoProduct.color}</span>
+                                {/* <div id='color1-re'></div>
                                 <div id='color2-re'></div>
                                 <div id='color3-re'></div>
-                                <div id='color4-re'></div>
+                                <div id='color4-re'></div> */}
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ const AnyReason = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     const [radios, setRadios] = useState(false)
+    let infoProduct = JSON.parse(window.localStorage.getItem('info_product', true))
 
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
@@ -57,13 +58,14 @@ const AnyReason = ({ setOpenModal }) => {
                                 <span>{dates.price}€</span>
                             </div>
                             <p id='ref-any'>Ref. {dates.id}</p>
-                            <p id='size-any'>Size S</p>
+                            <p id='size-any'>Size {infoProduct.talla}</p>
                             <div id='container-colors__any'>
                                 <span>Colours</span>
-                                <div id='color1-any'></div>
+                                <span>{infoProduct.color}</span>
+                                {/* <div id='color1-any'></div>
                                 <div id='color2-any'></div>
                                 <div id='color3-any'></div>
-                                <div id='color4-any'></div>
+                                <div id='color4-any'></div> */}
                             </div>
                         </div>
                     </div>

@@ -73,6 +73,13 @@
     opacity: 0.4;
 }
 
+/* #not-change {
+    position: absolute;
+    font-size: 12px;
+    right: 150px;
+    white-space: nowrap;
+} */
+
 #not-change {
     width: 50px;
     font-size: 12px;
