@@ -9,8 +9,8 @@ const ReturnProductStore = ({ setOpenModal }) => {
     let product_id = JSON.parse(window.localStorage.getItem("product_id", true));
     const [stores, setStores] = useState([])
     const [idStore, setIdStore] = useState({})
-    
 
+    console.log(idStore);
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
@@ -65,7 +65,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
                             </>) :
                             (<>
                                 {stores.map((items) => {
-                                    
+
                                     return (<>
                                         <div id='stores-div' key={items.id}>
                                             <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} />
@@ -81,25 +81,30 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
                 </div>
 
-                <button id='btn-stores'>Confirmar Devolución</button>
-
+                {Object.entries(idStore).length === 0 ? (<>
+                    <button id='btn-stores'>Confirmar Devolución</button>
+                </>) : (<>
+                    <button id='btn-stores-active'>Confirmar Devolución</button>
+                </>)}
             </div>
 
 
-            {open ?
-                (<>
-                    <div className="background">
-                        <div className="popup">
-                            <div className="content">
-                                ¿Seguro que deseas salir?, Todo el estado actual se perderá.
-                            </div>
-                            <div className='container-btn'>
-                                <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
+            {
+                open ?
+                    (<>
+                        <div className="background">
+                            <div className="popup">
+                                <div className="content">
+                                    ¿Seguro que deseas salir?, Todo el estado actual se perderá.
+                                </div>
+                                <div className='container-btn'>
+                                    <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
+                                    <button className='btn-accept' onClick={closeModal}>Aceptar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </>) : false}
+                    </>) : false
+            }
 
         </>
     )
