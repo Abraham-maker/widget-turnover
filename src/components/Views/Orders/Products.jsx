@@ -84,8 +84,8 @@ const Products = ({ setOpenModal }) => {
                                             <div>
                                                 <p id='text-header'>{items.name} {items.model}</p>
                                                 <p className='text-normal'>Ref. {items.product_id}</p>
-                                                <p className='text-normal'>{items.options[1]?.name} {items.options[1]?.value}</p>
-                                                <p className='text-normal'>{items.options[0]?.name} {items.options[0]?.value}</p>
+                                                <p className='text-normal'>Talla {items.options[1]?.value}</p>
+                                                <p className='text-normal'>Color {items.options[0]?.value}</p>
                                             </div>
                                             <p id='text-header'>{items.price}€</p>
                                         </div>

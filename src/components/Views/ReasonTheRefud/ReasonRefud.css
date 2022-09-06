@@ -7,7 +7,6 @@
 }
 
 #container-reason {
-    height: 60vh;
     display: flex;
     justify-content: center;
 }
@@ -26,6 +25,12 @@
 }
 
 #container-radios {
+    padding: 20px;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    min-height: 250px;
+    max-height: 200px;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 25px;

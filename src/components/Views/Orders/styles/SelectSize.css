@@ -109,7 +109,6 @@
     border: solid 1px #808083;
     background-color: #fff;
     color: #424242;
-    margin: 16px 0 0;
     font-size: 14px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -119,9 +118,19 @@
 
 #next-size {
     width: 261px;
+    border: 1px solid #424242;
+    height: 44px;
+    margin: 30px 112px 178px 18px;
+    padding: 12px 95px;
+    border-radius: 22px;
+    background-color: #fff;
+}
+
+#next-size-active {
+    width: 261px;
     border: none;
     height: 44px;
-    margin: 88px 112px 178px 18px;
+    margin: 30px 112px 178px 18px;
     padding: 12px 95px;
     border-radius: 22px;
     background-color: #424242;
@@ -129,6 +138,38 @@
 }
 
 #next-span {
+    color: #424242;
+    font-family: Poppins;
+}
+
+#next-span-active {
     color: #fff;
     font-family: Poppins;
+}
+
+#container-options {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}
+
+#container-check {
+    margin-top: 25px;
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#container-radio {
+    margin-top: 25px;
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#text-size {
+    font-size: 14px;
+    font-weight: 500;
 }
