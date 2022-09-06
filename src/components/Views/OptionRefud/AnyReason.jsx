@@ -1,16 +1,39 @@
 import React, { useState } from 'react'
-import './Styles/AnyReason.css'
+import './Styles/AnyReason.css';
+import { useContext } from 'react'
+import { WebContext } from '../../../config/Context/Context'
 import { useHistory } from 'react-router-dom'
 
 
 const AnyReason = ({ setOpenModal }) => {
+    const { loading, setLoading } = useContext(WebContext)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
+    const [radios, setRadios] = useState(false)
 
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
         setOpenModal(false)
+    }
+
+    const changeRadios = ({ target }) => {
+        setRadios(target.value);
+    }
+
+    const onChangePage = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+
+            if (radios === 'Devolver tu producto en Tienda') {
+                return push('/return-product')
+            } else if (radios === 'Devolver tu producto en Domicilio') {
+                return push('/return-home')
+            }
+
+        }, 3000);
+        window.localStorage.setItem("devolver_producto", radios)
     }
 
     return (
@@ -49,7 +72,7 @@ const AnyReason = ({ setOpenModal }) => {
 
                         <div id='container-radios__any'>
                             <div>
-                                <input type="radio" id="test1" name="radio-group" />
+                                <input type="radio" id="test1" name="radio-group" value='Devolver tu producto en Tienda' onChange={changeRadios} />
                                 <label for="test1">Devolver tu producto en Tienda</label>
                                 <span id='span-free'>Gratuito</span>
                                 <div>
@@ -58,7 +81,7 @@ const AnyReason = ({ setOpenModal }) => {
                                 </div>
                             </div>
                             <div>
-                                <input type="radio" id="test2" name="radio-group" />
+                                <input type="radio" id="test2" name="radio-group" value='Devolver tu producto en Domicilio' onChange={changeRadios} />
                                 <label for="test2">Devolver tu producto en Domicilio</label>
                                 <span id='span-free2'>Gratuito</span>
                                 <div>
@@ -69,9 +92,18 @@ const AnyReason = ({ setOpenModal }) => {
                         </div>
                     </div>
 
-                    <div id='btn-anyNext'>
-                        <button id='any-btnNext'>Continuar</button>
-                    </div>
+                    {radios === false ?
+                        (<>
+                            <div id='btn-anyNext'>
+                                <button id='any-btnNext'>Continuar</button>
+                            </div>
+                        </>) :
+                        (<>
+                            <div id='btn-anyNext'>
+                                {!!loading ? <span className='spinner'></span> : false}
+                                <button id='any-btnNext-active' onClick={onChangePage}>Continuar</button>
+                            </div>
+                        </>)}
                 </div>
             </div>
 

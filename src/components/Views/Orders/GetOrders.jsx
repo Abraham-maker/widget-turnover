@@ -10,7 +10,7 @@ const GetOrders = ({ setOpenModal }) => {
   const { findOrder, setFindOrder, onFindOrder, messageOrder, loading } = useContext(WebContext)
   const [open, setOpen] = useState(false);
   const { message, status } = messageOrder
-  console.log(messageOrder);
+
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setFindOrder({ ...findOrder, [name]: value })

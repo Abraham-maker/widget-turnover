@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useContext } from 'react'
+import { WebContext } from '../../../config/Context/Context'
 import './Styles/RePayment.css'
 
 const RePayment = ({ setOpenModal }) => {
+    const { loading, setLoading } = useContext(WebContext)
+    const [checkbox, setCheckbox] = useState(false)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
 
@@ -10,6 +14,24 @@ const RePayment = ({ setOpenModal }) => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
         setOpenModal(false)
+    }
+
+    const radiosChangeRefud = ({ target }) => {
+        setCheckbox(target.value);
+    }
+
+    const onChangePages = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+            if (checkbox === 'Reembolso a una tarjeta') {
+                return push('/return-card')
+            } else if (checkbox === 'Tarjeta TurnOver') {
+                return push('/refud-card-turnover')
+            }
+
+        }, 3000);
+        window.localStorage.setItem("producto_reembolso", checkbox)
     }
 
     return (
@@ -50,7 +72,7 @@ const RePayment = ({ setOpenModal }) => {
 
                         <div id='container-radios__re'>
                             <div>
-                                <input type="radio" id="test1" name="radio-group" />
+                                <input type="radio" id="test1" name="radio-group" value='Reembolso a una tarjeta' onChange={radiosChangeRefud} />
                                 <label for="test1">Reembolso a una tarjeta</label>
                                 <span id='span-free__re'>59,90€</span>
                                 <div>
@@ -59,7 +81,7 @@ const RePayment = ({ setOpenModal }) => {
                                 </div>
                             </div>
                             <div>
-                                <input type="radio" id="test2" name="radio-group" />
+                                <input type="radio" id="test2" name="radio-group" value='Tarjeta TurnOver' onChange={radiosChangeRefud} />
                                 <label for="test2">Tarjeta TurnOver</label>
                                 <span id='span-free2__re'>59,90€</span>
                                 <div>
@@ -70,9 +92,20 @@ const RePayment = ({ setOpenModal }) => {
                         </div>
                     </div>
 
-                    <div id='btn-reNext'>
-                        <button id='re-btnNext'>Continuar reembolso</button>
-                    </div>
+
+
+                    {checkbox === false ?
+                        (<>
+                            <div id='btn-reNext'>
+                                <button id='re-btnNext'>Continuar reembolso</button>
+                            </div>
+                        </>) :
+                        (<>
+                            <div id='btn-reNext'>
+                                {!!loading ? <span className='spinner'></span> : false}
+                                <button id='re-btnNext-active' onClick={onChangePages}>Continuar reembolso</button>
+                            </div>
+                        </>)}
                 </div>
             </div>
 

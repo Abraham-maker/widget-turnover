@@ -1,15 +1,36 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import './Styles/ReturnProductStore.css'
 
 const ReturnProductStore = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
+    let product_id = JSON.parse(window.localStorage.getItem("product_id", true));
+    const [stores, setStores] = useState([])
+    const [idStore, setIdStore] = useState({})
+    
 
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
         setOpenModal(false)
+    }
+
+    useEffect(() => {
+        const findId = async () => {
+            const initialUrl = `https://www.turnover.gotopdev.com/api/v1/branch-stores?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&product_id=${product_id}`
+            fetch(initialUrl)
+                .then(response => response.json())
+                .then(({ data }) => {
+                    setStores(data)
+                })
+        };
+        findId();
+    }, [])
+
+    const changeStore = ({ target }) => {
+        setIdStore(target.value);
     }
 
     return (
@@ -38,15 +59,26 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
                 <div id="container-stores">
                     <div id='stores'>
-                        <div id='stores-div'>
-                            <input type="radio" id="store1" name="stores" />
-                            <label for="store1">Mango Diagonal Mar </label>
-                            <div>
-                                <p className='store-date'>C.C. Diagonal Mar, Avinguda Diagonal, 3, 08019 Barcelona</p>
-                            </div>
-                        </div>
-
+                        {Object.entries(stores).length === 0 ?
+                            (<>
+                                <div className='spinner2'></div>
+                            </>) :
+                            (<>
+                                {stores.map((items) => {
+                                    
+                                    return (<>
+                                        <div id='stores-div' key={items.id}>
+                                            <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} />
+                                            <label for={items.id}>{items.name}</label>
+                                            <div>
+                                                <p className='store-date'>{items.address}</p>
+                                            </div>
+                                        </div>
+                                    </>)
+                                })}
+                            </>)}
                     </div>
+
                 </div>
 
                 <button id='btn-stores'>Confirmar Devolución</button>

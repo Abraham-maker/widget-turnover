@@ -10,7 +10,7 @@ const SelectSize = ({ setOpenModal }) => {
   const { push } = useHistory()
   const [open, setOpen] = useState(false);
   const [aboutProduct, setAboutProduct] = useState({})
-  
+
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
     push('/')
@@ -28,6 +28,10 @@ const SelectSize = ({ setOpenModal }) => {
     };
     findIdProduct();
   }, []);
+
+  const nextOption = () => {
+    return push('/reason-refud')
+  }
 
   return (
     <>
@@ -66,7 +70,7 @@ const SelectSize = ({ setOpenModal }) => {
             </select>
 
             <div>
-              <button id='next-size'><span id='next-span'>Continuar</span></button>
+              <button id='next-size' onClick={nextOption}><span id='next-span'>Continuar</span></button>
             </div>
 
           </div>
