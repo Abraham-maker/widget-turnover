@@ -17,7 +17,6 @@ const ListOrders = ({ setOpenModal }) => {
   }
 
 
-
   return (
     <>
 
@@ -28,33 +27,37 @@ const ListOrders = ({ setOpenModal }) => {
 
       <h3 id='title-listOrders'>Devoluciones</h3>
       <div id='container-table'>
+        {Object.entries(order).length === 0 ? (<><div className='spinner'></div></>) :
 
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Número de artículo</th>
-              <th scope="col">Id de la orden</th>
-              <th scope="col">Estado</th>
-              <th scope="col">Total</th>
-              <th scope="col">Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            {order.map(items => {
-              return (
-                <tr key={items.order_id}>
-                  <td>{items.number_of_items}</td>
-                  <td>{items.order_id}</td>
-                  <td>{items.status}</td>
-                  <td>{items.total}€</td>
-                  <td id='productos-btn' onClick={() => {
-                    return push(`/product-order/${items.order_id}`)
-                  }}>Productos</td>
+          (<>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Número de artículo</th>
+                  <th scope="col">Id de la orden</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Acción</th>
                 </tr>
-              )
-            })}
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+                {order.map(items => {
+                  return (
+                    <tr key={items.order_id}>
+                      <td>{items.number_of_items}</td>
+                      <td>{items.order_id}</td>
+                      <td>{items.status}</td>
+                      <td>{items.total}€</td>
+                      <td id='productos-btn' onClick={() => {
+                        return push(`/product-order/${items.order_id}`)
+                      }}>Productos</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </>)}
+
 
       </div>
 

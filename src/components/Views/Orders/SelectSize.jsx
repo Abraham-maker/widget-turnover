@@ -22,14 +22,15 @@ const SelectSize = ({ setOpenModal }) => {
       const initialUrl = `https://www.turnover.gotopdev.com/api/v1/product-info?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&product_id=${product_id}`
       fetch(initialUrl)
         .then(response => response.json())
-        .then(() => {
-
+        .then(({ data }) => {
+          setAboutProduct(data)
         })
     };
     findIdProduct();
   }, []);
 
   const nextOption = () => {
+    window.localStorage.setItem('dates', JSON.stringify(aboutProduct))
     return push('/reason-refud')
   }
 
@@ -44,36 +45,44 @@ const SelectSize = ({ setOpenModal }) => {
 
       <div id="container-size">
         <div id="article-container">
-          <div id="container-img">
-            <img src="https://static.lefties.com/9/photos2/2022/I/0/1/p/5912/305/657/5912305657_1_1_3.jpg?t=1659362106638" alt="" />
-          </div>
-          <div id="container-about">
-            <div id='text-flex'>
-              <span>Camisa Oversize X</span>
-              <span>59,90€</span>
-            </div>
-            <p id='ref'>Ref. 1287654</p>
-            <p id='colors'>Selecciona el color</p>
-            <div id='container-colors'>
-              <div id='color1'></div>
-              <div id='color2'></div>
-              <div id='color3'></div>
-              <div id='color4'></div>
-            </div>
-            <p id='help-size'>Ayuda sobre tu talla</p>
 
-            <select id='select'>
-              <option selected disabled>Selecciona tu talla</option>
-              <option value="1">No Wrapper</option>
-              <option value="2">No JS</option>
-              <option value="3">Nice!</option>
-            </select>
+          {Object.entries(aboutProduct).length === 0 ?
+            (<>
+              <div className='spinner'></div>
+            </>) :
+            (<>
+              <div id="container-img">
+                <img src={aboutProduct.images[0].http_path} alt="" />
+              </div>
+              <div id="container-about">
+                <div id='text-flex'>
+                  <span>{aboutProduct.name} {aboutProduct.u_model}</span>
+                  <span>{aboutProduct.price}€</span>
+                </div>
+                <p id='ref'>Ref. {aboutProduct.id}</p>
+                <p id='colors'>Selecciona el color</p>
+                <div id='container-colors'>
+                  <div id='color1'></div>
+                  <div id='color2'></div>
+                  <div id='color3'></div>
+                  <div id='color4'></div>
+                </div>
+                <p id='help-size'>Ayuda sobre tu talla</p>
 
-            <div>
-              <button id='next-size' onClick={nextOption}><span id='next-span'>Continuar</span></button>
-            </div>
+                <select id='select'>
+                  <option selected disabled>Selecciona tu talla</option>
+                  <option value="1">No Wrapper</option>
+                  <option value="2">No JS</option>
+                  <option value="3">Nice!</option>
+                </select>
 
-          </div>
+                <div>
+                  <button id='next-size' onClick={nextOption}><span id='next-span'>Continuar</span></button>
+                </div>
+
+              </div>
+            </>)}
+
         </div>
       </div>
 

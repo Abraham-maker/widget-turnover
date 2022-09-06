@@ -21,7 +21,7 @@ body {
 
 .message-success {
   width: 360px;
-  margin: 0;
+  margin: 5px;
   padding: 0;
   font-size: 13px;
   color: #5db661;

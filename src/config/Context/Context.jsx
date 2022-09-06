@@ -6,6 +6,7 @@ const WebContext = React.createContext();
 function WebProvider(props) {
     const { push } = useHistory();
     const [loading, setLoading] = useState(false)
+    const dates = JSON.parse(window.localStorage.getItem('dates', true));
     {/* LOGIN */ }
     const [user, setUser] = useState({ email: '', password: '' })
     const [infoLogin, setInfoLogin] = useState({});
@@ -112,7 +113,7 @@ function WebProvider(props) {
             body: JSON.stringify(body),
         }).then(response => response.json())
             .then((messageRegister) => {
-                setLoading(true);
+                setLoading(false);
                 setMessageRegister(messageRegister)
                 setTimeout(() => {
                     setMessageRegister({})
@@ -121,7 +122,7 @@ function WebProvider(props) {
                     setTimeout(() => {
                         setChecked(0)
                         push('/login')
-                    }, 6000);
+                    }, 2000);
                 }
             })
     }
@@ -163,7 +164,7 @@ function WebProvider(props) {
     {/* END FIND ORDER */ }
 
     return (
-        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading, setLoading }}>
+        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading, setLoading, dates }}>
             {props.children}
         </WebContext.Provider>
     )

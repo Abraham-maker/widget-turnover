@@ -5,7 +5,7 @@ import { WebContext } from '../../../config/Context/Context'
 import './Styles/RePayment.css'
 
 const RePayment = ({ setOpenModal }) => {
-    const { loading, setLoading } = useContext(WebContext)
+    const { loading, setLoading, dates } = useContext(WebContext)
     const [checkbox, setCheckbox] = useState(false)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
@@ -49,14 +49,14 @@ const RePayment = ({ setOpenModal }) => {
                     <p>Tu Reembolso se efectuará en el instante.</p>
                     <div id="article-re">
                         <div id="re-img">
-                            <img src="https://static.lefties.com/9/photos2/2022/I/0/1/p/5912/305/657/5912305657_1_1_3.jpg?t=1659362106638" alt="" />
+                            <img src={dates.images[0].http_path} alt="" />
                         </div>
                         <div>
                             <div id='re-flex'>
-                                <span>Camisa Oversize X</span>
-                                <span>59,90€</span>
+                                <span>{dates.name} {dates.u_model}</span>
+                                <span>{dates.price}€</span>
                             </div>
-                            <p id='ref-re'>Ref. 1287654</p>
+                            <p id='ref-re'>Ref. {dates.id}</p>
                             <p id='size-re'>Size S</p>
                             <div id='container-re'>
                                 <span>Colours</span>
@@ -74,7 +74,7 @@ const RePayment = ({ setOpenModal }) => {
                             <div>
                                 <input type="radio" id="test1" name="radio-group" value='Reembolso a una tarjeta' onChange={radiosChangeRefud} />
                                 <label for="test1">Reembolso a una tarjeta</label>
-                                <span id='span-free__re'>59,90€</span>
+                                <span id='span-free__re'>{dates.price}€</span>
                                 <div>
                                     <p className='any-date'>Estimada hasta al marte 08 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>
@@ -83,7 +83,7 @@ const RePayment = ({ setOpenModal }) => {
                             <div>
                                 <input type="radio" id="test2" name="radio-group" value='Tarjeta TurnOver' onChange={radiosChangeRefud} />
                                 <label for="test2">Tarjeta TurnOver</label>
-                                <span id='span-free2__re'>59,90€</span>
+                                <span id='span-free2__re'>{dates.price}€</span>
                                 <div>
                                     <p className='any-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>

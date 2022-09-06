@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { WebContext } from '../../../config/Context/Context'
 import './Styles/ReturnCard.css'
 
 const ReturnCard = ({ setOpenModal }) => {
+    const { dates } = useContext(WebContext)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
 
@@ -27,7 +30,7 @@ const ReturnCard = ({ setOpenModal }) => {
                         <div>
                             <input type="radio" id="test2" name="radio-group" checked />
                             <label for="test2">Reembolso a una tarjeta</label>
-                            <span id='span-free__card'>59,90€</span>
+                            <span id='span-free__card'>{dates.price}€</span>
                             <div>
                                 <p className='card-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
                                 <p className='card-info'>+ info</p>

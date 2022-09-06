@@ -92,7 +92,7 @@
 
 #btn-createAccount-active {
     position: relative;
-    top: 50px;
+    top: 30px;
     width: 359px;
     height: 48px;
     margin: 0 auto;
@@ -148,4 +148,8 @@ input[type=checkbox]:checked+label:before {
 
 #terminos {
     text-decoration: underline;
+}
+
+#terms {
+    margin-bottom: 20px;
 }

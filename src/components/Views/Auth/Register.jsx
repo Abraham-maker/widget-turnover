@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 const Register = ({ setOpenModal }) => {
   const { push } = useHistory()
   const [open, setOpen] = useState(false);
-  const { register, setRegister, onRegister, messageRegister, checked, setChecked, datosUser } = useContext(WebContext)
+  const { register, setRegister, onRegister, messageRegister, setChecked, datosUser, loading } = useContext(WebContext)
   const { errors, status } = messageRegister;
 
   const { data } = datosUser;
@@ -26,7 +26,6 @@ const Register = ({ setOpenModal }) => {
   const terminos = (terms ?? [])[0]
   {/* END ALERTAS */ }
 
-  console.log(datosUser);
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setRegister({ ...register, [name]: value })
@@ -92,9 +91,10 @@ const Register = ({ setOpenModal }) => {
             </div>
           </div>
 
-          <input type="checkbox" id="term" name="terms" onChange={handleChange} />
-
-          <label htmlFor="term">Estoy de acuerdo con los <span id='terminos'>Términos y Condiciones</span></label>
+          <div id='terms'>
+            <input type="checkbox" id="term" name="terms" onChange={handleChange} />
+            <label htmlFor="term">Estoy de acuerdo con los <span id='terminos'>Términos y Condiciones</span></label>
+          </div>
 
           {terminos ? (<p className='message-error'>{terminos}</p>) : false}
 
@@ -105,7 +105,9 @@ const Register = ({ setOpenModal }) => {
               <button id='btn-createAccount' disabled><span id='span-createAccount'>Crear cuenta</span></button>
             </>) :
             (<>
+              {!!loading ? (<><div className='spinner'></div></>) : false}
               <button id='btn-createAccount-active' onClick={onRegister}><span id='span-active'>Crear cuenta</span></button>
+
             </>)
           }
 

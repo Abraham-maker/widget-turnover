@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 
 const AnyReason = ({ setOpenModal }) => {
-    const { loading, setLoading } = useContext(WebContext)
+    const { loading, setLoading, dates } = useContext(WebContext)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     const [radios, setRadios] = useState(false)
@@ -49,14 +49,14 @@ const AnyReason = ({ setOpenModal }) => {
                 <div id="any-container">
                     <div id="article-any">
                         <div id="any-img">
-                            <img src="https://static.lefties.com/9/photos2/2022/I/0/1/p/5912/305/657/5912305657_1_1_3.jpg?t=1659362106638" alt="" />
+                            <img src={dates.images[0].http_path} alt="" />
                         </div>
                         <div>
                             <div id='any-flex'>
-                                <span>Camisa Oversize X</span>
-                                <span>59,90€</span>
+                                <span>{dates.name} {dates.u_model}</span>
+                                <span>{dates.price}€</span>
                             </div>
-                            <p id='ref-any'>Ref. 1287654</p>
+                            <p id='ref-any'>Ref. {dates.id}</p>
                             <p id='size-any'>Size S</p>
                             <div id='container-colors__any'>
                                 <span>Colours</span>
