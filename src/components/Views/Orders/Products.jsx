@@ -14,6 +14,7 @@ const Products = ({ setOpenModal }) => {
     useEffect(() => {
         if (selectProduct.length !== 0) {
             window.localStorage.setItem("product_id", JSON.stringify(selectProduct))
+            window.localStorage.setItem("order_id", JSON.stringify(order_id))
         }
     }, [selectProduct])
 

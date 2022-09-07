@@ -29,7 +29,7 @@ const ViewRefudSuccess = ({ setOpenModal }) => {
                     <p id='small-message'>Código devolución:</p>
                     <input type="text" name="" id="code-devolution" value="A28-U78-XXX-I98" disabled />
 
-                    <button id='view-btn'>Continuar devolución</button>
+                    <button id='view-btn'>Terminar devolución</button>
                 </div>
             </div>
 
