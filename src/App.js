@@ -22,8 +22,7 @@ import ReturnCard from "./components/Views/ReturnProduct/ReturnCard";
 import ViewRefudSuccess from "./components/Views/ViewSuccess/ViewRefudSuccess";
 import ViewRepayment from "./components/Views/ViewSuccess/ViewRepayment";
 import RefudCardTurnOver from "./components/Views/ViewSuccess/RefudCardTurnOver";
-import Questionnaire from "./components/questionnaire/Questionnaire";
-
+import Questionnaire from "./components/Views/questionnaire/Questionnaire";
 
 
 function App() {
