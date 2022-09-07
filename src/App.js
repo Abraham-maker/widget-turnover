@@ -22,6 +22,7 @@ import ReturnCard from "./components/Views/ReturnProduct/ReturnCard";
 import ViewRefudSuccess from "./components/Views/ViewSuccess/ViewRefudSuccess";
 import ViewRepayment from "./components/Views/ViewSuccess/ViewRepayment";
 import RefudCardTurnOver from "./components/Views/ViewSuccess/RefudCardTurnOver";
+import Questionnaire from "./components/questionnaire/Questionnaire";
 
 
 
@@ -94,6 +95,9 @@ function App() {
               </Route>
               <Route exact path='/refud-card-turnover'>
                 <RefudCardTurnOver setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/questionnaire'>
+                <Questionnaire setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
