@@ -47,6 +47,7 @@ const SelectSize = ({ setOpenModal }) => {
     const { name, value } = target;
     setSelectOptions({ ...selectOptions, [name]: value })
   }
+  let a = 11;
 
   return (
     <>
@@ -75,7 +76,6 @@ const SelectSize = ({ setOpenModal }) => {
                 </div>
                 <p id='ref'>Ref. {aboutProduct.id}</p>
 
-                <p id='colors'>Selecciona el color</p>
                 {/* <div id='container-colors'>
                   <div id='color1'></div>
                   <div id='color2'></div>
@@ -83,67 +83,82 @@ const SelectSize = ({ setOpenModal }) => {
                   <div id='color4'></div>
                 </div> */}
 
-                <select id='select' onChange={optionsChange} name='color'>
-                  <option selected disabled>Selecciona tu color</option>
+                {product_options.length === 0 ? false :
+                  (
+                    <>
+                      <p id='colors'>Selecciona el color</p>
 
-                  <option value={product_options[3].option_items[0].name}>{product_options[3].option_items[0].name} (+${product_options[3].option_items[0].price})</option>
+                      <select id='select' onChange={optionsChange} name='color'>
+                        <option selected disabled>Selecciona tu color</option>
 
-                  <option value={product_options[3].option_items[1].name}>{product_options[3].option_items[1].name} (+${product_options[3].option_items[1].price})</option>
+                        <option value={product_options[3]?.option_items[0]?.name}>{product_options[3]?.option_items[0]?.name} (+${product_options[3].option_items[0].price})</option>
 
-                  <option value={product_options[3].option_items[2].name} >{product_options[3].option_items[2].name} (+${product_options[3].option_items[2].price})</option>
+                        <option value={product_options[3]?.option_items[1]?.name}>{product_options[3]?.option_items[1]?.name} (+${product_options[3].option_items[1].price})</option>
 
-                  <option value={product_options[3].option_items[3].name} >{product_options[3].option_items[3].name} (+${product_options[3].option_items[3].price})</option>
-                </select>
+                        <option value={product_options[3]?.option_items[2]?.name} >{product_options[3]?.option_items[2]?.name} (+${product_options[3].option_items[2].price})</option>
 
-                {/* <p id='help-size'>Ayuda sobre tu talla</p> */}
+                        <option value={product_options[3]?.option_items[3]?.name} >{product_options[3]?.option_items[3]?.name} (+${product_options[3].option_items[3].price})</option>
+                      </select>
 
-                {/* <select id='select'>
+                      {/* <p id='help-size'>Ayuda sobre tu talla</p> */}
+
+                      {/* <select id='select'>
                   <option selected disabled>Selecciona tu talla</option>
                   <option value="1">{product_options[0].option_items[0].name}</option>
                   <option value="2">{product_options[0].option_items[1].name}</option>
                   <option value="3">{product_options[0].option_items[2].name}</option>
                 </select> */}
 
-                <div id="container-options">
+                      <div id="container-options">
 
-                  <div id="container-radio">
-                    <span id='text-size'>Selecciona tu talla</span>
-                    <input type="radio" id="radio1" name="talla" value={product_options[0].option_items[0].name} onChange={optionsChange} />
-                    <label for="radio1">{product_options[0].option_items[0].name} (+${product_options[0].option_items[0].price})</label>
+                        <div id="container-radio">
+                          <span id='text-size'>Selecciona tu talla</span>
+                          <input type="radio" id="radio1" name="talla" value={product_options[0].option_items[0].name} onChange={optionsChange} />
+                          <label for="radio1">{product_options[0].option_items[0].name} (+${product_options[0].option_items[0].price})</label>
 
-                    <input type="radio" id="radio2" name="talla" value={product_options[0].option_items[1].name} onChange={optionsChange} />
-                    <label for="radio2">{product_options[0].option_items[1].name} (+${product_options[0].option_items[1].price})</label>
+                          <input type="radio" id="radio2" name="talla" value={product_options[0].option_items[1].name} onChange={optionsChange} />
+                          <label for="radio2">{product_options[0].option_items[1].name} (+${product_options[0].option_items[1].price})</label>
 
-                    <input type="radio" id="radio3" name="talla" value={product_options[0].option_items[2].name} onChange={optionsChange} />
-                    <label for="radio3">{product_options[0].option_items[2].name} (+${product_options[0].option_items[2].price})</label>
-                  </div>
+                          <input type="radio" id="radio3" name="talla" value={product_options[0].option_items[2].name} onChange={optionsChange} />
+                          <label for="radio3">{product_options[0].option_items[2].name} (+${product_options[0].option_items[2].price})</label>
+                        </div>
 
-                  <div id="container-check">
-                    <span id='text-size'> Checkbox</span>
-                    <input type='checkbox' id="test" name={product_options[1].option_items[0].name} value={product_options[1].option_items[0].name} onChange={optionsChange} />
-                    <label for="test">{product_options[1].option_items[0].name} (+${product_options[1].option_items[0].price})</label>
+                        <div id="container-check">
+                          <span id='text-size'> Checkbox</span>
+                          <input type='checkbox' id="test" name={product_options[1].option_items[0].name} value={product_options[1].option_items[0].name} onChange={optionsChange} />
+                          <label for="test">{product_options[1].option_items[0].name} (+${product_options[1].option_items[0].price})</label>
 
-                    <input type="checkbox" id="testt" name={product_options[1].option_items[1].name} value={product_options[1].option_items[1].name} onChange={optionsChange} />
-                    <label for="testt">{product_options[1].option_items[1].name} (+${product_options[1].option_items[1].price})</label>
+                          <input type="checkbox" id="testt" name={product_options[1].option_items[1].name} value={product_options[1].option_items[1].name} onChange={optionsChange} />
+                          <label for="testt">{product_options[1].option_items[1].name} (+${product_options[1].option_items[1].price})</label>
 
-                    <input type="checkbox" id="testtt" name={product_options[1].option_items[2].name} value={product_options[1].option_items[2].name} onChange={optionsChange} />
-                    <label for="testtt">{product_options[1].option_items[2].name} (+${product_options[1].option_items[2].price})</label>
+                          <input type="checkbox" id="testtt" name={product_options[1].option_items[2].name} value={product_options[1].option_items[2].name} onChange={optionsChange} />
+                          <label for="testtt">{product_options[1].option_items[2].name} (+${product_options[1].option_items[2].price})</label>
 
-                    <input type="checkbox" id="testttt" name={product_options[1].option_items[3].name} value={product_options[1].option_items[3].name} onChange={optionsChange} />
-                    <label for="testttt">{product_options[1].option_items[3].name} (+${product_options[1].option_items[3].price})</label>
-                  </div>
+                          <input type="checkbox" id="testttt" name={product_options[1].option_items[3].name} value={product_options[1].option_items[3].name} onChange={optionsChange} />
+                          <label for="testttt">{product_options[1].option_items[3].name} (+${product_options[1].option_items[3].price})</label>
+                        </div>
 
-                </div>
+                      </div>
+                    </>
+                  )}
 
                 {loading ? (<><div className='spinner'></div></>) : false}
-                {Object.entries(selectOptions).length < 3 ?
-                  (<div>
-                    <button id='next-size'><span id='next-span'>Continuar</span></button>
-                  </div>) :
-                  (<div>
-                    <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
-                  </div>)
-                }
+
+                {product_options.length === 0 ? (<div>
+                  <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
+                </div>) :
+                  (<>
+                    {Object.entries(selectOptions).length < 3 ?
+                      (<div>
+                        <button id='next-size'><span id='next-span'>Continuar</span></button>
+                      </div>) :
+                      (<div>
+                        <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
+                      </div>)
+                    }
+                  </>)}
+
+
 
               </div>
             </>)}

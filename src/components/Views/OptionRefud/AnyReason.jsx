@@ -58,15 +58,18 @@ const AnyReason = ({ setOpenModal }) => {
                                 <span>{dates.price}€</span>
                             </div>
                             <p id='ref-any'>Ref. {dates.id}</p>
-                            <p id='size-any'>Size {infoProduct.talla}</p>
-                            <div id='container-colors__any'>
-                                <span>Colours</span>
-                                <span>{infoProduct.color}</span>
-                                {/* <div id='color1-any'></div>
+                            {Object.entries(infoProduct).length !== 0 ?
+                                (<>
+                                    <p id='size-any'>Size {infoProduct.talla}</p>
+                                    <div id='container-colors__any'>
+                                        <span>Colours</span>
+                                        <span>{infoProduct.color}</span>
+                                        {/* <div id='color1-any'></div>
                                 <div id='color2-any'></div>
                                 <div id='color3-any'></div>
                                 <div id='color4-any'></div> */}
-                            </div>
+                                    </div>
+                                </>) : false}
                         </div>
                     </div>
                     <div id="any-options">

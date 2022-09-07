@@ -59,15 +59,18 @@ const RePayment = ({ setOpenModal }) => {
                                 <span>{dates.price}€</span>
                             </div>
                             <p id='ref-re'>Ref. {dates.id}</p>
-                            <p id='size-re'>Size {infoProduct.talla}</p>
-                            <div id='container-re'>
-                                <span>Colours</span>
-                                <span>{infoProduct.color}</span>
-                                {/* <div id='color1-re'></div>
+                            {Object.entries(infoProduct).length !== 0 ?
+                                (<>
+                                    <p id='size-re'>Size {infoProduct.talla}</p>
+                                    <div id='container-re'>
+                                        <span>Colours</span>
+                                        <span>{infoProduct.color}</span>
+                                        {/* <div id='color1-re'></div>
                                 <div id='color2-re'></div>
                                 <div id='color3-re'></div>
                                 <div id='color4-re'></div> */}
-                            </div>
+                                    </div>
+                                </>) : false}
                         </div>
                     </div>
                     <div id="re-options">
