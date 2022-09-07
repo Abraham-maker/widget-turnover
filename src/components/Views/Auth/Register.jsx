@@ -14,7 +14,6 @@ const Register = ({ setOpenModal }) => {
   const { data } = datosUser;
   const { api2cart_user } = data;
   const { email, last_name, first_name } = api2cart_user;
-  console.log(last_name);
   {/* ALERTAS */ }
   const { terms, password_confirmation, address, postal_code, city, password } = errors ?? false;
 
@@ -25,12 +24,11 @@ const Register = ({ setOpenModal }) => {
   const passwordMessage = (password ?? [])[0];
   const terminos = (terms ?? [])[0]
   {/* END ALERTAS */ }
-
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setRegister({ ...register, [name]: value })
   }
-
+  console.log(register);
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
@@ -40,7 +38,6 @@ const Register = ({ setOpenModal }) => {
     push('/')
     setOpenModal(false)
   }
-
 
   return (
     <>
@@ -100,7 +97,16 @@ const Register = ({ setOpenModal }) => {
 
           {status === 'Success' ? (<p className='message-success'>Su nuevo registro de usuario resultó exitoso</p>) : false}
 
-          {register.password === undefined || '' || '' || register.address === undefined || '' || register.postal_code === undefined || '' || register.city === undefined || ''
+          {register?.password?.length === 0 ||
+            register?.password?.length === undefined
+            || register?.password_confirmation?.length === 0 ||
+            register?.password_confirmation?.length === undefined
+            || register?.postal_code?.length === 0 ||
+            register?.postal_code?.length === undefined
+            || register?.city?.length === 0 ||
+            register?.city?.length === undefined
+            || register?.address?.length === 0 ||
+            register?.address?.length === undefined
             ? (<>
               <button id='btn-createAccount' disabled><span id='span-createAccount'>Crear cuenta</span></button>
             </>) :
@@ -115,7 +121,8 @@ const Register = ({ setOpenModal }) => {
 
       </div>
 
-      <BtnFaqs />
+      <BtnFaqs onClick={() => { console.log(15)} }/>
+
       {open ?
         (<>
           <div className="background">

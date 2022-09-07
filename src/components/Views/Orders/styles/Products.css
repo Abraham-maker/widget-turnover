@@ -15,10 +15,10 @@
 #article-product {
     width: 80vw;
     height: 641px;
+    max-height: 641px;
     border-radius: 12px;
     border: solid 1px #808083;
     background-color: #fff;
-    overflow: scroll;
 }
 
 #item-product {
@@ -53,6 +53,18 @@
     background: #424242;
     border: none;
     color: #FFF;
+    padding: 12px 68px;
+    font-family: Poppins;
+    border-radius: 22px;
+}
+
+#start-products-disabled {
+    position: relative;
+    top: 33px;
+    background: #fff;
+    border: 1px solid #424242;
+    color: #000;
+    font-weight: 500;
     padding: 12px 68px;
     font-family: Poppins;
     border-radius: 22px;

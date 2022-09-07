@@ -54,7 +54,7 @@ const Login = ({ setOpenModal }) => {
                 {!!loading ? <span className='spinner'></span> : false}
                 <p id='link-forgot' onClick={() => { push('/forgot-password') }}>¿Has olvidado la contraseña?</p>
                 <hr />
-                <button disabled id='btn-register'><span id='span-register'>Crear cuenta</span></button>
+                {/* <button disabled id='btn-register'><span id='span-register'>Crear cuenta</span></button> */}
             </div>
 
             <BtnFaqs />
