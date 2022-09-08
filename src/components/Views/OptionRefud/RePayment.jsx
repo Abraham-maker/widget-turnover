@@ -74,7 +74,7 @@ const RePayment = ({ setOpenModal }) => {
                         </div>
                     </div>
                     <div id="re-options">
-                        <span id='span-re'>Selecciona un metodo de devolución</span>
+                        <span id='span-re'>Selecciona un método de devolución</span>
 
                         <div id='container-radios__re'>
                             <div>
@@ -82,7 +82,7 @@ const RePayment = ({ setOpenModal }) => {
                                 <label for="test1">Reembolso a una tarjeta</label>
                                 <span id='span-free__re'>{dates.price}€</span>
                                 <div>
-                                    <p className='any-date'>Estimada hasta al marte 08 Mar. - martes 15 mar.</p>
+                                    <p className='any-date'>Estimada hasta el martes 08 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@ const RePayment = ({ setOpenModal }) => {
                                 <label for="test2">Tarjeta TurnOver</label>
                                 <span id='span-free2__re'>{dates.price}€</span>
                                 <div>
-                                    <p className='any-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
+                                    <p className='any-date' >Estimada hasta el jueves 10 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>

@@ -82,9 +82,9 @@ const ReturnProductStore = ({ setOpenModal }) => {
                 </div>
 
                 {Object.entries(idStore).length === 0 ? (<>
-                    <button id='btn-stores'>Confirmar Devolución</button>
+                    <button id='btn-stores'>Confirmar devolución</button>
                 </>) : (<>
-                    <button id='btn-stores-active'>Confirmar Devolución</button>
+                    <button id='btn-stores-active'>Confirmar devolución</button>
                 </>)}
             </div>
 

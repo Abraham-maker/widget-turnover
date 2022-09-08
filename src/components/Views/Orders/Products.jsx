@@ -85,8 +85,10 @@ const Products = ({ setOpenModal }) => {
                                             <div>
                                                 <p id='text-header'>{items.name} {items.model}</p>
                                                 <p className='text-normal'>Ref. : {items.product_id}</p>
-                                                <p className='text-normal'>Talla : {items.options[1]?.value}</p>
-                                                <p className='text-normal'>Color : {items.options[0]?.value}</p>
+                                                {Object.entries(items.options).length === 0 ? false : (<>
+                                                    <p className='text-normal'>Talla : {items.options[1]?.value}</p>
+                                                    <p className='text-normal'>Color : {items.options[0]?.value}</p>
+                                                </>)}
                                             </div>
                                             <p id='text-header'>{items.price}€</p>
                                         </div>
@@ -108,11 +110,11 @@ const Products = ({ setOpenModal }) => {
                 {
                     selectProduct.length === 0 ?
                         <button id="start-products-disabled">
-                            <span>Iniciar Devolucion</span>
+                            <span>Iniciar devolución</span>
                         </button> :
                         (<>
                             <button id="start-products" onClick={() => { return push(`/about-product/${selectProduct}`) }}>
-                                <span>Iniciar Devolucion</span>
+                                <span>Iniciar devolución</span>
                             </button>
                         </>)
                 }

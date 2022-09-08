@@ -144,21 +144,21 @@ const SelectSize = ({ setOpenModal }) => {
 
                 {loading ? (<><div className='spinner'></div></>) : false}
 
-                {product_options.length === 0 ? (<div>
-                  <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
-                </div>) :
-                  (<>
-                    {Object.entries(selectOptions).length < 3 ?
-                      (<div>
-                        <button id='next-size'><span id='next-span'>Continuar</span></button>
-                      </div>) :
-                      (<div>
-                        <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
-                      </div>)
-                    }
-                  </>)}
-
-
+                {
+                  product_options.length === 0 ? (<div>
+                    <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
+                  </div>) :
+                    (<>
+                      {selectOptions.color === undefined || selectOptions.talla === undefined ?
+                        (<div>
+                          <button id='next-size'><span id='next-span'>Continuar</span></button>
+                        </div>) :
+                        (<div>
+                          <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
+                        </div>)
+                      }
+                    </>)
+                }
 
               </div>
             </>)}

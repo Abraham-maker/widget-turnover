@@ -7,13 +7,13 @@ import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 const Login = ({ setOpenModal }) => {
     const { push } = useHistory();
     const [open, setOpen] = useState(false);
-    const { onSubmit, user, setUser, infoLogin, loading } = useContext(WebContext)
+    const { onSubmit, user, setUser, infoLogin, loading, findOrder } = useContext(WebContext)
     const { errors, message } = infoLogin;
     const { email } = errors ?? false;
     const { password } = errors ?? false;
     const password_default = (password ?? [])[0];
     const email_defautl = (email ?? [])[0]
-
+    
     const inputChange = ({ target }) => {
         const { name, value } = target;
         setUser({ ...user, [name]: value })
@@ -37,7 +37,8 @@ const Login = ({ setOpenModal }) => {
                 <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" />
                 <div id='form-container__login'>
 
-                    <input type="text" placeholder='Introduce tu e-mail' name='email' onChange={inputChange} />
+                    <input type="text" placeholder='Introduce tu e-mail' name='email' defaultValue={findOrder.email} disabled/>
+
                     {email ? (<p className='message-error'>{email_defautl}</p>) : false}
                     {message === 'El email no existe' ? (<p className='message-error'>{message}</p>) : false}
 

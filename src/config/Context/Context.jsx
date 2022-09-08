@@ -8,7 +8,7 @@ function WebProvider(props) {
     const [loading, setLoading] = useState(false)
     const dates = JSON.parse(window.localStorage.getItem('dates', true));
     {/* LOGIN */ }
-    const [user, setUser] = useState({ email: '', password: '' })
+    const [user, setUser] = useState({})
     const [infoLogin, setInfoLogin] = useState({});
     {/* END LOGIN */ }
 
@@ -44,10 +44,15 @@ function WebProvider(props) {
             "Accept": "application/json",
         };
 
+        let body = {
+            email: findOrder.email,
+            password: user.password,
+        }
+
         fetch(url, {
             method: "POST",
             headers,
-            body: JSON.stringify(user),
+            body: JSON.stringify(body),
         }).then((res) => res.json()).then((infoLogin) => {
             setLoading(false);
             setInfoLogin(infoLogin);

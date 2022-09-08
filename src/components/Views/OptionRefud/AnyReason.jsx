@@ -73,7 +73,7 @@ const AnyReason = ({ setOpenModal }) => {
                         </div>
                     </div>
                     <div id="any-options">
-                        <span id='span-any'>Selecciona un metodo de devolución</span>
+                        <span id='span-any'>Selecciona un método de devolución</span>
 
                         <div id='container-radios__any'>
                             <div>
@@ -81,7 +81,7 @@ const AnyReason = ({ setOpenModal }) => {
                                 <label for="test1">Devolver tu producto en Tienda</label>
                                 <span id='span-free'>Gratuito</span>
                                 <div>
-                                    <p className='any-date'>Estimada hasta al marte 08 Mar. - martes 15 mar.</p>
+                                    <p className='any-date'>Estimada hasta el marte 08 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ const AnyReason = ({ setOpenModal }) => {
                                 <label for="test2">Devolver tu producto en Domicilio</label>
                                 <span id='span-free2'>Gratuito</span>
                                 <div>
-                                    <p className='any-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
+                                    <p className='any-date' >Estimada hasta el jueves 10 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>

@@ -82,11 +82,11 @@ const ReasonRefud = ({ setOpenModal }) => {
                     </div>
 
                     <div id='container-input'>
-                        <label htmlFor="comentary">Comentários (opcional)</label>
-                        <input type="text" id='comentary' name='comentario' placeholder='Escribe aqui' onChange={changeRadio} />
+                        <label htmlFor="comentary">Comentarios (opcional)</label>
+                        <input type="text" id='comentary' name='comentario' placeholder='Escribe aquí' onChange={changeRadio} />
                     </div>
 
-                    {radio === false ?
+                    {!radio.razon_devolucion ?
                         (<>
                             <div id='container-btn-reason'>
                                 <button id='btn-reason'><span>Confirmar devolución</span></button>
