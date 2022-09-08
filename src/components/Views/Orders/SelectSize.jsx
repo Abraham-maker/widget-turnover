@@ -142,19 +142,20 @@ const SelectSize = ({ setOpenModal }) => {
                     </>
                   )}
 
-                {loading ? (<><div className='spinner'></div></>) : false}
 
                 {
-                  product_options.length === 0 ? (<div>
+                  product_options.length === 0 ? (<div className='btn-product__center'>
                     <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
                   </div>) :
                     (<>
                       {selectOptions.color === undefined || selectOptions.talla === undefined ?
-                        (<div>
+                        (<div className='btn-product__center'>
                           <button id='next-size'><span id='next-span'>Continuar</span></button>
+                          {!!loading ? (<><div className='spinner'></div></>) : false}
                         </div>) :
-                        (<div>
+                        (<div className='btn-product__center'>
                           <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
+                          {!!loading ? (<><div className='spinner'></div></>) : false}
                         </div>)
                       }
                     </>)
