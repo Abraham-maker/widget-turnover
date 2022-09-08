@@ -60,7 +60,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
                         <label for="test1">Devolver tu producto en Tienda</label>
                         <span id='span-store'>Gratuito</span>
                         <div>
-                            <p className='store-date'>Estimada hasta al marte 08 Mar. - martes 15 mar.</p>
+                            <p className='store-date'>Estimada hasta al marte 08 mar. - martes 15 mar.</p>
                             <p className='store-info'>+ info</p>
                         </div>
                         <p id='paragraph-store'>Eligir Tienda</p>
@@ -89,7 +89,6 @@ const ReturnProductStore = ({ setOpenModal }) => {
                             </>)}
                     </div>
                     {!!loading ? (<><div className='spinner'></div></>) : false}
-
                 </div>
 
                 {Object.entries(idStore).length === 0 ? (<>

@@ -43,6 +43,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
 
 #stores {
@@ -53,7 +54,7 @@
     border-radius: 6px;
     border: solid 1px #979797;
     background-color: #fff;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #title-store {
