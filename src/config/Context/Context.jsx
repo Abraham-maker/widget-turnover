@@ -144,13 +144,8 @@ function WebProvider(props) {
                 setTimeout(() => {
                     setMessageOrder({})
                 }, 6000);
-                const { data } = messageOrder ?? false;
-                const { api2cart_user, turnover_user } = data;
-                if (turnover_user === null && api2cart_user !== null) {
-                    setDatosUser(messageOrder);
-                    return push('/register')
-                } else {
-                    return push('/login')
+                if (messageOrder.status === 'Success') {
+                    return push('/home-options')
                 }
             })
     }
