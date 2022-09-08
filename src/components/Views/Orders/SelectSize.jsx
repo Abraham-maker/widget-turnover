@@ -125,16 +125,16 @@ const SelectSize = ({ setOpenModal }) => {
 
                         <div id="container-check">
                           <span id='text-size'> Checkbox</span>
-                          <input type='checkbox' id="test" name={product_options[1].option_items[0].name} value={product_options[1].option_items[0].name} onChange={optionsChange} />
+                          <input type='checkbox' id="test" name="Checkbox_1" value={product_options[1].option_items[0].name} onChange={optionsChange} />
                           <label for="test">{product_options[1].option_items[0].name} (+${product_options[1].option_items[0].price})</label>
 
-                          <input type="checkbox" id="testt" name={product_options[1].option_items[1].name} value={product_options[1].option_items[1].name} onChange={optionsChange} />
+                          <input type="checkbox" id="testt" name="Checkbox_2" value={product_options[1].option_items[1].name} onChange={optionsChange} />
                           <label for="testt">{product_options[1].option_items[1].name} (+${product_options[1].option_items[1].price})</label>
 
-                          <input type="checkbox" id="testtt" name={product_options[1].option_items[2].name} value={product_options[1].option_items[2].name} onChange={optionsChange} />
+                          <input type="checkbox" id="testtt" name="Checkbox_3" value={product_options[1].option_items[2].name} onChange={optionsChange} />
                           <label for="testtt">{product_options[1].option_items[2].name} (+${product_options[1].option_items[2].price})</label>
 
-                          <input type="checkbox" id="testttt" name={product_options[1].option_items[3].name} value={product_options[1].option_items[3].name} onChange={optionsChange} />
+                          <input type="checkbox" id="testttt" name="Checkbox_4" value={product_options[1].option_items[3].name} onChange={optionsChange} />
                           <label for="testttt">{product_options[1].option_items[3].name} (+${product_options[1].option_items[3].price})</label>
                         </div>
 

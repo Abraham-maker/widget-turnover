@@ -57,19 +57,26 @@ const AnyReason = ({ setOpenModal }) => {
                                 <span>{dates.name} {dates.u_model}</span>
                                 <span>{dates.price}€</span>
                             </div>
-                            <p id='ref-any'>Ref. {dates.id}</p>
+                            <p id='ref-any'>Ref. : {dates.id}</p>
                             {Object.entries(infoProduct).length !== 0 ?
                                 (<>
-                                    <p id='size-any'>Size {infoProduct.talla}</p>
+                                    <p id='size-any'>Talla : {infoProduct.talla}</p>
                                     <div id='container-colors__any'>
-                                        <span>Colours</span>
+                                        <span>Color :</span>
                                         <span>{infoProduct.color}</span>
                                         {/* <div id='color1-any'></div>
                                 <div id='color2-any'></div>
                                 <div id='color3-any'></div>
                                 <div id='color4-any'></div> */}
                                     </div>
+                                    <div id='container-check__flex'>
+                                        <span>{infoProduct.Checkbox_1}</span>
+                                        <span>{infoProduct.Checkbox_2}</span>
+                                        <span>{infoProduct.Checkbox_3}</span>
+                                        <span>{infoProduct.Checkbox_4}</span>
+                                    </div>
                                 </>) : false}
+
                         </div>
                     </div>
                     <div id="any-options">

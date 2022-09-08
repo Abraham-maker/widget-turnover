@@ -26,7 +26,16 @@
     border-radius: 12px;
 }
 
+#container-check__flex {
+    display: flex;
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    gap: 10px;
+}
+
+
 #any-flex {
+    white-space: nowrap;
     display: flex;
     gap: 4em;
     font-size: 16px;
