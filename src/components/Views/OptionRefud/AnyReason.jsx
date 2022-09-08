@@ -81,7 +81,7 @@ const AnyReason = ({ setOpenModal }) => {
                                 <label for="test1">Devolver tu producto en Tienda</label>
                                 <span id='span-free'>Gratuito</span>
                                 <div>
-                                    <p className='any-date'>Estimada hasta el marte 08 Mar. - martes 15 mar.</p>
+                                    <p className='any-date'>Estimada hasta el marte 08 sep. - martes 15 sep.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ const AnyReason = ({ setOpenModal }) => {
                                 <label for="test2">Devolver tu producto en Domicilio</label>
                                 <span id='span-free2'>Gratuito</span>
                                 <div>
-                                    <p className='any-date' >Estimada hasta el jueves 10 Mar. - martes 15 mar.</p>
+                                    <p className='any-date' >Estimada hasta el jueves 10 sep. - martes 15 sep.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>

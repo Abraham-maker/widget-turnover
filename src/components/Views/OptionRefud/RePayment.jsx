@@ -82,7 +82,7 @@ const RePayment = ({ setOpenModal }) => {
                                 <label for="test1">Reembolso a una tarjeta</label>
                                 <span id='span-free__re'>{dates.price}€</span>
                                 <div>
-                                    <p className='any-date'>Estimada hasta el martes 08 Mar. - martes 15 mar.</p>
+                                    <p className='any-date'>Estimada hasta el martes 08 sep. - martes 15 sep.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>

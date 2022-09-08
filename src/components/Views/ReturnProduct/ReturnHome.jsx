@@ -78,7 +78,7 @@ const ReturnHome = ({ setOpenModal }) => {
                             <p>Facturación</p>
 
                             <div id="div-inputs">
-                                <input type="text" id='direccion' onChange={addressChange} name='direccion' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='España' />
+                                <input type="text" id='direccion' onChange={addressChange} name='direccion' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='Ciudad' />
                                 <div className='div-flex'>
                                     <input type="text" id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
                                     <input type="text" id='apellido' onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
