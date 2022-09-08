@@ -29,7 +29,7 @@ const ViewRepayment = ({ setOpenModal }) => {
                     <div id='card-success'>
                     </div>
 
-                    <button id='btn-store-success'>Ir a la tienda</button>
+                    <button id='btn-store-success' onClick={() => {push('/questionnaire')}}>Ir a la tienda</button>
                 </div>
             </div>
 

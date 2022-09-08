@@ -94,7 +94,7 @@
     gap: 20px;
 }
 
-#bt-card {
+#bt-card-active {
     color: #fff;
     font-family: Poppins;
     width: 261px;
@@ -103,7 +103,20 @@
     padding: 12px 54.5px;
     border-radius: 22px;
     border: none;
+    cursor: pointer;
     background-color: #424242;
+}
+
+#bt-card {
+    color: #000;
+    font-family: Poppins;
+    width: 261px;
+    height: 44px;
+    margin: 40px 71px 12px 58px;
+    padding: 12px 54.5px;
+    border-radius: 22px;
+    border: 1px solid #424242;
+    background-color: #fff;
 }
 
 #terminos-card {

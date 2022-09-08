@@ -31,7 +31,7 @@ const RefudCardTurnOver = ({ setOpenModal }) => {
                         <p id='text-fondos'>59,90€</p>
                     </div>
                     <p id='title-about'>*Esta tarjeta es una tarjeta virtual</p>
-                    <button id='btn-stores-success'>Ir a la tienda</button>
+                    <button id='btn-stores-success' onClick={() => {push('/questionnaire')}}>Ir a la tienda</button>
                 </div>
             </div>
 

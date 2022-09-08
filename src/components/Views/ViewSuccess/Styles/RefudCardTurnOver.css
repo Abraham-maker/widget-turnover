@@ -47,6 +47,7 @@
 
 #btn-stores-success {
     width: 261px;
+    cursor: pointer;
     height: 44px;
     padding: 12px 86px;
     border: none;

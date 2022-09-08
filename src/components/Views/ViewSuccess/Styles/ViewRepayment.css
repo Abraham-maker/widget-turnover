@@ -44,6 +44,7 @@
 }
 
 #btn-store-success {
+    cursor: pointer;
     width: 261px;
     height: 44px;
     padding: 12px 86px;

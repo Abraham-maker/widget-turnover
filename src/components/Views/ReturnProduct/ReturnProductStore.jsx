@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { WebContext } from '../../../config/Context/Context'
 import './Styles/ReturnProductStore.css'
 
 const ReturnProductStore = ({ setOpenModal }) => {
+    const { setLoading, loading } = useContext(WebContext);
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     let product_id = JSON.parse(window.localStorage.getItem("product_id", true));
     const [stores, setStores] = useState([])
     const [idStore, setIdStore] = useState({})
 
-    console.log(idStore);
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
@@ -31,6 +33,14 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
     const changeStore = ({ target }) => {
         setIdStore(target.value);
+    }
+
+    const getCodeStore = () => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false);
+            push('/view-refud-success')
+        }, 1000);
     }
 
     return (
@@ -78,13 +88,14 @@ const ReturnProductStore = ({ setOpenModal }) => {
                                 })}
                             </>)}
                     </div>
+                    {!!loading ? (<><div className='spinner'></div></>) : false}
 
                 </div>
 
                 {Object.entries(idStore).length === 0 ? (<>
                     <button id='btn-stores'>Confirmar devolución</button>
                 </>) : (<>
-                    <button id='btn-stores-active'>Confirmar devolución</button>
+                    <button id='btn-stores-active' onClick={getCodeStore}>Confirmar devolución</button>
                 </>)}
             </div>
 
