@@ -64,9 +64,7 @@ const Products = ({ setOpenModal }) => {
                                         <div id='items'>
                                             <div id='container-checkBox'>
                                                 {items.quantity_in_inventory === 0 ?
-                                                    (<>
-                                                        <small id='not-change'>No disponible para cambio</small>
-                                                    </>) :
+                                                    false :
                                                     (<>
                                                         <input type="radio" name="my-checkbox" id={items.product_id} onChange={() => { setSelectProduct(items.product_id) }} />
                                                         <label for={items.product_id}></label>
@@ -92,6 +90,11 @@ const Products = ({ setOpenModal }) => {
                                             </div>
                                             <p id='text-header'>{items.price}€</p>
                                         </div>
+                                        {items.quantity_in_inventory === 0 ?
+                                            (<>
+                                                <small id='not-change'>No disponible para cambio</small>
+                                            </>) :
+                                            false}
                                     </div>
 
                                 </>
