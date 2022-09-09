@@ -10,6 +10,10 @@ function WebProvider(props) {
     {/* LOGIN */ }
     const [user, setUser] = useState({})
     const [infoLogin, setInfoLogin] = useState({});
+    const color_storage = JSON.parse(localStorage.getItem('product_color'));
+    const total_storage = JSON.parse(localStorage.getItem('precio_total'));
+    const check_storage = JSON.parse(localStorage.getItem('product_check'));
+    const radios_storage = JSON.parse(localStorage.getItem('product_radio'));
     {/* END LOGIN */ }
 
     {/* FORGOT PASSWORD */ }
@@ -164,7 +168,7 @@ function WebProvider(props) {
     {/* END FIND ORDER */ }
 
     return (
-        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading, setLoading, dates }}>
+        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage }}>
             {props.children}
         </WebContext.Provider>
     )

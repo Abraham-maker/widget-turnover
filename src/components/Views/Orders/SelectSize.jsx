@@ -56,7 +56,10 @@ const SelectSize = ({ setOpenModal }) => {
   const nextOption = () => {
     setLoading(true)
     window.localStorage.setItem('dates', JSON.stringify(aboutProduct))
-    window.localStorage.setItem("info_product", JSON.stringify(selectOptions))
+    window.localStorage.setItem("product_radio", JSON.stringify(selectOptions))
+    window.localStorage.setItem("product_check", JSON.stringify(seleckCheck))
+    window.localStorage.setItem("product_color", JSON.stringify(selectColor))
+    window.localStorage.setItem("precio_total", JSON.stringify(suma))
     setTimeout(() => {
       setLoading(false)
       return push(`/reason-refud/${product_id}`)

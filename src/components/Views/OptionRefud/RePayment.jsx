@@ -5,7 +5,7 @@ import { WebContext } from '../../../config/Context/Context'
 import './Styles/RePayment.css'
 
 const RePayment = ({ setOpenModal }) => {
-    const { loading, setLoading, dates } = useContext(WebContext)
+    const { loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage } = useContext(WebContext)
     const [checkbox, setCheckbox] = useState(false)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
@@ -56,19 +56,22 @@ const RePayment = ({ setOpenModal }) => {
                         <div>
                             <div id='re-flex'>
                                 <span>{dates.name} {dates.u_model}</span>
-                                <span>{dates.price}€</span>
+                                <div>
+                                    <span>{dates.price}€</span>
+                                    <div id='more-price'>{!total_storage ? (<>+0€</>) : (<>+{total_storage}€</>)}</div>
+                                </div>
                             </div>
                             <p id='ref-re'>Ref. {dates.id}</p>
-                            {Object.entries(infoProduct).length !== 0 ?
+                            {Object.entries(color_storage).length !== 0 ?
                                 (<>
-                                    <p id='size-re'>Size {infoProduct.talla}</p>
-                                    <div id='container-re'>
-                                        <span>Colours</span>
-                                        <span>{infoProduct.color}</span>
-                                        {/* <div id='color1-re'></div>
-                                <div id='color2-re'></div>
-                                <div id='color3-re'></div>
-                                <div id='color4-re'></div> */}
+                                    <p id='size-any'>Talla : {radios_storage.talla.talla}</p>
+                                    <div id='container-colors__any'>
+                                        <span>Color :</span>
+                                        {color_storage.color.color === '4' ? (<><span>Red</span></>) :
+                                            color_storage.color.color === '3' ? (<><span>Blue</span></>) :
+                                                color_storage.color.color === '1' ? (<><span>Green</span></>) :
+                                                    color_storage.color.color === '2' ? (<><span>Yellow</span></>) : false
+                                        }
                                     </div>
                                 </>) : false}
                         </div>

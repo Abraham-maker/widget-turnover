@@ -6,11 +6,10 @@ import { useHistory } from 'react-router-dom'
 
 
 const AnyReason = ({ setOpenModal }) => {
-    const { loading, setLoading, dates } = useContext(WebContext)
+    const { loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage } = useContext(WebContext)
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     const [radios, setRadios] = useState(false)
-    let infoProduct = JSON.parse(window.localStorage.getItem('info_product', true))
 
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
@@ -21,7 +20,7 @@ const AnyReason = ({ setOpenModal }) => {
     const changeRadios = ({ target }) => {
         setRadios(target.value);
     }
-
+    console.log(check_storage.checkbox[0]);
     const onChangePage = () => {
         setLoading(true);
         setTimeout(() => {
@@ -55,25 +54,28 @@ const AnyReason = ({ setOpenModal }) => {
                         <div>
                             <div id='any-flex'>
                                 <span>{dates.name} {dates.u_model}</span>
-                                <span>{dates.price}€</span>
+                                <div>
+                                    <span>{dates.price}€</span>
+                                    <div id='more-price'>{!total_storage ? (<>+0€</>) : (<>+{total_storage}€</>)}</div>
+                                </div>
                             </div>
                             <p id='ref-any'>Ref. : {dates.id}</p>
-                            {Object.entries(infoProduct).length !== 0 ?
+                            {Object.entries(color_storage).length !== 0 ?
                                 (<>
-                                    <p id='size-any'>Talla : {infoProduct.talla}</p>
+                                    <p id='size-any'>Talla : {radios_storage.talla.talla}</p>
                                     <div id='container-colors__any'>
                                         <span>Color :</span>
-                                        <span>{infoProduct.color}</span>
-                                        {/* <div id='color1-any'></div>
-                                <div id='color2-any'></div>
-                                <div id='color3-any'></div>
-                                <div id='color4-any'></div> */}
+                                        {color_storage.color.color === '4' ? (<><span>Red</span></>) :
+                                            color_storage.color.color === '3' ? (<><span>Blue</span></>) :
+                                                color_storage.color.color === '1' ? (<><span>Green</span></>) :
+                                                    color_storage.color.color === '2' ? (<><span>Yellow</span></>) : false
+                                        }
                                     </div>
                                     <div id='container-check__flex'>
-                                        <span>{infoProduct.Checkbox_1}</span>
-                                        <span>{infoProduct.Checkbox_2}</span>
-                                        <span>{infoProduct.Checkbox_3}</span>
-                                        <span>{infoProduct.Checkbox_4}</span>
+                                        <span>{check_storage.checkbox[0]}</span>
+                                        <span>{check_storage.checkbox[1]}</span>
+                                        <span>{check_storage.checkbox[2]}</span>
+                                        <span>{check_storage.checkbox[3]}</span>
                                     </div>
                                 </>) : false}
 
