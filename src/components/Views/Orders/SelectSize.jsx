@@ -13,10 +13,6 @@ const SelectSize = ({ setOpenModal }) => {
   const [open, setOpen] = useState(false);
   const [aboutProduct, setAboutProduct] = useState({})
   const { product_options } = aboutProduct;
-  const [colorOptions, setColorOptions] = useState({
-    color: [],
-    price: []
-  })
   const [selectOptions, setSelectOptions] = useState({
     talla: [],
     price: []
@@ -62,14 +58,6 @@ const SelectSize = ({ setOpenModal }) => {
   }
 
   const optionsChange = ({ target }) => {
-    const { name, value, title } = target;
-    setSelectOptions({
-      talla: { [name]: value },
-      price: { title }
-    })
-  }
-
-  const colorChange = ({ target }) => {
     const { name, value, title } = target;
     setSelectOptions({
       talla: { [name]: value },
@@ -127,7 +115,7 @@ const SelectSize = ({ setOpenModal }) => {
                     <>
                       <p id='colors'>Selecciona el color</p>
 
-                      <select id='select' onChange={colorChange} name='color'>
+                      <select id='select' onChange={optionsChange} name='color'>
                         <option selected disabled>Selecciona tu color</option>
 
                         {color.option_items.map((colors) => {
