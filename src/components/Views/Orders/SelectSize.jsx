@@ -13,6 +13,10 @@ const SelectSize = ({ setOpenModal }) => {
   const [open, setOpen] = useState(false);
   const [aboutProduct, setAboutProduct] = useState({})
   const { product_options } = aboutProduct;
+  const [selectColor, setSelectColor] = useState({
+    color: [],
+    price: []
+  })
   const [selectOptions, setSelectOptions] = useState({
     talla: [],
     price: []
@@ -27,7 +31,9 @@ const SelectSize = ({ setOpenModal }) => {
   const color = (product_options ?? [])[3]
 
   let sumall = seleckCheck.price.reduce((prev, curr) => parseInt(prev) + parseInt(curr), 0);
-  sumall += parseInt(selectOptions.price.title)
+  sumall += parseInt(selectOptions.price.title);
+  let suma = parseInt(selectColor.price.value)
+  suma += sumall;
 
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
@@ -55,6 +61,14 @@ const SelectSize = ({ setOpenModal }) => {
       setLoading(false)
       return push(`/reason-refud/${product_id}`)
     }, 1000);
+  }
+
+  const colorChange = ({ target }) => {
+    const { name, value } = target;
+    setSelectColor({
+      color: { [name]: value },
+      price: { value }
+    })
   }
 
   const optionsChange = ({ target }) => {
@@ -106,7 +120,7 @@ const SelectSize = ({ setOpenModal }) => {
                   <span>{aboutProduct.name} {aboutProduct.u_model}</span>
                   <div>
                     <span>{aboutProduct.price}€</span>
-                    <div id='more-price'>{!sumall ? (<>+0€</>) : (<>+{sumall}€</>)}</div>
+                    <div id='more-price'>{!suma ? (<>+0€</>) : (<>+{suma}€</>)}</div>
                   </div>
                 </div>
                 <p id='ref'>Ref. {aboutProduct.id}</p>
@@ -115,13 +129,13 @@ const SelectSize = ({ setOpenModal }) => {
                     <>
                       <p id='colors'>Selecciona el color</p>
 
-                      <select id='select' onChange={optionsChange} name='color'>
+                      <select id='select' onChange={colorChange} name='color'>
                         <option selected disabled>Selecciona tu color</option>
 
                         {color.option_items.map((colors) => {
                           return (
                             <>
-                              <option value={colors.name}>{colors.name} (+${colors.price})</option>
+                              <option title={colors.price} value={colors.price}>{colors.name} (+${colors.price})</option>
                             </>
                           )
                         })}
@@ -166,7 +180,7 @@ const SelectSize = ({ setOpenModal }) => {
                     <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
                   </div>) :
                     (<>
-                      {selectOptions.color === undefined || selectOptions.talla === undefined ?
+                      {seleckCheck.checkbox.length === 0 || selectOptions.talla.length === 0 || selectColor.color.length === 0 ?
                         (<div className='btn-product__center'>
                           <button id='next-size'><span id='next-span'>Continuar</span></button>
                           {!!loading ? (<><div className='spinner'></div></>) : false}
