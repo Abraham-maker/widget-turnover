@@ -12,6 +12,10 @@
     height: 60vh;
 }
 
+#more-price {
+    color: #00BB2D;
+ }
+
 #article-container {
     display: flex;
     gap: 4em;

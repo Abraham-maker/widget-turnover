@@ -13,7 +13,25 @@ const SelectSize = ({ setOpenModal }) => {
   const [open, setOpen] = useState(false);
   const [aboutProduct, setAboutProduct] = useState({})
   const { product_options } = aboutProduct;
-  const [selectOptions, setSelectOptions] = useState({})
+  const [colorOptions, setColorOptions] = useState({
+    color: [],
+    price: []
+  })
+  const [selectOptions, setSelectOptions] = useState({
+    talla: [],
+    price: []
+  })
+  const [seleckCheck, setSelectCheck] = useState({
+    checkbox: [],
+    price: []
+  })
+
+  const radios = (product_options ?? [])[0]
+  const checkBox = (product_options ?? [])[1];
+  const color = (product_options ?? [])[3]
+
+  let sumall = seleckCheck.price.reduce((prev, curr) => parseInt(prev) + parseInt(curr), 0);
+  sumall += parseInt(selectOptions.price.title)
 
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
@@ -44,10 +62,36 @@ const SelectSize = ({ setOpenModal }) => {
   }
 
   const optionsChange = ({ target }) => {
-    const { name, value } = target;
-    setSelectOptions({ ...selectOptions, [name]: value })
+    const { name, value, title } = target;
+    setSelectOptions({
+      talla: { [name]: value },
+      price: { title }
+    })
   }
-  let a = 11;
+
+  const colorChange = ({ target }) => {
+    const { name, value, title } = target;
+    setSelectOptions({
+      talla: { [name]: value },
+      price: { title }
+    })
+  }
+
+  const checkChange = ({ target }) => {
+    const { value, checked, title } = target;
+    const { checkbox, price } = seleckCheck;
+    if (checked) {
+      setSelectCheck({
+        checkbox: [...checkbox, value],
+        price: [...price, title]
+      });
+    } else {
+      setSelectCheck({
+        checkbox: checkbox.filter((e) => e !== value),
+        price: price.filter((e) => e !== title)
+      });
+    }
+  }
 
   return (
     <>
@@ -72,70 +116,56 @@ const SelectSize = ({ setOpenModal }) => {
               <div id="container-about">
                 <div id='text-flex'>
                   <span>{aboutProduct.name} {aboutProduct.u_model}</span>
-                  <span>{aboutProduct.price}€</span>
+                  <div>
+                    <span>{aboutProduct.price}€</span>
+                    <div id='more-price'>{!sumall ? (<>+0€</>) : (<>+{sumall}€</>)}</div>
+                  </div>
                 </div>
                 <p id='ref'>Ref. {aboutProduct.id}</p>
-
-                {/* <div id='container-colors'>
-                  <div id='color1'></div>
-                  <div id='color2'></div>
-                  <div id='color3'></div>
-                  <div id='color4'></div>
-                </div> */}
-
                 {product_options.length === 0 ? false :
                   (
                     <>
                       <p id='colors'>Selecciona el color</p>
 
-                      <select id='select' onChange={optionsChange} name='color'>
+                      <select id='select' onChange={colorChange} name='color'>
                         <option selected disabled>Selecciona tu color</option>
 
-                        <option value={product_options[3]?.option_items[0]?.name}>{product_options[3]?.option_items[0]?.name} (+${product_options[3].option_items[0].price})</option>
-
-                        <option value={product_options[3]?.option_items[1]?.name}>{product_options[3]?.option_items[1]?.name} (+${product_options[3].option_items[1].price})</option>
-
-                        <option value={product_options[3]?.option_items[2]?.name} >{product_options[3]?.option_items[2]?.name} (+${product_options[3].option_items[2].price})</option>
-
-                        <option value={product_options[3]?.option_items[3]?.name} >{product_options[3]?.option_items[3]?.name} (+${product_options[3].option_items[3].price})</option>
+                        {color.option_items.map((colors) => {
+                          return (
+                            <>
+                              <option value={colors.name}>{colors.name} (+${colors.price})</option>
+                            </>
+                          )
+                        })}
                       </select>
 
-                      {/* <p id='help-size'>Ayuda sobre tu talla</p> */}
-
-                      {/* <select id='select'>
-                  <option selected disabled>Selecciona tu talla</option>
-                  <option value="1">{product_options[0].option_items[0].name}</option>
-                  <option value="2">{product_options[0].option_items[1].name}</option>
-                  <option value="3">{product_options[0].option_items[2].name}</option>
-                </select> */}
 
                       <div id="container-options">
 
                         <div id="container-radio">
                           <span id='text-size'>Selecciona tu talla</span>
-                          <input type="radio" id="radio1" name="talla" value={product_options[0].option_items[0].name} onChange={optionsChange} />
-                          <label for="radio1">{product_options[0].option_items[0].name} (+${product_options[0].option_items[0].price})</label>
 
-                          <input type="radio" id="radio2" name="talla" value={product_options[0].option_items[1].name} onChange={optionsChange} />
-                          <label for="radio2">{product_options[0].option_items[1].name} (+${product_options[0].option_items[1].price})</label>
-
-                          <input type="radio" id="radio3" name="talla" value={product_options[0].option_items[2].name} onChange={optionsChange} />
-                          <label for="radio3">{product_options[0].option_items[2].name} (+${product_options[0].option_items[2].price})</label>
+                          {radios.option_items.map((radio) => {
+                            return (
+                              <>
+                                <input type="radio" id={radio.id} title={radio.price} name="talla" value={radio.name} onChange={optionsChange} />
+                                <label for={radio.id}>{radio.name} (+${radio.price})</label>
+                              </>
+                            )
+                          })}
                         </div>
 
                         <div id="container-check">
                           <span id='text-size'> Checkbox</span>
-                          <input type='checkbox' id="test" name="Checkbox_1" value={product_options[1].option_items[0].name} onChange={optionsChange} />
-                          <label for="test">{product_options[1].option_items[0].name} (+${product_options[1].option_items[0].price})</label>
 
-                          <input type="checkbox" id="testt" name="Checkbox_2" value={product_options[1].option_items[1].name} onChange={optionsChange} />
-                          <label for="testt">{product_options[1].option_items[1].name} (+${product_options[1].option_items[1].price})</label>
-
-                          <input type="checkbox" id="testtt" name="Checkbox_3" value={product_options[1].option_items[2].name} onChange={optionsChange} />
-                          <label for="testtt">{product_options[1].option_items[2].name} (+${product_options[1].option_items[2].price})</label>
-
-                          <input type="checkbox" id="testttt" name="Checkbox_4" value={product_options[1].option_items[3].name} onChange={optionsChange} />
-                          <label for="testttt">{product_options[1].option_items[3].name} (+${product_options[1].option_items[3].price})</label>
+                          {checkBox.option_items.map((checkBoxes) => {
+                            return (
+                              <>
+                                <input type='checkbox' title={checkBoxes.price} id={checkBoxes.id} name={checkBoxes.name} value={checkBoxes.name} onChange={checkChange} />
+                                <label for={checkBoxes.id}>{checkBoxes.name} (+${checkBoxes.price})</label>
+                              </>
+                            )
+                          })}
                         </div>
 
                       </div>
