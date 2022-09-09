@@ -1,7 +1,6 @@
 .table {
   border-collapse: collapse;
   border: none;
-  width: 60vw;
 }
 
 .tableRowHeader {
@@ -27,10 +26,6 @@
   border-top-right-radius: 15px;
 }
 
-.tableRowItems {
-  cursor: auto;
-}
-
 .tableRowItems:nth-child(odd) {
   background-color: #f9f9f9;
 }
@@ -43,6 +38,9 @@
 }
 
 .productosBnt {
+  display: flex;
+  justify-content: center;
+  margin-top: 7px;
   text-decoration: underline;
   cursor: pointer;
   color: #00f;

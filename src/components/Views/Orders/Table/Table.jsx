@@ -19,7 +19,7 @@ const Table = ({ data, rowsPerPage }) => {
                             <th className="tableHeader">Id de la orden</th>
                             <th className="tableHeader">Estado</th>
                             <th className="tableHeader">Total</th>
-                            <th className="tableHeader">Fecha</th>
+                            <th className="tableHeader">Fecha compra</th>
                             <th className="tableHeader">Acción</th>
                         </tr>
                     </thead>
@@ -33,7 +33,7 @@ const Table = ({ data, rowsPerPage }) => {
                                 <td className="tableCell">{el.create_at}</td>
                                 <td className="productosBnt" onClick={() => {
                                     return push(`/product-order/${el.order_id}`)
-                                }}>Productos</td>
+                                }}>Ver</td>
                             </tr>
                         ))}
                     </tbody>

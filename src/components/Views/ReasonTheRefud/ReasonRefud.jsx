@@ -94,8 +94,8 @@ const ReasonRefud = ({ setOpenModal }) => {
                         </>) :
                         (<>
                             <div id='container-btn-reason' onClick={submitReason}>
-                                {!!loading ? <span className='spinner'></span> : false}
                                 <button id='btn-reason-active'><span>Confirmar devolución</span></button>
+                                {!!loading ? <span className='spinner'></span> : false}
                             </div>
                         </>)}
 

@@ -63,7 +63,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
                             <p className='store-date'>Estimada hasta al marte 08 mar. - martes 15 mar.</p>
                             <p className='store-info'>+ info</p>
                         </div>
-                        <p id='paragraph-store'>Eligir Tienda</p>
+                        <p id='paragraph-store'>Elegir tienda</p>
                     </div>
                 </div>
 

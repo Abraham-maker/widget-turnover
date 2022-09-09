@@ -28,9 +28,13 @@
 
 #container-check__flex {
     display: flex;
-    margin: 10px 0 0 0;
     font-size: 12px;
-    gap: 10px;
+
+}
+
+#sevs {
+    display: flex;
+    gap: 20px;
 }
 
 

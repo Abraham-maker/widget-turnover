@@ -86,7 +86,7 @@ const ReturnHome = ({ setOpenModal }) => {
                                 <input type="text" id='linea1' onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
                                 <input type="text" id='linea2' onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
                                 <div className='div-flex'>
-                                    <input type="text" id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código Postal' />
+                                    <input type="text" id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
                                     <input type="text" id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
                                 </div>
                             </div>

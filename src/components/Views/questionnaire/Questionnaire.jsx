@@ -7,7 +7,7 @@ const Questionnaire = ({ setOpenModal }) => {
   const { push } = useHistory()
   const [cuestionnaire, setCuestionnaire] = useState({})
   const [open, setOpen] = useState(false);
-
+  const [finish, setFinish] = useState(false);
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)
     push('/')
@@ -31,8 +31,8 @@ const Questionnaire = ({ setOpenModal }) => {
 
       <div id="container-cuestionario">
         <div id="article-cuestionario">
-          <span id='title-turnover'>Cuestionário satisfación TurnOver.</span>
-          <p id='paragraph-turnover'>Antes de terminar tu devolución, valora del 1 al 10 cada uno de los seguientes puntos sobre la devolución efectuada con TurnOver. Siendo 1 nada safischo y 10 muy satisfecho.</p>
+          <span id='title-turnover'>Cuestionário de satisfacción TurnOver.</span>
+          <p id='paragraph-turnover'>Antes de terminar tu devolución, valora del 1 al 10 cada uno de los siguientes puntos sobre la devolución efectuada con TurnOver. siendo 1 nada satisfecho y 10 muy satisfecho.</p>
 
           <div id='container-checkboxs'>
             <div id="container-check1">
@@ -238,9 +238,20 @@ const Questionnaire = ({ setOpenModal }) => {
         {Object.entries(cuestionnaire).length < 3 ? (<>
           <button id='btn-question'>Enviar mi opinión</button>
         </>) : (<>
-          <button id='btn-question-active'>Enviar mi opinión</button>
+          <button id='btn-question-active' onClick={() => { setFinish(true) }}>Enviar mi opinión</button>
         </>)}
       </div>
+
+
+      {!!finish ? (
+        <div id="modal-finish">
+          <div class="modalbox">
+            <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={180} />
+            <p id='title-finish'>Gracias por tu feedback y por confiar en TurnOver</p>
+            <button id='btn-finish'>Volver a la tienda</button>
+          </div>
+        </div>) : false}
+
 
       {open ?
         (<>

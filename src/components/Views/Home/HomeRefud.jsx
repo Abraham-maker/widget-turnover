@@ -32,7 +32,7 @@ const HomeRefud = ({ setOpenModal }) => {
             <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
           </div>
           <div className='container__refud'>
-            <p className='paragraph__home'>Quiero Reembolso</p>
+            <p className='paragraph__home'>Quiero reembolso</p>
             <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
           </div>
           <button className='btn-home' onClick={() => { push('/get-orders') }}><span className='span__home' >Iniciar devolución</span></button>

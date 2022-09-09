@@ -48,7 +48,7 @@ const RePayment = ({ setOpenModal }) => {
 
             <div id="container-rePayment">
                 <div>
-                    <p>Tu Reembolso se efectuará en el instante.</p>
+                    <p>Tu reembolso se efectuará en el instante.</p>
                     <div id="article-re">
                         <div id="re-img">
                             <img src={dates.images[0].http_path} alt="" />

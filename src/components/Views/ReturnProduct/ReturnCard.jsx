@@ -55,18 +55,18 @@ const ReturnCard = ({ setOpenModal }) => {
                     <p>Información de la tarjeta</p>
 
                     <div id="div-inputs__card">
-                        <input type="text" id='card_number' placeholder='Número de tarjeta bancaria' name='creditCard' onChange={getDates} />
+                        <input type="text" maxLength={25} id='card_number' placeholder='Número de tarjeta bancaria' name='creditCard' onChange={getDates} />
                         <select id='select-card' onChange={getDates} name='tarjeta'>
                             <option selected disabled>Selecciona tu tarjeta</option>
                             <option value="Visa">Visa</option>
                             <option value="Master Card">Master Card</option>
                             <option value="Platino">Platino</option>
                         </select>
-                        <input type="text" id='titular' placeholder='Titular de la tarjeta' name='type_creditCard' onChange={getDates} />
-                        <input type="text" id='address_card' placeholder='Dirección' name='direccion_card' onChange={getDates} />
+                        <input type="text" maxLength={10} id='titular' placeholder='Titular de la tarjeta' name='type_creditCard' onChange={getDates} />
+                        <input type="text" maxLength={25} id='address_card' placeholder='Dirección' name='direccion_card' onChange={getDates} />
                         <div className='div-flex'>
-                            <input type="text" id='expirado' placeholder='Fecha de vencimiento' name='fecha_expirada' onChange={getDates} />
-                            <input type="text" id='cvv' placeholder='CVV' name='cvv' onChange={getDates} />
+                            <input type='date' id='expirado' placeholder='Fecha de vencimiento' name='fecha_expirada' onChange={getDates} />
+                            <input type="text" maxLength={4} id='cvv' placeholder='CVV' name='cvv' onChange={getDates} />
                         </div>
                     </div>
 
