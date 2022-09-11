@@ -31,7 +31,7 @@ const Questionnaire = ({ setOpenModal }) => {
 
       <div id="container-cuestionario">
         <div id="article-cuestionario">
-          <span id='title-turnover'>Cuestionário de satisfacción TurnOver.</span>
+          <span id='title-turnover'>Cuestionario de satisfacción TurnOver.</span>
           <p id='paragraph-turnover'>Antes de terminar tu devolución, valora del 1 al 10 cada uno de los siguientes puntos sobre la devolución efectuada con TurnOver. siendo 1 nada satisfecho y 10 muy satisfecho.</p>
 
           <div id='container-checkboxs'>
@@ -168,7 +168,7 @@ const Questionnaire = ({ setOpenModal }) => {
             </div>
 
             <div id="container-check3">
-              <p className='text-centers'>¿Recomendarias TurOver a tus familiares o amigos?</p>
+              <p className='text-centers'>¿Recomendarías TurOver a tus familiares o amigos?</p>
               <div id='check-3'>
 
                 <div>

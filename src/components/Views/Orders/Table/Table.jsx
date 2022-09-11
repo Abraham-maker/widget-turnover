@@ -28,7 +28,9 @@ const Table = ({ data, rowsPerPage }) => {
                             <tr className="tableRowItems" key={el.id}>
                                 <td className="tableCell">{el.number_of_items}</td>
                                 <td className="tableCell">{el.order_id}</td>
-                                <td className="tableCell">{el.status}</td>
+                                {el.status === 'Complete' ? (<><td className="tableCell">Completada</td></>) :
+                                    el.status === 'Pending' ? (<><td className="tableCell">Pendiente</td></>) : false
+                                }
                                 <td className="tableCell">{el.total}€</td>
                                 <td className="tableCell">{el.create_at}</td>
                                 <td className="productosBnt" onClick={() => {

@@ -82,7 +82,7 @@ const ReasonRefud = ({ setOpenModal }) => {
                     </div>
 
                     <div id='container-input'>
-                        <label htmlFor="comentary">Comentarios (opcional)</label>
+                        <label htmlFor="comentary" id='comentary-label'>Comentarios (opcional)</label>
                         <input type="text" id='comentary' name='comentario' placeholder='Escribe aquí' onChange={changeRadio} />
                     </div>
 
