@@ -24,7 +24,9 @@
     margin: 0 269px 20px 0;
 }
 
-#comentary-label{
+#comentary-label {
+    font-weight: 500;
+    color: #141414;
     margin: 0 269px 20px 0;
 }
 

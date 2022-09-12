@@ -95,16 +95,6 @@ const ReturnHome = ({ setOpenModal }) => {
         }
     }
 
-    const validateDirection2 = () => {
-        if (changeAddress.linea2 === undefined || changeAddress.linea2.length === 0) {
-            setAlertDireccion2("La direccion es requerida")
-            setValidates(false)
-        } else if (changeAddress.linea2.length < 5) {
-            setAlertDireccion2("El numero min de caracteres es de 4")
-            setValidates(false)
-        }
-    }
-
     const validatePostalCode = () => {
         if (changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0) {
             setAlertCodePostal("El codigo postal es requerido")
@@ -133,7 +123,6 @@ const ReturnHome = ({ setOpenModal }) => {
             validateName();
             validateCity();
             validateDirection1();
-            validateDirection2();
             validateLastName();
             validatePais();
             validatePostalCode()
@@ -228,14 +217,14 @@ const ReturnHome = ({ setOpenModal }) => {
                             <label htmlFor="term-home">Estoy de acuerdo con los <span id='terminos-home'>Términos y Condiciones</span></label>
                         </div>
 
-                        {changeAddress.nombre === undefined || changeAddress.nombre.length === 0 || changeAddress.apellido === undefined || changeAddress.apellido.length === 0 || changeAddress.pais === undefined || changeAddress.pais.length === 0 || changeAddress.linea1 === undefined || changeAddress.linea1.length === 0 || changeAddress.linea2 === undefined || changeAddress.linea2.length === 0 || changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0 || changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0 || check === false ?
+                        {changeAddress.nombre === undefined || changeAddress.nombre.length === 0 || changeAddress.apellido === undefined || changeAddress.apellido.length === 0 || changeAddress.pais === undefined || changeAddress.pais.length === 0 || changeAddress.linea1 === undefined || changeAddress.linea1.length === 0 || changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0 || changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0 || check === false ?
                             (<>
                                 <button id='bt-home'>Confirmar Devolución</button>
                             </>)
                             :
                             (<>
-                                {!!loading ? (<><div className='spinner'></div></>) : false}
                                 <button id='bt-home-active' onClick={validate}>Confirmar Devolución</button>
+                                {!!loading ? (<><div className='spinner'></div></>) : false}
                             </>)
                         }
 

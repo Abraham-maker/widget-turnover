@@ -88,15 +88,16 @@ const ReturnProductStore = ({ setOpenModal }) => {
                                 })}
                             </>)}
                     </div>
-                    {!!loading ? (<><div className='spinner'></div></>) : false}
                 </div>
 
                 {Object.entries(idStore).length === 0 ? (<>
                     <button id='btn-stores'>Confirmar devolución</button>
                 </>) : (<>
                     <button id='btn-stores-active' onClick={getCodeStore}>Confirmar devolución</button>
+
                 </>)}
             </div>
+            {!!loading ? (<><div className='spinner'></div></>) : false}
 
 
             {

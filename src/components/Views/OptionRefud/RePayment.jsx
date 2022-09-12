@@ -110,8 +110,8 @@ const RePayment = ({ setOpenModal }) => {
                         </>) :
                         (<>
                             <div id='btn-reNext'>
-                                {!!loading ? <span className='spinner'></span> : false}
                                 <button id='re-btnNext-active' onClick={onChangePages}>Continuar reembolso</button>
+                                {!!loading ? <span className='spinner'></span> : false}
                             </div>
                         </>)}
                 </div>

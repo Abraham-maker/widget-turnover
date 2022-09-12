@@ -112,14 +112,14 @@ const ReturnCard = ({ setOpenModal }) => {
                                 {errorDate ? (<><div className='message-error'>{errorDate}</div></>) : false}
                             </div>
                             <div>
-                                <input type="text" maxLength={3} id='cvv' placeholder='CVV' name='num' onChange={getDates} pattern="[0-9]+" />
+                                <input type="text" maxLength={4} id='cvv' placeholder='CVV' name='num' onChange={getDates} pattern="[0-9]+" />
                                 {errorNum ? (<><div className='message-error'>{errorNum}</div></>) : false}
                             </div>
                         </div>
                     </div>
 
                     <input type="checkbox" id="term-card" name="terms" onChange={handleChexbox} />
-                    <label htmlFor="term-card"> He leído, Entiendo y acepto  <span id='terminos-card'> Condiciones de reembolso</span> de TurnOver.</label>
+                    <label htmlFor="term-card"> He leído, entiendo y acepto  <span id='terminos-card'> Condiciones de reembolso</span> de TurnOver.</label>
                 </div>
 
                 {datesCard.value === undefined || datesCard.value.length === 0 || datesCard.name === undefined || datesCard.name.length === 0 || datesCard.address === undefined || datesCard.address.length === 0 || datesCard.date === undefined || datesCard.date.length === 0 || datesCard.num === undefined || datesCard.num.length === 0 || actualState === false ?

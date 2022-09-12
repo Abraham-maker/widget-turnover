@@ -49,7 +49,6 @@ const Products = ({ setOpenModal }) => {
             } else if (tipo_devolucion === 'Quiero un estilo/producto diferente' || tipo_devolucion === 'Quiero una talla/color diferente') {
                 push(`/about-product/${selectProduct}`)
             }
-
         }, 3000);
     }
 
@@ -124,19 +123,23 @@ const Products = ({ setOpenModal }) => {
 
                     )
                     }
-
+                    {!!loading ? (<><div className='spinner'></div></>) : false}
                 </div>
                 {
                     selectProduct.length === 0 ?
-                        <button id="start-products-disabled">
+                        (<> <button id="start-products-disabled">
                             <span>Iniciar devolución</span>
-                        </button> :
+                            s
+                        </button>
+                        </>)
+                        :
                         (<>
                             <button id="start-products" onClick={changePages}>
                                 <span>Iniciar devolución</span>
                             </button>
                         </>)
                 }
+
             </div>
 
             {open ?

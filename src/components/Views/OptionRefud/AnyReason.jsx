@@ -116,8 +116,8 @@ const AnyReason = ({ setOpenModal }) => {
                         </>) :
                         (<>
                             <div id='btn-anyNext'>
-                                {!!loading ? <span className='spinner'></span> : false}
                                 <button id='any-btnNext-active' onClick={onChangePage}>Continuar</button>
+                                {!!loading ? <span className='spinner'></span> : false}
                             </div>
                         </>)}
                 </div>
