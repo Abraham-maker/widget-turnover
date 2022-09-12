@@ -19,7 +19,7 @@ const ReturnHome = ({ setOpenModal }) => {
         codigo_postal: "",
         pais: "",
     })
-    
+
     const [validates, setValidates] = useState(true);
     let order_id = JSON.parse(window.localStorage.getItem("order_id", true))
     const [check, setCheck] = useState(false)
@@ -30,7 +30,7 @@ const ReturnHome = ({ setOpenModal }) => {
     const [alertDireccion2, setAlertDireccion2] = useState("")
     const [alertCodePostal, setAlertCodePostal] = useState("")
     const [alertCiudad, setAlertCiudad] = useState("")
-
+    console.log(check);
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
@@ -228,14 +228,17 @@ const ReturnHome = ({ setOpenModal }) => {
                             <label htmlFor="term-home">Estoy de acuerdo con los <span id='terminos-home'>Términos y Condiciones</span></label>
                         </div>
 
-                        {!!check ?
-                            (<>
-                                <button id='bt-home-active' onClick={validate}>Confirmar Devolución</button>
-                                {!!loading ? (<><div className='spinner'></div></>) : false}
-                            </>) :
+                        {changeAddress.nombre === undefined || changeAddress.nombre.length === 0 || changeAddress.apellido === undefined || changeAddress.apellido.length === 0 || changeAddress.pais === undefined || changeAddress.pais.length === 0 || changeAddress.linea1 === undefined || changeAddress.linea1.length === 0 || changeAddress.linea2 === undefined || changeAddress.linea2.length === 0 || changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0 || changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0 || check === false ?
                             (<>
                                 <button id='bt-home'>Confirmar Devolución</button>
-                            </>)}
+                            </>)
+                            :
+                            (<>
+                                {!!loading ? (<><div className='spinner'></div></>) : false}
+                                <button id='bt-home-active' onClick={validate}>Confirmar Devolución</button>
+                            </>)
+                        }
+
                     </>)}
 
             </div>
