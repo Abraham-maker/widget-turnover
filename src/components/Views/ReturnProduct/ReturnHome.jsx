@@ -20,7 +20,6 @@ const ReturnHome = ({ setOpenModal }) => {
         pais: "",
     })
 
-    const [validates, setValidates] = useState(true);
     let order_id = JSON.parse(window.localStorage.getItem("order_id", true))
     const [check, setCheck] = useState(false)
     const [alertPais, setAlertPais] = useState("")
@@ -30,7 +29,7 @@ const ReturnHome = ({ setOpenModal }) => {
     const [alertDireccion2, setAlertDireccion2] = useState("")
     const [alertCodePostal, setAlertCodePostal] = useState("")
     const [alertCiudad, setAlertCiudad] = useState("")
-    console.log(check);
+
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
@@ -55,81 +54,66 @@ const ReturnHome = ({ setOpenModal }) => {
         setChangeAddress({ ...changeAddress, [name]: value })
     }
 
-    const validateName = () => {
+    const validate = () => {
+        let validado = true
         if (changeAddress.nombre === undefined || changeAddress.nombre.length === 0) {
             setAlertNombre("El nombre es requerido")
-            setValidates(false)
+            validado = false
         } else if (changeAddress.nombre.length < 5) {
-            setAlertNombre("El numero min de caracteres es de 4")
-            setValidates(false)
+            setAlertNombre("El mínimo de caracteres debe ser 3")
+            validado = false
         }
-    }
 
-    const validateLastName = () => {
         if (changeAddress.apellido === undefined || changeAddress.apellido.length === 0) {
             setAlertApellido("El apellido es requerido")
-            setValidates(false)
+            validado = false
         } else if (changeAddress.apellido.length < 5) {
-            setAlertApellido("El numero min de caracteres es de 4")
-            setValidates(false)
+            setAlertApellido("El mínimo de caracteres debe ser 3")
+            validado = false
         }
-    }
 
-    const validatePais = () => {
         if (changeAddress.pais === undefined || changeAddress.pais.length === 0) {
             setAlertPais("El pais es requerido")
-            setValidates(false)
+            validado = false
         } else if (changeAddress.pais.length < 5) {
-            setAlertPais("El numero min de caracteres es de 5")
-            setValidates(false)
+            setAlertPais("El mínimo de caracteres debe ser 4")
+            validado = false
         }
-    }
 
-    const validateDirection1 = () => {
         if (changeAddress.linea1 === undefined || changeAddress.linea1.length === 0) {
             setAlertDireccion1("La direccion es requerida")
-            setValidates(false)
+            validado = false
         } else if (changeAddress.linea1.length < 5) {
-            setAlertDireccion1("El numero min de caracteres es de 4")
-            setValidates(false)
+            setAlertDireccion1("El mínimo de caracteres debe ser 4")
+            validado = false
         }
-    }
 
-    const validatePostalCode = () => {
         if (changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0) {
             setAlertCodePostal("El codigo postal es requerido")
-            setValidates(false)
+            validado = false
         } else if (changeAddress.codigo_postal.length < 5) {
-            setAlertCodePostal("El numero min de caracteres es de 5")
-            setValidates(false)
+            setAlertCodePostal("El mínimo de caracteres debe ser 4")
+            validado = false
         }
-    }
 
-    const validateCity = () => {
         if (changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0) {
             setAlertCiudad("La ciudad es requerida")
-            setValidates(false)
+            validado = false
         } else if (changeAddress.ciudad.length < 5) {
-            setAlertCiudad("El numero min de caracteres es de 5")
-            setValidates(false)
+            setAlertCiudad("El mínimo de caracteres debe ser 4")
+            validado = false
         }
-    }
 
 
-    const validate = () => {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false);
-            validateName();
-            validateCity();
-            validateDirection1();
-            validateLastName();
-            validatePais();
-            validatePostalCode()
-        }, 1000);
-    }
+        if (validado === true) {
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+                window.localStorage.setItem("address", JSON.stringify(changeAddress))
+                push('/view-refud-success')
+            }, 3000);
+        }
 
-    useEffect(() => {
         setTimeout(() => {
             setAlertCiudad("");
             setAlertCodePostal("");
@@ -138,13 +122,7 @@ const ReturnHome = ({ setOpenModal }) => {
             setAlertPais("");
             setAlertApellido("");
             setAlertNombre("");
-        }, 10000);
-    }, [validate])
-
-    const getCode = () => {
-        console.log(validate);
-        window.localStorage.setItem("address", JSON.stringify(changeAddress))
-        push('/view-refud-success')
+        }, 8000);
     }
 
     return (
@@ -180,7 +158,7 @@ const ReturnHome = ({ setOpenModal }) => {
 
                             <div id="div-inputs">
                                 <div>
-                                    <input type="text" id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='Ciudad' />
+                                    <input type="text" id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='pais' />
                                     {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
                                 </div>
                                 <div className='div-flex'>
@@ -219,11 +197,11 @@ const ReturnHome = ({ setOpenModal }) => {
 
                         {changeAddress.nombre === undefined || changeAddress.nombre.length === 0 || changeAddress.apellido === undefined || changeAddress.apellido.length === 0 || changeAddress.pais === undefined || changeAddress.pais.length === 0 || changeAddress.linea1 === undefined || changeAddress.linea1.length === 0 || changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0 || changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0 || check === false ?
                             (<>
-                                <button id='bt-home'>Confirmar Devolución</button>
+                                <button id='bt-home'>Confirmar devolución</button>
                             </>)
                             :
                             (<>
-                                <button id='bt-home-active' onClick={validate}>Confirmar Devolución</button>
+                                <button id='bt-home-active' onClick={validate}>Confirmar devolución</button>
                                 {!!loading ? (<><div className='spinner'></div></>) : false}
                             </>)
                         }

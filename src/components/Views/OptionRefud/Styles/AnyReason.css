@@ -20,6 +20,14 @@
     height: 200px;
 }
 
+#more-prices {
+    position: relative;
+    left: 17px;
+    color: #00BB2D;
+    font-weight: 500;
+
+}
+
 #any-img>img {
     width: 167px;
     height: 167px;

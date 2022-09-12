@@ -35,7 +35,7 @@ const AnyReason = ({ setOpenModal }) => {
         }, 3000);
         window.localStorage.setItem("devolver_producto", radios)
     }
-
+    console.log(check_storage);
     return (
         <>
             <div className='container_icons'>
@@ -60,7 +60,7 @@ const AnyReason = ({ setOpenModal }) => {
                             </div>
                             <span id='ref-any'>Ref. : {dates.id}</span>
                             <span>
-                                {!total_storage ? (<span id='more-price'>+0€</span>) : (<span id='more-price'>+{total_storage}€</span>)}
+                                {!total_storage ? (<span id='more-prices'>+0€</span>) : (<span id='more-prices'>+{total_storage}€</span>)}
                             </span>
                             {Object.entries(color_storage).length !== 0 ?
                                 (<>

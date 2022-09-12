@@ -54,6 +54,9 @@ const ReturnCard = ({ setOpenModal }) => {
             .then((errors) => {
                 setLoading(false)
                 setErrors(errors.errors)
+                setTimeout(() => {
+                    setErrors({})
+                }, 6000);
                 if (errors.status === 'Success') {
                     push('/view-repayment')
                 }
@@ -108,7 +111,7 @@ const ReturnCard = ({ setOpenModal }) => {
                         </div>
                         <div className='div-flex'>
                             <div>
-                                <input type='text' id='expirado' placeholder='Fecha de vencimiento' name='date' onChange={getDates} />
+                                <input type='text' id='expirado' placeholder='Fecha de vencimiento (mm/aa)' name='date' onChange={getDates} />
                                 {errorDate ? (<><div className='message-error'>{errorDate}</div></>) : false}
                             </div>
                             <div>

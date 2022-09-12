@@ -129,7 +129,6 @@ const Products = ({ setOpenModal }) => {
                     selectProduct.length === 0 ?
                         (<> <button id="start-products-disabled">
                             <span>Iniciar devolución</span>
-                            s
                         </button>
                         </>)
                         :
