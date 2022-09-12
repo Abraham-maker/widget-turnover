@@ -19,7 +19,7 @@ const ReturnHome = ({ setOpenModal }) => {
         push('/')
         setOpenModal(false)
     }
-    console.log("changeAddress", changeAddress);
+
     useEffect(() => {
         const getAddress = async () => {
             const address = `https://www.turnover.gotopdev.com/api/v1/order-address?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&order_id=${order_id}`

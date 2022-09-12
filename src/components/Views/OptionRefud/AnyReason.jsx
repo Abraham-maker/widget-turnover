@@ -20,7 +20,7 @@ const AnyReason = ({ setOpenModal }) => {
     const changeRadios = ({ target }) => {
         setRadios(target.value);
     }
-    console.log(check_storage.checkbox[0]);
+
     const onChangePage = () => {
         setLoading(true);
         setTimeout(() => {
@@ -51,15 +51,17 @@ const AnyReason = ({ setOpenModal }) => {
                         <div id="any-img">
                             <img src={dates.images[0].http_path} alt="" />
                         </div>
-                        <div>
+                        <div id='container-about_'>
                             <div id='any-flex'>
                                 <span>{dates.name} {dates.u_model}</span>
                                 <div>
                                     <span>{dates.price}€</span>
-                                    <div id='more-price'>{!total_storage ? (<>+0€</>) : (<>+{total_storage}€</>)}</div>
                                 </div>
                             </div>
-                            <p id='ref-any'>Ref. : {dates.id}</p>
+                            <span id='ref-any'>Ref. : {dates.id}</span>
+                            <span>
+                                {!total_storage ? (<span id='more-price'>+0€</span>) : (<span id='more-price'>+{total_storage}€</span>)}
+                            </span>
                             {Object.entries(color_storage).length !== 0 ?
                                 (<>
                                     <p id='size-any'>Talla : {radios_storage.talla.talla}</p>
@@ -122,20 +124,22 @@ const AnyReason = ({ setOpenModal }) => {
             </div>
 
 
-            {open ?
-                (<>
-                    <div className="background">
-                        <div className="popup">
-                            <div className="content">
-                                ¿Seguro que deseas salir?, Todo el estado actual se perderá.
-                            </div>
-                            <div className='container-btn'>
-                                <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
+            {
+                open ?
+                    (<>
+                        <div className="background">
+                            <div className="popup">
+                                <div className="content">
+                                    ¿Seguro que deseas salir?, Todo el estado actual se perderá.
+                                </div>
+                                <div className='container-btn'>
+                                    <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
+                                    <button className='btn-accept' onClick={closeModal}>Aceptar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </>) : false}
+                    </>) : false
+            }
         </>
     )
 }

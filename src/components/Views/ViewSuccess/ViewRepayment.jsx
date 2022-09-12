@@ -27,9 +27,14 @@ const ViewRepayment = ({ setOpenModal }) => {
                     <p id='paragraph-refud-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
 
                     <div id='card-success'>
+                        <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={100} />
+                        <div id='card-texts'>
+                            <span id='title-card-saldo'>Saldo TurnOver:</span>
+                            <span id='text-card'>59,90€</span>
+                        </div>
                     </div>
 
-                    <button id='btn-store-success' onClick={() => {push('/questionnaire')}}>Ir a la tienda</button>
+                    <button id='btn-store-success' onClick={() => { push('/questionnaire') }}>Ir a la tienda</button>
                 </div>
             </div>
 

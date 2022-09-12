@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { WebContext } from '../../../config/Context/Context';
 import './styles/Products.css'
 
 
 const Products = ({ setOpenModal }) => {
+    const { loading, setLoading } = useContext(WebContext);
     let params = useParams();
     let { order_id } = params;
     const { push } = useHistory();
     const [open, setOpen] = useState(false);
     const [products, setProducts] = useState({});
     const [selectProduct, setSelectProduct] = useState([]);
-
+    let tipo_devolucion = JSON.parse(localStorage.getItem('tipo_devolucion', true))
+    console.log(selectProduct);
     useEffect(() => {
         if (selectProduct.length !== 0) {
             window.localStorage.setItem("product_id", JSON.stringify(selectProduct))
@@ -36,6 +40,18 @@ const Products = ({ setOpenModal }) => {
         findId();
     }, []);
 
+    const changePages = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+            if (tipo_devolucion === 'Quiero Reembolso') {
+                return push(`/reason-refud/${selectProduct}`)
+            } else if (tipo_devolucion === 'Quiero un estilo/producto diferente' || tipo_devolucion === 'Quiero una talla/color diferente') {
+                push(`/about-product/${selectProduct}`)
+            }
+
+        }, 3000);
+    }
 
 
     return (
@@ -116,7 +132,7 @@ const Products = ({ setOpenModal }) => {
                             <span>Iniciar devolución</span>
                         </button> :
                         (<>
-                            <button id="start-products" onClick={() => { return push(`/about-product/${selectProduct}`) }}>
+                            <button id="start-products" onClick={changePages}>
                                 <span>Iniciar devolución</span>
                             </button>
                         </>)

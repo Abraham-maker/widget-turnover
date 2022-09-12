@@ -58,7 +58,6 @@ const RePayment = ({ setOpenModal }) => {
                                 <span>{dates.name} {dates.u_model}</span>
                                 <div>
                                     <span>{dates.price}€</span>
-                                    <div id='more-price'>{!total_storage ? (<>+0€</>) : (<>+{total_storage}€</>)}</div>
                                 </div>
                             </div>
                             <p id='ref-re'>Ref. {dates.id}</p>

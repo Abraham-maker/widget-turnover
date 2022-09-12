@@ -27,11 +27,15 @@ const RefudCardTurnOver = ({ setOpenModal }) => {
                     <p id='paragraph-card-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
 
                     <div id='card-refud-success'>
-                        <p id='title-fondos'>Saldo TurnOver:</p>
-                        <p id='text-fondos'>59,90€</p>
+                        <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={100} />
+                        <div id='card-texts-refud'>
+                            <p id='title-fondos'>Saldo TurnOver:</p>
+                            <p id='text-fondos'>59,90€</p>
+                        </div>
                     </div>
+
                     <p id='title-about'>*Esta tarjeta es una tarjeta virtual</p>
-                    <button id='btn-stores-success' onClick={() => {push('/questionnaire')}}>Ir a la tienda</button>
+                    <button id='btn-stores-success' onClick={() => { push('/questionnaire') }}>Ir a la tienda</button>
                 </div>
             </div>
 
