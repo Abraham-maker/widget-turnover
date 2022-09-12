@@ -38,6 +38,7 @@
     display: flex;
     font-size: 12px;
     margin-top: 12px;
+    gap: 7px
 }
 
 
@@ -60,7 +61,7 @@
 #container-colors__any {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
 }
 
 #container-colors__any>span {

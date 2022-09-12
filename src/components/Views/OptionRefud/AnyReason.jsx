@@ -74,6 +74,7 @@ const AnyReason = ({ setOpenModal }) => {
                                         }
                                     </div>
                                     <div id='container-check__flex'>
+                                        <span>Checkbox :</span>
                                         <span>{check_storage.checkbox[0]}</span>
                                         <span>{check_storage.checkbox[1]}</span>
                                         <span>{check_storage.checkbox[2]}</span>
