@@ -10,9 +10,26 @@ const ReturnHome = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     const [addressUser, setAddressUser] = useState({})
-    const [changeAddress, setChangeAddress] = useState({})
+    const [changeAddress, setChangeAddress] = useState({
+        nombre: "",
+        apellido: "",
+        ciudad: "",
+        linea1: "",
+        linea2: "",
+        codigo_postal: "",
+        pais: "",
+    })
+    
+    const [validates, setValidates] = useState(true);
     let order_id = JSON.parse(window.localStorage.getItem("order_id", true))
     const [check, setCheck] = useState(false)
+    const [alertPais, setAlertPais] = useState("")
+    const [alertNombre, setAlertNombre] = useState([])
+    const [alertApellido, setAlertApellido] = useState("")
+    const [alertDireccion1, setAlertDireccion1] = useState("")
+    const [alertDireccion2, setAlertDireccion2] = useState("")
+    const [alertCodePostal, setAlertCodePostal] = useState("")
+    const [alertCiudad, setAlertCiudad] = useState("")
 
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
@@ -32,18 +49,113 @@ const ReturnHome = ({ setOpenModal }) => {
         getAddress();
     }, []);
 
+
     const addressChange = ({ target }) => {
         const { name, value } = target;
         setChangeAddress({ ...changeAddress, [name]: value })
     }
 
-    const getCode = () => {
+    const validateName = () => {
+        if (changeAddress.nombre === undefined || changeAddress.nombre.length === 0) {
+            setAlertNombre("El nombre es requerido")
+            setValidates(false)
+        } else if (changeAddress.nombre.length < 5) {
+            setAlertNombre("El numero min de caracteres es de 4")
+            setValidates(false)
+        }
+    }
+
+    const validateLastName = () => {
+        if (changeAddress.apellido === undefined || changeAddress.apellido.length === 0) {
+            setAlertApellido("El apellido es requerido")
+            setValidates(false)
+        } else if (changeAddress.apellido.length < 5) {
+            setAlertApellido("El numero min de caracteres es de 4")
+            setValidates(false)
+        }
+    }
+
+    const validatePais = () => {
+        if (changeAddress.pais === undefined || changeAddress.pais.length === 0) {
+            setAlertPais("El pais es requerido")
+            setValidates(false)
+        } else if (changeAddress.pais.length < 5) {
+            setAlertPais("El numero min de caracteres es de 5")
+            setValidates(false)
+        }
+    }
+
+    const validateDirection1 = () => {
+        if (changeAddress.linea1 === undefined || changeAddress.linea1.length === 0) {
+            setAlertDireccion1("La direccion es requerida")
+            setValidates(false)
+        } else if (changeAddress.linea1.length < 5) {
+            setAlertDireccion1("El numero min de caracteres es de 4")
+            setValidates(false)
+        }
+    }
+
+    const validateDirection2 = () => {
+        if (changeAddress.linea2 === undefined || changeAddress.linea2.length === 0) {
+            setAlertDireccion2("La direccion es requerida")
+            setValidates(false)
+        } else if (changeAddress.linea2.length < 5) {
+            setAlertDireccion2("El numero min de caracteres es de 4")
+            setValidates(false)
+        }
+    }
+
+    const validatePostalCode = () => {
+        if (changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0) {
+            setAlertCodePostal("El codigo postal es requerido")
+            setValidates(false)
+        } else if (changeAddress.codigo_postal.length < 5) {
+            setAlertCodePostal("El numero min de caracteres es de 5")
+            setValidates(false)
+        }
+    }
+
+    const validateCity = () => {
+        if (changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0) {
+            setAlertCiudad("La ciudad es requerida")
+            setValidates(false)
+        } else if (changeAddress.ciudad.length < 5) {
+            setAlertCiudad("El numero min de caracteres es de 5")
+            setValidates(false)
+        }
+    }
+
+
+    const validate = () => {
         setLoading(true)
-        window.localStorage.setItem("address", JSON.stringify(changeAddress))
         setTimeout(() => {
             setLoading(false);
-            push('/view-refud-success')
-        }, 2000);
+            validateName();
+            validateCity();
+            validateDirection1();
+            validateDirection2();
+            validateLastName();
+            validatePais();
+            validatePostalCode()
+        }, 1000);
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setAlertCiudad("");
+            setAlertCodePostal("");
+            setAlertDireccion2("");
+            setAlertDireccion1("");
+            setAlertPais("");
+            setAlertApellido("");
+            setAlertNombre("");
+        }, 10000);
+    }, [validate])
+
+    const getCode = () => {
+        console.log(validate);
+        window.localStorage.setItem("address", JSON.stringify(changeAddress))
+        push('/view-refud-success')
     }
 
     return (
@@ -78,16 +190,37 @@ const ReturnHome = ({ setOpenModal }) => {
                             <p>Facturación</p>
 
                             <div id="div-inputs">
-                                <input type="text" id='direccion' onChange={addressChange} name='direccion' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='Ciudad' />
-                                <div className='div-flex'>
-                                    <input type="text" id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
-                                    <input type="text" id='apellido' onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
+                                <div>
+                                    <input type="text" id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='Ciudad' />
+                                    {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
                                 </div>
-                                <input type="text" id='linea1' onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
-                                <input type="text" id='linea2' onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
                                 <div className='div-flex'>
-                                    <input type="text" id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
-                                    <input type="text" id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
+                                    <div>
+                                        <input type="text" id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
+                                        {alertNombre ? (<><span className='message-error'>{alertNombre}</span></>) : false}
+                                    </div>
+                                    <div>
+                                        <input type="text" id='apellido' onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
+                                        {alertApellido ? (<><span className='message-error'>{alertApellido}</span></>) : false}
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="text" id='linea1' onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
+                                    {alertDireccion1 ? (<><span className='message-error'>{alertDireccion1}</span></>) : false}
+                                </div>
+                                <div>
+                                    <input type="text" id='linea2' onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
+                                    {alertDireccion2 ? (<><span className='message-error'>{alertDireccion2}</span></>) : false}
+                                </div>
+                                <div className='div-flex'>
+                                    <div>
+                                        <input type="text" id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
+                                        {alertCodePostal ? (<><span className='message-error'>{alertCodePostal}</span></>) : false}
+                                    </div>
+                                    <div>
+                                        <input type="text" id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
+                                        {alertCiudad ? (<><span className='message-error'>{alertCiudad}</span></>) : false}
+                                    </div>
                                 </div>
                             </div>
 
@@ -97,7 +230,7 @@ const ReturnHome = ({ setOpenModal }) => {
 
                         {!!check ?
                             (<>
-                                <button id='bt-home-active' onClick={getCode}>Confirmar Devolución</button>
+                                <button id='bt-home-active' onClick={validate}>Confirmar Devolución</button>
                                 {!!loading ? (<><div className='spinner'></div></>) : false}
                             </>) :
                             (<>
