@@ -88,7 +88,7 @@ const ReturnCard = ({ setOpenModal }) => {
 
                     <div id="div-inputs__card">
                         <div>
-                            <input type="text" maxLength={25} id='card_number' placeholder='Número de tarjeta bancaria' name='value' onChange={getDates} />
+                            <input type="text" maxLength={25} id='card_number' placeholder='Número de tarjeta bancaria' name='value' onChange={getDates} pattern="[0-9]+" />
                             {errorValue ? (<><div className='message-error'>{errorValue}</div></>) : false}
                         </div>
                         <div>
@@ -114,7 +114,7 @@ const ReturnCard = ({ setOpenModal }) => {
                                 {errorDate ? (<><div className='message-error'>{errorDate}</div></>) : false}
                             </div>
                             <div>
-                                <input type="text" maxLength={4} id='cvv' placeholder='CVV' name='num' onChange={getDates} />
+                                <input type="text" maxLength={3} id='cvv' placeholder='CVV' name='num' onChange={getDates} pattern="[0-9]+" />
                                 {errorNum ? (<><div className='message-error'>{errorNum}</div></>) : false}
                             </div>
                         </div>
