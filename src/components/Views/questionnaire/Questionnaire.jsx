@@ -247,7 +247,7 @@ const Questionnaire = ({ setOpenModal }) => {
         <div id="modal-finish">
           <div class="modalbox">
             <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={180} />
-            <p id='title-finish'>Gracias por tu feedback y por confiar en TurnOver</p>
+            <p id='title-finish'>Gracias por tu opinión y confiar en TurnOver</p>
             <button id='btn-finish' onClick={() => { push('/') }}>Volver a la tienda</button>
           </div>
         </div>) : false}

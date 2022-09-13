@@ -64,7 +64,7 @@ const ReasonRefud = ({ setOpenModal }) => {
 
             <div id="container-reason">
                 <div id="article-reason">
-                    <span id='reason-refud'>Indica las razones de tu devolución</span>
+                    <span id='reason-refud'>Indica la razón de tu devolución</span>
 
                     <div id='container-radios'>
                         {Object.entries(reason).length === 0 ? (<><div className='spinner'></div></>) : (<>

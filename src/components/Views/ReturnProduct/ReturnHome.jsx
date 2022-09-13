@@ -59,7 +59,7 @@ const ReturnHome = ({ setOpenModal }) => {
         if (changeAddress.nombre === undefined || changeAddress.nombre.length === 0) {
             setAlertNombre("El nombre es requerido")
             validado = false
-        } else if (changeAddress.nombre.length < 5) {
+        } else if (changeAddress.nombre.length < 3) {
             setAlertNombre("El mínimo de caracteres debe ser 3")
             validado = false
         }
@@ -67,7 +67,7 @@ const ReturnHome = ({ setOpenModal }) => {
         if (changeAddress.apellido === undefined || changeAddress.apellido.length === 0) {
             setAlertApellido("El apellido es requerido")
             validado = false
-        } else if (changeAddress.apellido.length < 5) {
+        } else if (changeAddress.apellido.length < 3) {
             setAlertApellido("El mínimo de caracteres debe ser 3")
             validado = false
         }
@@ -75,7 +75,7 @@ const ReturnHome = ({ setOpenModal }) => {
         if (changeAddress.pais === undefined || changeAddress.pais.length === 0) {
             setAlertPais("El pais es requerido")
             validado = false
-        } else if (changeAddress.pais.length < 5) {
+        } else if (changeAddress.pais.length < 4) {
             setAlertPais("El mínimo de caracteres debe ser 4")
             validado = false
         }
@@ -83,7 +83,7 @@ const ReturnHome = ({ setOpenModal }) => {
         if (changeAddress.linea1 === undefined || changeAddress.linea1.length === 0) {
             setAlertDireccion1("La direccion es requerida")
             validado = false
-        } else if (changeAddress.linea1.length < 5) {
+        } else if (changeAddress.linea1.length < 4) {
             setAlertDireccion1("El mínimo de caracteres debe ser 4")
             validado = false
         }
@@ -91,7 +91,7 @@ const ReturnHome = ({ setOpenModal }) => {
         if (changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0) {
             setAlertCodePostal("El codigo postal es requerido")
             validado = false
-        } else if (changeAddress.codigo_postal.length < 5) {
+        } else if (changeAddress.codigo_postal.length < 4) {
             setAlertCodePostal("El mínimo de caracteres debe ser 4")
             validado = false
         }
@@ -99,7 +99,7 @@ const ReturnHome = ({ setOpenModal }) => {
         if (changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0) {
             setAlertCiudad("La ciudad es requerida")
             validado = false
-        } else if (changeAddress.ciudad.length < 5) {
+        } else if (changeAddress.ciudad.length < 4) {
             setAlertCiudad("El mínimo de caracteres debe ser 4")
             validado = false
         }
@@ -158,7 +158,7 @@ const ReturnHome = ({ setOpenModal }) => {
 
                             <div id="div-inputs">
                                 <div>
-                                    <input type="text" id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='pais' />
+                                    <input type="text" id='direccion' onChange={addressChange} name='País' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='pais' />
                                     {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
                                 </div>
                                 <div className='div-flex'>

@@ -89,7 +89,7 @@ const ReturnCard = ({ setOpenModal }) => {
 
                     <div id="div-inputs__card">
                         <div>
-                            <input type="text" maxLength={25} id='card_number' placeholder='Número de tarjeta bancaria' name='value' onChange={getDates} pattern="[0-9]+" />
+                            <input type="text" maxLength={16} id='card_number' placeholder='Número de tarjeta bancaria' name='value' onChange={getDates} pattern="[0-9]+" />
                             {errorValue ? (<><div className='message-error'>{errorValue}</div></>) : false}
                         </div>
                         <div>
@@ -111,7 +111,7 @@ const ReturnCard = ({ setOpenModal }) => {
                         </div>
                         <div className='div-flex'>
                             <div>
-                                <input type='text' id='expirado' placeholder='Fecha de vencimiento (mm/aa)' name='date' onChange={getDates} />
+                                <input type='text' maxLength={5} id='expirado' placeholder='Fecha de vencimiento (mm/aa)' name='date' onChange={getDates} />
                                 {errorDate ? (<><div className='message-error'>{errorDate}</div></>) : false}
                             </div>
                             <div>
