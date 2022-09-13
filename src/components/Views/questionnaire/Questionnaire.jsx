@@ -40,62 +40,83 @@ const Questionnaire = ({ setOpenModal }) => {
               <div id="check-1">
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='1' id="value1" onChange={cuestionnaireChange} />
-                  <label htmlFor="value1"></label>
+                  <label htmlFor="value1" className='label-radio' >
+                    <input type="radio" name="agusto_refud" value='1' id="value1" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
+
                   <p className='text-center'>1</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='2' id="value2" onChange={cuestionnaireChange} />
-                  <label htmlFor="value2"></label>
+                  <label htmlFor="value2" className='label-radio' >
+                    <input type="radio" name="agusto_refud" value='2' id="value2" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>2</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='3' id="value3" onChange={cuestionnaireChange} />
-                  <label htmlFor="value3"></label>
+                  <label htmlFor="value3" className='label-radio' >
+                    <input type="radio" name="agusto_refud" value='3' id="value3" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>3</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='4' id="value4" onChange={cuestionnaireChange} />
-                  <label htmlFor="value4"></label>
+                  <label htmlFor="value4" className='label-radio' >
+                    <input type="radio" name="agusto_refud" value='4' id="value4" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>4</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='5' id="value5" onChange={cuestionnaireChange} />
-                  <label htmlFor="value5"></label>
+                  <label htmlFor="value5" className='label-radio' >
+                    <input type="radio" name="agusto_refud" value='5' id="value5" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>5</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='6' id="value6" onChange={cuestionnaireChange} />
-                  <label htmlFor="value6"></label>
+                  <label htmlFor="value6" className='label-radio' >
+                    <input type="radio" name="agusto_refud" value='6' id="value6" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>6</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='7' id="value7" onChange={cuestionnaireChange} />
-                  <label htmlFor="value7"></label>
+                  <label htmlFor="value7" className='label-radio'>
+                    <input type="radio" name="agusto_refud" value='7' id="value7" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>7</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='8' id="value8" onChange={cuestionnaireChange} />
-                  <label htmlFor="value8"></label>
+                  <label htmlFor="value8" className='label-radio'>
+                    <input type="radio" name="agusto_refud" value='8' id="value8" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>8</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='9' id="value9" onChange={cuestionnaireChange} />
-                  <label htmlFor="value9"></label>
+                  <label htmlFor="value9" className='label-radio'>
+                    <input type="radio" name="agusto_refud" value='9' id="value9" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>9</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="agusto_refud" value='10' id="value10" onChange={cuestionnaireChange} />
-                  <label htmlFor="value10"></label>
+                  <label htmlFor="value10" className='label-radio'>
+                    <input type="radio" name="agusto_refud" value='10' id="value10" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>10</p>
                 </div>
 
@@ -106,62 +127,82 @@ const Questionnaire = ({ setOpenModal }) => {
               <p className='text-centers'>¿Se ha solucionado debidamente tu problema?</p>
               <div id="check-2">
                 <div>
-                  <input type="radio" name="solution_refud" value='1' id="value11" onChange={cuestionnaireChange} />
-                  <label htmlFor="value11"><span></span></label>
+                  <label htmlFor="value11" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='1' id="value11" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>1</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='2' id="value12" onChange={cuestionnaireChange} />
-                  <label htmlFor="value12"></label>
+                  <label htmlFor="value12" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='2' id="value12" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>2</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='3' id="value13" onChange={cuestionnaireChange} />
-                  <label htmlFor="value13"></label>
+                  <label htmlFor="value13" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='3' id="value13" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>3</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='4' id="value14" onChange={cuestionnaireChange} />
-                  <label htmlFor="value14"></label>
+                  <label htmlFor="value14" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='4' id="value14" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>4</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='5' id="value15" onChange={cuestionnaireChange} />
-                  <label htmlFor="value15"></label>
+                  <label htmlFor="value15" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='5' id="value15" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>5</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='6' id="value16" onChange={cuestionnaireChange} />
-                  <label htmlFor="value16"></label>
+                  <label htmlFor="value16" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='6' id="value16" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>6</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='7' id="value17" onChange={cuestionnaireChange} />
-                  <label htmlFor="value17"></label>
+                  <label htmlFor="value16" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='7' id="value16" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>7</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='8' id="value18" onChange={cuestionnaireChange} />
-                  <label htmlFor="value18"></label>
+                  <label htmlFor="value17" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='8' id="value17" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>8</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='9' id="value19" onChange={cuestionnaireChange} />
-                  <label htmlFor="value19"></label>
+                  <label htmlFor="value18" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='9' id="value18" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>9</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="solution_refud" value='10' id="value20" onChange={cuestionnaireChange} />
-                  <label htmlFor="value20"></label>
+                  <label htmlFor="value19" className='label-radio'>
+                    <input type="radio" name="solution_refud" value='10' id="value19" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>10</p>
                 </div>
               </div>
@@ -172,62 +213,82 @@ const Questionnaire = ({ setOpenModal }) => {
               <div id='check-3'>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='1' id="value21" onChange={cuestionnaireChange} />
-                  <label htmlFor="value21"></label>
+                  <label htmlFor="value21" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='1' id="value21" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>1</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='2' id="value22" onChange={cuestionnaireChange} />
-                  <label htmlFor="value22"></label>
+                  <label htmlFor="value22" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='2' id="value22" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>2</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='3' id="value23" onChange={cuestionnaireChange} />
-                  <label htmlFor="value23"></label>
+                  <label htmlFor="value23" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='3' id="value23" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>3</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='4' id="value24" onChange={cuestionnaireChange} />
-                  <label htmlFor="value24"></label>
+                  <label htmlFor="value24" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='4' id="value24" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>4</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='5' id="value25" onChange={cuestionnaireChange} />
-                  <label htmlFor="value25"></label>
+                  <label htmlFor="value25" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='5' id="value25" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>5</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='6' id="value26" onChange={cuestionnaireChange} />
-                  <label htmlFor="value26"></label>
+                  <label htmlFor="value26" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='6' id="value26" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>6</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='7' id="value27" onChange={cuestionnaireChange} />
-                  <label htmlFor="value27"></label>
+                  <label htmlFor="value27" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='7' id="value27" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>7</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='8' id="value28" onChange={cuestionnaireChange} />
-                  <label htmlFor="value28"></label>
+                  <label htmlFor="value28" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='8' id="value28" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>8</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='9' id="value29" onChange={cuestionnaireChange} />
-                  <label htmlFor="value29"></label>
+                  <label htmlFor="value29" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='9' id="value29" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>9</p>
                 </div>
 
                 <div>
-                  <input type="radio" name="recommend_refud" value='10' id="value30" onChange={cuestionnaireChange} />
-                  <label htmlFor="value30"></label>
+                  <label htmlFor="value30" className='label-radio'>
+                    <input type="radio" name="recommend_refud" value='10' id="value30" onChange={cuestionnaireChange} />
+                    <span></span>
+                  </label>
                   <p className='text-center'>10</p>
                 </div>
               </div>

@@ -26,6 +26,9 @@
 #span-free__home {
     position: relative;
     left: 13em;
+    font-size: 14px;
+    color: #424242;
+    font-weight: 500;
 }
 
 .home-date {
@@ -125,3 +128,5 @@
 #terminos-home {
     text-decoration: underline;
 }
+
+.container-radio-checked {}

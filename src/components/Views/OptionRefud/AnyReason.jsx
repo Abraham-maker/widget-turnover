@@ -89,18 +89,26 @@ const AnyReason = ({ setOpenModal }) => {
 
                         <div id='container-radios__any'>
                             <div>
-                                <input type="radio" id="test1" name="radio-group" value='Devolver tu producto en Tienda' onChange={changeRadios} />
-                                <label for="test1">Devolver tu producto en Tienda</label>
-                                <span id='span-free'>Gratuito</span>
+                                <div className='container-radio'>
+                                    <label htmlFor="test1" className='label-radio'>
+                                        <input type="radio" id="test1" name="radio-group" value='Devolver tu producto en Tienda' onChange={changeRadios} />
+                                        <span>Devolver tu producto en Tienda</span>
+                                    </label>
+                                    <span className='span-free'>Gratuito</span>
+                                </div>
                                 <div>
                                     <p className='any-date'>Estimada hasta el marte 08 sep. - martes 15 sep.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>
                             <div>
-                                <input type="radio" id="test2" name="radio-group" value='Devolver tu producto en Domicilio' onChange={changeRadios} />
-                                <label for="test2">Devolver tu producto en Domicilio</label>
-                                <span id='span-free2'>Gratuito</span>
+                                <div className='container-radio'>
+                                    <label htmlFor="test2" className='label-radio'>
+                                        <input type="radio" id="test2" name="radio-group" value='Devolver tu producto en Domicilio' onChange={changeRadios} />
+                                        <span>Devolver tu producto en Domicilio</span>
+                                    </label>
+                                    <span className='span-free'>Gratuito</span>
+                                </div>
                                 <div>
                                     <p className='any-date' >Estimada hasta el jueves 10 sep. - martes 15 sep.</p>
                                     <p className='any-info'>+ info</p>

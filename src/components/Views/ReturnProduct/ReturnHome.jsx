@@ -145,9 +145,14 @@ const ReturnHome = ({ setOpenModal }) => {
                         <div id="return-home__container">
                             <div id='container-btn-radio'>
                                 <div>
-                                    <input type="radio" id="test2" name="radio-group" checked />
-                                    <label for="test2">Devolver tu producto en Domicilio</label>
-                                    <span id='span-free__home'>Gratuito</span>
+
+                                    <div className='container-radio'>
+                                        <label htmlFor="test" className='label-radio'>
+                                            <input type="radio" id="test1" name="radio-group" checked />
+                                            <span>Devolver tu producto en Domicilio</span>
+                                        </label>
+                                        <span id='span-free__home'>Gratuito</span>
+                                    </div>
                                     <div>
                                         <p className='home-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
                                         <p className='home-info'>+ info</p>

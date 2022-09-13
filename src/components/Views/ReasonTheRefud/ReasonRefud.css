@@ -97,3 +97,11 @@
     margin: 20px;
 
 }
+
+.span-free {
+    font-size: 14px;
+    font-weight: 500;
+    color: #424242;
+    position: relative;
+    right: -25px;
+}

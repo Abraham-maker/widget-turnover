@@ -75,9 +75,13 @@ const ReturnCard = ({ setOpenModal }) => {
                 <div id="return-card__container">
                     <div id='card-btn-radio'>
                         <div>
-                            <input type="radio" id="test2" name="radio-group" checked />
-                            <label for="test2">Reembolso a una tarjeta</label>
-                            <span id='span-free__card'>{dates.price}€</span>
+                            <div id="container-radio">
+                                <label htmlFor="test2" className='label-radio' >
+                                    <input type="radio" id="test2" name="radio-group" checked />
+                                    <span>Reembolso a una tarjeta</span>
+                                </label>
+                                <span id='span-free__card'>{dates.price}€</span>
+                            </div>
                             <div>
                                 <p className='card-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
                                 <p className='card-info'>+ info</p>

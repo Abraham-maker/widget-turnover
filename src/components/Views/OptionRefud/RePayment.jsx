@@ -80,18 +80,26 @@ const RePayment = ({ setOpenModal }) => {
 
                         <div id='container-radios__re'>
                             <div>
-                                <input type="radio" id="test1" name="radio-group" value='Reembolso a una tarjeta' onChange={radiosChangeRefud} />
-                                <label for="test1">Reembolso a una tarjeta</label>
-                                <span id='span-free__re'>{dates.price}€</span>
+                                <div className='container-radio'>
+                                    <label htmlFor="test1" className='label-radio' >
+                                        <input type="radio" id="test1" name="radio-group" value='Reembolso a una tarjeta' onChange={radiosChangeRefud} />
+                                        <span>Reembolso a una tarjeta</span>
+                                    </label>
+                                    <span id='span-free__re'>{dates.price}€</span>
+                                </div>
                                 <div>
                                     <p className='any-date'>Estimada hasta el martes 08 sep. - martes 15 sep.</p>
                                     <p className='any-info'>+ info</p>
                                 </div>
                             </div>
                             <div>
-                                <input type="radio" id="test2" name="radio-group" value='Tarjeta TurnOver' onChange={radiosChangeRefud} />
-                                <label for="test2">Tarjeta TurnOver</label>
-                                <span id='span-free2__re'>{dates.price}€</span>
+                                <div className='container-radio'>
+                                    <label htmlFor="test2" className='label-radio' >
+                                        <input type="radio" id="test2" name="radio-group" value='Tarjeta TurnOver' onChange={radiosChangeRefud} />
+                                        <span>Tarjeta TurnOver</span>
+                                    </label>
+                                    <span id='span-free2__re'>{dates.price}€</span>
+                                </div>
                                 <div>
                                     <p className='any-date' >Estimada hasta el jueves 10 Mar. - martes 15 mar.</p>
                                     <p className='any-info'>+ info</p>

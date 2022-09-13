@@ -147,14 +147,18 @@ const SelectSize = ({ setOpenModal }) => {
 
                       <div id="container-options">
 
-                        <div id="container-radio">
+                        <div id="container-radioo">
                           <span id='text-size'>Selecciona tu talla</span>
 
                           {radios.option_items.map((radio) => {
                             return (
                               <>
-                                <input type="radio" id={radio.id} title={radio.price} name="talla" value={radio.name} onChange={optionsChange} />
-                                <label for={radio.id}>{radio.name} (+${radio.price})</label>
+
+                                <label htmlFor={radio.id} className='label-radio'>
+                                  <input type="radio" id={radio.id} title={radio.price} name="talla" value={radio.name} onChange={optionsChange} />
+                                  <span>{radio.name} (+${radio.price})</span>
+                                </label>
+
                               </>
                             )
                           })}

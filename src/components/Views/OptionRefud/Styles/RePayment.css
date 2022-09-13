@@ -115,11 +115,17 @@
 #span-free__re {
     position: relative;
     left: 13em;
+    font-size: 14px;
+    font-weight: 500;
+    color: #424242;
 }
 
 #span-free2__re {
     position: relative;
-    left: 16.5em;
+    left: 17.5em;
+    font-size: 14px;
+    font-weight: 500;
+    color: #424242;
 }
 
 .any-date {

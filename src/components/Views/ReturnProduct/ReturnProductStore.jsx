@@ -56,9 +56,13 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
                 <div id="return-store">
                     <div>
-                        <input type="radio" id="test1" name="radio-group" checked />
-                        <label for="test1">Devolver tu producto en Tienda</label>
-                        <span id='span-store'>Gratuito</span>
+                        <div className='container-radio'>
+                            <label htmlFor="test" className='label-radio'>
+                                <input type="radio" id="test1" name="radio-group" checked />
+                                <span>Devolver tu producto en Tienda</span>
+                            </label>
+                            <span id='span-store'>Gratuito</span>
+                        </div>
                         <div>
                             <p className='store-date'>Estimada hasta al marte 08 mar. - martes 15 mar.</p>
                             <p className='store-info'>+ info</p>
@@ -78,8 +82,11 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
                                     return (<>
                                         <div id='stores-div' key={items.id}>
-                                            <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} />
-                                            <label for={items.id}>{items.name}</label>
+                                            <label htmlFor={items.id} className='label-radio' >
+                                                <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} checked />
+                                                <span>{items.name}</span>
+                                            </label>
+
                                             <div>
                                                 <p className='store-date'>{items.address}</p>
                                             </div>

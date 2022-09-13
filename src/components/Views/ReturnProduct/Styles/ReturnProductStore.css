@@ -14,6 +14,9 @@
 #span-store {
     position: relative;
     left: 17em;
+    font-size: 14px;
+    font-weight: 500;
+    color: #424242;
 }
 
 #paragraph-store {

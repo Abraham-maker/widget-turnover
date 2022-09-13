@@ -25,8 +25,11 @@
 }
 
 #span-free__card {
+    font-size: 18px;
     position: relative;
-    left: 20em;
+    left: 18em;
+    font-weight: 500;
+    color: #424242;
 }
 
 .card-date {

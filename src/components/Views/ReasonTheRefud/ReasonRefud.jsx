@@ -71,8 +71,10 @@ const ReasonRefud = ({ setOpenModal }) => {
                             {reason.map((text_reason) => {
                                 return (
                                     <>
-                                        <input type="radio" id={text_reason.id} name="razon_devolucion" value={text_reason.name} onChange={changeRadio} />
-                                        <label for={text_reason.id}>{text_reason.name}</label>
+                                        <label htmlFor={text_reason.id} className='label-radio'>
+                                            <input type="radio" id={text_reason.id} name="razon_devolucion" value={text_reason.name} onChange={changeRadio} />
+                                            <span>{text_reason.name}</span>
+                                        </label>
                                     </>
                                 )
                             })

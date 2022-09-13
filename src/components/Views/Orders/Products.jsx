@@ -81,8 +81,10 @@ const Products = ({ setOpenModal }) => {
                                                 {items.quantity_in_inventory === 0 ?
                                                     false :
                                                     (<>
-                                                        <input type="radio"  name="my-checkbox" id={items.product_id} onChange={() => { setSelectProduct(items.product_id) }} />
-                                                        <label for={items.product_id}></label>
+                                                        <label htmlFor={items.product_id} className='label-radio'>
+                                                            <input type="radio" id={items.product_id} name="my-checkbox" onChange={() => { setSelectProduct(items.product_id) }} />
+                                                            <span></span>
+                                                        </label>
                                                     </>)}
                                             </div>
 
