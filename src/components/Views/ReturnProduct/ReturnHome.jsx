@@ -10,15 +10,7 @@ const ReturnHome = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     const [addressUser, setAddressUser] = useState({})
-    const [changeAddress, setChangeAddress] = useState({
-        nombre: "",
-        apellido: "",
-        ciudad: "",
-        linea1: "",
-        linea2: "",
-        codigo_postal: "",
-        pais: "",
-    })
+    const [changeAddress, setChangeAddress] = useState({})
 
     let order_id = JSON.parse(window.localStorage.getItem("order_id", true))
     const [check, setCheck] = useState(false)
@@ -43,6 +35,15 @@ const ReturnHome = ({ setOpenModal }) => {
                 .then(response => response.json())
                 .then(({ data }) => {
                     setAddressUser(data)
+                    setChangeAddress({
+                        nombre: data.customer.first_name,
+                        apellido: data.customer.last_name,
+                        ciudad: data.shipping_address.city,
+                        linea1: data.shipping_address.address1,
+                        linea2: data.shipping_address.address2,
+                        codigo_postal: data.shipping_address.postcode,
+                        pais: data.shipping_address.country.name,
+                    })
                 })
         };
         getAddress();
