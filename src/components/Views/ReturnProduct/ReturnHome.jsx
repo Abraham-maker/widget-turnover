@@ -158,7 +158,7 @@ const ReturnHome = ({ setOpenModal }) => {
 
                             <div id="div-inputs">
                                 <div>
-                                    <input type="text" id='direccion' onChange={addressChange} name='País' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='pais' />
+                                    <input type="text" id='direccion' onChange={addressChange} name='País' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='País' />
                                     {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
                                 </div>
                                 <div className='div-flex'>
