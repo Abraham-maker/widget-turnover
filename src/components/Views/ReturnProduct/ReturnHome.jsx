@@ -158,34 +158,34 @@ const ReturnHome = ({ setOpenModal }) => {
 
                             <div id="div-inputs">
                                 <div>
-                                    <input type="text" id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='País' />
+                                    <input type="text" maxLength={20} id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='País' />
                                     {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
                                 </div>
                                 <div className='div-flex'>
                                     <div>
-                                        <input type="text" id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
+                                        <input type="text" maxLength={20} id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
                                         {alertNombre ? (<><span className='message-error'>{alertNombre}</span></>) : false}
                                     </div>
                                     <div>
-                                        <input type="text" id='apellido' onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
+                                        <input type="text" id='apellido' maxLength={20} onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
                                         {alertApellido ? (<><span className='message-error'>{alertApellido}</span></>) : false}
                                     </div>
                                 </div>
                                 <div>
-                                    <input type="text" id='linea1' onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
+                                    <input type="text" id='linea1' maxLength={50} onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
                                     {alertDireccion1 ? (<><span className='message-error'>{alertDireccion1}</span></>) : false}
                                 </div>
                                 <div>
-                                    <input type="text" id='linea2' onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
+                                    <input type="text" id='linea2' maxLength={50} onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
                                     {alertDireccion2 ? (<><span className='message-error'>{alertDireccion2}</span></>) : false}
                                 </div>
                                 <div className='div-flex'>
                                     <div>
-                                        <input type="text" id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
+                                        <input type="text" maxLength={20} id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
                                         {alertCodePostal ? (<><span className='message-error'>{alertCodePostal}</span></>) : false}
                                     </div>
                                     <div>
-                                        <input type="text" id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
+                                        <input type="text" maxLength={20} id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
                                         {alertCiudad ? (<><span className='message-error'>{alertCiudad}</span></>) : false}
                                     </div>
                                 </div>
