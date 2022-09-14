@@ -3,6 +3,12 @@ import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { WebContext } from '../../../config/Context/Context'
 import './Styles/ReturnCard.css'
+import Visa from '../../../assets/visa-credit-card.png'
+import Master from '../../../assets/mastercard.png'
+import Maestro from '../../../assets/maestro.png'
+import American from '../../../assets/american-express.png'
+
+
 
 const ReturnCard = ({ setOpenModal }) => {
     const { dates, loading, setLoading } = useContext(WebContext)
@@ -75,7 +81,7 @@ const ReturnCard = ({ setOpenModal }) => {
                 <div id="return-card__container">
                     <div id='card-btn-radio'>
                         <div>
-                            <div id="container-radio">
+                            <div className="container-radio">
                                 <label htmlFor="test2" className='label-radio' >
                                     <input type="radio" id="test2" name="radio-group" checked />
                                     <span>Reembolso a una tarjeta</span>
@@ -127,6 +133,13 @@ const ReturnCard = ({ setOpenModal }) => {
 
                     <input type="checkbox" id="term-card" name="terms" onChange={handleChexbox} />
                     <label htmlFor="term-card"> He leído, entiendo y acepto  <span id='terminos-card'> Condiciones de reembolso</span> de TurnOver.</label>
+                </div>
+
+                <div id='brands'>
+                    <img src={Visa} alt="visa" width={55} />
+                    <img src={Master} alt="mastercard" width={55} />
+                    <img src={Maestro} alt="maestro" width={55} />
+                    <img src={American} alt="american express" width={55} />
                 </div>
 
                 {datesCard.value === undefined || datesCard.value.length === 0 || datesCard.name === undefined || datesCard.name.length === 0 || datesCard.address === undefined || datesCard.address.length === 0 || datesCard.date === undefined || datesCard.date.length === 0 || datesCard.num === undefined || datesCard.num.length === 0 || actualState === false ?

@@ -13,6 +13,12 @@
     align-items: center;
 }
 
+#brands {
+    margin-top: 30px;
+    display: flex;
+    gap: 50px;
+}
+
 #return-card__container {
     width: 600px;
 }
