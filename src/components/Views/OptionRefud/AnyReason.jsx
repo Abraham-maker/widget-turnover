@@ -35,7 +35,7 @@ const AnyReason = ({ setOpenModal }) => {
         }, 3000);
         window.localStorage.setItem("devolver_producto", radios)
     }
-    console.log(check_storage);
+
     return (
         <>
             <div className='container_icons'>
@@ -75,10 +75,13 @@ const AnyReason = ({ setOpenModal }) => {
                                     </div>
                                     <div id='container-check__flex'>
                                         <span>Checkbox :</span>
-                                        <span>{check_storage.checkbox[0]}</span>
-                                        <span>{check_storage.checkbox[1]}</span>
-                                        <span>{check_storage.checkbox[2]}</span>
-                                        <span>{check_storage.checkbox[3]}</span>
+                                        {check_storage.checkbox.map((storage) => {
+                                            return (
+                                                <>
+                                                    <span>{storage},</span>
+                                                </>
+                                            )
+                                        })}
                                     </div>
                                 </>) : false}
 
