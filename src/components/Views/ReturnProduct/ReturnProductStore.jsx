@@ -83,7 +83,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
                                     return (<>
                                         <div id='stores-div' key={items.id}>
                                             <label htmlFor={items.id} className='label-radio' >
-                                                <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} checked />
+                                                <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore}  />
                                                 <span>{items.name}</span>
                                             </label>
 
