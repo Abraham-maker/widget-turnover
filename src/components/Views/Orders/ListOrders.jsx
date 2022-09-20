@@ -53,5 +53,4 @@ const ListOrders = ({ setOpenModal }) => {
   )
 }
 
-// demo@trackglobe.com
 export default ListOrders

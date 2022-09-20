@@ -67,11 +67,15 @@ const HomeOptions = ({ setOpenModal }) => {
 
             <button className='btn-home-options' onClick={iWantRefund}><span className='span__home' >Iniciar devolución</span></button>
           </div>
-          
 
-          {!!loading ? (<>
-            <div class="spinner2"></div>
-          </>) : false}
+
+          {!!loading ?
+            (<>
+              <div className="background-spinner">
+                <span className='spinner'></span>
+              </div>
+            </>)
+            : false}
         </div>
       </div>
 

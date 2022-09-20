@@ -113,13 +113,26 @@ body {
   margin: 0 auto;
   content: "";
   box-sizing: border-box;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: 2px solid transparent;
-  border-top-color: #424242;
-  border-bottom-color: #424242;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
   animation: spinner 0.7s ease infinite;
+}
+
+.background-spinner {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 

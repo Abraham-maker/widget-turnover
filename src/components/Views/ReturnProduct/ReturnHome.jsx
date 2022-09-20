@@ -112,7 +112,7 @@ const ReturnHome = ({ setOpenModal }) => {
                 setLoading(false)
                 window.localStorage.setItem("address", JSON.stringify(changeAddress))
                 push('/view-refud-success')
-            }, 3000);
+            }, 1000);
         }
 
         setTimeout(() => {

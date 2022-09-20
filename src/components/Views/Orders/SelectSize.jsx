@@ -112,7 +112,9 @@ const SelectSize = ({ setOpenModal }) => {
 
           {Object.entries(aboutProduct).length === 0 ?
             (<>
-              <div className='spinner'></div>
+              <div className="background-spinner">
+                <span className='spinner'></span>
+              </div>
             </>) :
             (<>
               <div id="container-img">
@@ -194,7 +196,11 @@ const SelectSize = ({ setOpenModal }) => {
                         </div>) :
                         (<div className='btn-product__center'>
                           <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
-                          {!!loading ? (<><div className='spinner'></div></>) : false}
+                          {!!loading ? (<>
+                            <div className="background-spinner">
+                              <span className='spinner'></span>
+                            </div>
+                          </>) : false}
                         </div>)
                       }
                     </>)

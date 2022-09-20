@@ -13,7 +13,7 @@ const Login = ({ setOpenModal }) => {
     const { password } = errors ?? false;
     const password_default = (password ?? [])[0];
     const email_defautl = (email ?? [])[0]
-    
+
     const inputChange = ({ target }) => {
         const { name, value } = target;
         setUser({ ...user, [name]: value })
@@ -37,7 +37,7 @@ const Login = ({ setOpenModal }) => {
                 <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" />
                 <div id='form-container__login'>
 
-                    <input type="text" placeholder='Introduce tu e-mail' name='email' defaultValue={findOrder.email} disabled/>
+                    <input type="text" placeholder='Introduce tu e-mail' name='email' defaultValue={findOrder.email} disabled />
 
                     {email ? (<p className='message-error'>{email_defautl}</p>) : false}
                     {message === 'El email no existe' ? (<p className='message-error'>{message}</p>) : false}
@@ -52,7 +52,9 @@ const Login = ({ setOpenModal }) => {
                         Entrar
                     </span>
                 </button>
-                {!!loading ? <span className='spinner'></span> : false}
+                {!!loading ? <div className="background-spinner">
+                    <span className='spinner'></span>
+                </div> : false}
                 <p id='link-forgot' onClick={() => { push('/forgot-password') }}>¿Has olvidado la contraseña?</p>
                 {/* <hr /> */}
                 {/* <button disabled id='btn-register'><span id='span-register'>Crear cuenta</span></button> */}

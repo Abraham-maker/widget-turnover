@@ -76,15 +76,6 @@
     align-items: center;
 }
 
-#container-loading {
-    background-color: rgba(0, 0, 0, 8);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.4;
-}
 
 #not-change {
     position: relative;
@@ -93,19 +84,3 @@
     top: 6em;
     white-space: nowrap;
 }
-
-#loading {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: progress;
-    background: linear-gradient(0.25turn, transparent, #fff, transparent);
-    animation: loading 2.5s infinite;
-}
-
-@keyframes loading {
-    to {
-        background-position: 315px 0, 0 0, 0 190px, 50px 195px;
-    }
-}
-

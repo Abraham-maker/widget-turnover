@@ -32,7 +32,7 @@ const AnyReason = ({ setOpenModal }) => {
                 return push('/return-home')
             }
 
-        }, 3000);
+        }, 1000);
         window.localStorage.setItem("devolver_producto", radios)
     }
 
@@ -129,12 +129,13 @@ const AnyReason = ({ setOpenModal }) => {
                         (<>
                             <div id='btn-anyNext'>
                                 <button id='any-btnNext-active' onClick={onChangePage}>Continuar</button>
-                                {!!loading ? <span className='spinner'></span> : false}
+                                {!!loading ? <div className="background-spinner">
+                                    <span className='spinner'></span>
+                                </div> : false}
                             </div>
                         </>)}
                 </div>
             </div>
-
 
             {
                 open ?

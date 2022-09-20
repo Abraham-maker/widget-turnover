@@ -49,9 +49,8 @@ const Products = ({ setOpenModal }) => {
             } else if (tipo_devolucion === 'Quiero un estilo/producto diferente' || tipo_devolucion === 'Quiero una talla/color diferente') {
                 push(`/about-product/${selectProduct}`)
             }
-        }, 3000);
+        }, 1000);
     }
-
 
     return (
         <>
@@ -66,8 +65,8 @@ const Products = ({ setOpenModal }) => {
 
                     {Object.entries(products).length === 0 ? (
                         <>
-                            <div id='container-loading'>
-                                <div id='loading'></div>
+                            <div className="background-spinner">
+                                <span className='spinner'></span>
                             </div>
                         </>
                     ) : (<>
@@ -125,7 +124,11 @@ const Products = ({ setOpenModal }) => {
 
                     )
                     }
-                    {!!loading ? (<><div className='spinner'></div></>) : false}
+                    {!!loading ? (<>
+                        <div className="background-spinner">
+                            <span className='spinner'></span>
+                        </div>
+                    </>) : false}
                 </div>
                 {
                     selectProduct.length === 0 ?

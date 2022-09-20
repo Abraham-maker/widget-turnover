@@ -35,7 +35,7 @@ const ReasonRefud = ({ setOpenModal }) => {
                 return push('/any-reason')
             }
 
-        }, 3000);
+        }, 1000);
         window.localStorage.setItem("razones_devolucion", radio)
     }
 
@@ -97,7 +97,12 @@ const ReasonRefud = ({ setOpenModal }) => {
                         (<>
                             <div id='container-btn-reason' onClick={submitReason}>
                                 <button id='btn-reason-active'><span>Confirmar devolución</span></button>
-                                {!!loading ? <span className='spinner'></span> : false}
+                                {!!loading ? (
+                                    <>
+                                        <div className="background-spinner">
+                                            <span className='spinner'></span>
+                                        </div>
+                                    </>) : false}
                             </div>
                         </>)}
 

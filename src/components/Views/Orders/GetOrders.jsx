@@ -39,7 +39,13 @@ const GetOrders = ({ setOpenModal }) => {
           <button id='btn-orders' onClick={onFindOrder}><span id='span-orders'>Obtener órdenes</span></button>
         </div>
 
-        {!!loading ? <span className='spinner'></span> : false}
+        {!!loading ?
+          (<>
+            <div className="background-spinner">
+              <span className='spinner'></span>
+            </div>
+          </>)
+          : false}
 
       </div>
 

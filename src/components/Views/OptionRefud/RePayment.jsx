@@ -32,7 +32,7 @@ const RePayment = ({ setOpenModal }) => {
                 return push('/refud-card-turnover')
             }
 
-        }, 3000);
+        }, 1000);
         window.localStorage.setItem("producto_reembolso", checkbox)
     }
 
@@ -119,7 +119,9 @@ const RePayment = ({ setOpenModal }) => {
                         (<>
                             <div id='btn-reNext'>
                                 <button id='re-btnNext-active' onClick={onChangePages}>Continuar reembolso</button>
-                                {!!loading ? <span className='spinner'></span> : false}
+                                {!!loading ? <div className="background-spinner">
+                                    <span className='spinner'></span>
+                                </div> : false}
                             </div>
                         </>)}
                 </div>

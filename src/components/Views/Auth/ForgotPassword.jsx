@@ -53,7 +53,9 @@ const ForgotPassword = ({ setOpenModal }) => {
             </>) : false}
 
           <button id='btn-forgot' onClick={sendEmail}><span id='span-forgot'>Recuperar contraseña</span></button>
-          {!!loading ? <span className='spinner'></span> : false}
+          {!!loading ? <div className="background-spinner">
+            <span className='spinner'></span>
+          </div> : false}
         </div>
         <p id='link-login' onClick={() => { push('/login') }}>Login</p>
       </div>
