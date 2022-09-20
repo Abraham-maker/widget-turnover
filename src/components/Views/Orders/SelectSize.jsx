@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { WebContext } from '../../../config/Context/Context'
+import Loading from '../../../common/Loading'
 
 const SelectSize = ({ setOpenModal }) => {
   const { loading, setLoading } = useContext(WebContext);
@@ -192,15 +193,11 @@ const SelectSize = ({ setOpenModal }) => {
                       {seleckCheck.checkbox.length === 0 || selectOptions.talla.length === 0 || selectColor.color.length === 0 ?
                         (<div className='btn-product__center'>
                           <button id='next-size'><span id='next-span'>Continuar</span></button>
-                          {!!loading ? (<><div className='spinner'></div></>) : false}
+                          {!!loading ? (<Loading />) : false}
                         </div>) :
                         (<div className='btn-product__center'>
                           <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
-                          {!!loading ? (<>
-                            <div className="background-spinner">
-                              <span className='spinner'></span>
-                            </div>
-                          </>) : false}
+                          {!!loading ? (<Loading />) : false}
                         </div>)
                       }
                     </>)

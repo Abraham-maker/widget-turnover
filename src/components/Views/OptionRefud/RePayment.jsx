@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useContext } from 'react'
 import { WebContext } from '../../../config/Context/Context'
 import './Styles/RePayment.css'
+import Loading from '../../../common/Loading'
 
 const RePayment = ({ setOpenModal }) => {
     const { loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage } = useContext(WebContext)
@@ -119,9 +120,7 @@ const RePayment = ({ setOpenModal }) => {
                         (<>
                             <div id='btn-reNext'>
                                 <button id='re-btnNext-active' onClick={onChangePages}>Continuar reembolso</button>
-                                {!!loading ? <div className="background-spinner">
-                                    <span className='spinner'></span>
-                                </div> : false}
+                                {!!loading ? (<Loading />) : false}
                             </div>
                         </>)}
                 </div>

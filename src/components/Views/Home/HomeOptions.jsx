@@ -3,7 +3,7 @@ import { WebContext } from '../../../config/Context/Context'
 import './stylesRefud/HomeRefud.css'
 import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
-
+import Loading from '../../../common/Loading'
 
 const HomeOptions = ({ setOpenModal }) => {
   const { push } = useHistory()
@@ -69,13 +69,7 @@ const HomeOptions = ({ setOpenModal }) => {
           </div>
 
 
-          {!!loading ?
-            (<>
-              <div className="background-spinner">
-                <span className='spinner'></span>
-              </div>
-            </>)
-            : false}
+          {!!loading ? (<Loading />) : false}
         </div>
       </div>
 

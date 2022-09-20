@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import Loading from '../../../common/Loading';
 import { WebContext } from '../../../config/Context/Context';
 import './styles/Products.css'
 
@@ -124,11 +125,7 @@ const Products = ({ setOpenModal }) => {
 
                     )
                     }
-                    {!!loading ? (<>
-                        <div className="background-spinner">
-                            <span className='spinner'></span>
-                        </div>
-                    </>) : false}
+                    {!!loading ? (<Loading />) : false}
                 </div>
                 {
                     selectProduct.length === 0 ?

@@ -7,6 +7,7 @@ import Visa from '../../../assets/visa-credit-card.png'
 import Master from '../../../assets/mastercard.png'
 import Maestro from '../../../assets/maestro.png'
 import American from '../../../assets/american-express.png'
+import Loading from '../../../common/Loading'
 
 
 
@@ -148,11 +149,7 @@ const ReturnCard = ({ setOpenModal }) => {
                     </>) :
                     (<>
                         <button id='bt-card-active' onClick={validateCard}>Confirmar reembolso</button>
-                        {!!loading ? (<>
-                            <div className="background-spinner">
-                                <span className='spinner'></span>
-                            </div>
-                        </>) : false}
+                        {!!loading ? (<Loading />) : false}
                     </>)}
 
             </div>

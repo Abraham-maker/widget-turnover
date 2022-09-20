@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import './Styles/ReturnHome.css'
 import { WebContext } from '../../../config/Context/Context'
 import { useContext } from 'react'
+import Loading from '../../../common/Loading'
 
 
 const ReturnHome = ({ setOpenModal }) => {
@@ -208,7 +209,7 @@ const ReturnHome = ({ setOpenModal }) => {
                             :
                             (<>
                                 <button id='bt-home-active' onClick={validate}>Confirmar devolución</button>
-                                {!!loading ? (<><div className='spinner'></div></>) : false}
+                                {!!loading ? (<Loading />) : false}
                             </>)
                         }
 

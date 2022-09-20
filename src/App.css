@@ -109,39 +109,6 @@ body {
   border: none;
 }
 
-.spinner {
-  margin: 0 auto;
-  content: "";
-  box-sizing: border-box;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  animation: spinner 0.7s ease infinite;
-}
-
-.background-spinner {
-  display: flex;
-  align-items: center;
-  margin: auto;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, .8);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .label-radio {
   display: flex;
   cursor: pointer;

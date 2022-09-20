@@ -3,7 +3,7 @@ import './styles/GetOrders.css'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 import { WebContext } from '../../../config/Context/Context'
 import { useHistory } from 'react-router-dom'
-
+import Loading from '../../../common/Loading'
 
 const GetOrders = ({ setOpenModal }) => {
   const { push } = useHistory()
@@ -39,13 +39,7 @@ const GetOrders = ({ setOpenModal }) => {
           <button id='btn-orders' onClick={onFindOrder}><span id='span-orders'>Obtener órdenes</span></button>
         </div>
 
-        {!!loading ?
-          (<>
-            <div className="background-spinner">
-              <span className='spinner'></span>
-            </div>
-          </>)
-          : false}
+        {!!loading ? (<Loading />) : false}
 
       </div>
 

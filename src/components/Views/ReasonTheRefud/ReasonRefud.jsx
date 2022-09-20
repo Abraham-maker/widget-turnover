@@ -3,6 +3,8 @@ import './ReasonRefud.css'
 import { useHistory, useParams } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import { WebContext } from '../../../config/Context/Context'
+import Loading from '../../../common/Loading'
+
 
 const ReasonRefud = ({ setOpenModal }) => {
     const { loading, setLoading } = useContext(WebContext)
@@ -97,12 +99,7 @@ const ReasonRefud = ({ setOpenModal }) => {
                         (<>
                             <div id='container-btn-reason' onClick={submitReason}>
                                 <button id='btn-reason-active'><span>Confirmar devolución</span></button>
-                                {!!loading ? (
-                                    <>
-                                        <div className="background-spinner">
-                                            <span className='spinner'></span>
-                                        </div>
-                                    </>) : false}
+                                {!!loading ? (<Loading />) : false}
                             </div>
                         </>)}
 

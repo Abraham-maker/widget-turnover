@@ -3,6 +3,7 @@ import './Styles/AnyReason.css';
 import { useContext } from 'react'
 import { WebContext } from '../../../config/Context/Context'
 import { useHistory } from 'react-router-dom'
+import Loading from '../../../common/Loading';
 
 
 const AnyReason = ({ setOpenModal }) => {
@@ -129,9 +130,7 @@ const AnyReason = ({ setOpenModal }) => {
                         (<>
                             <div id='btn-anyNext'>
                                 <button id='any-btnNext-active' onClick={onChangePage}>Continuar</button>
-                                {!!loading ? <div className="background-spinner">
-                                    <span className='spinner'></span>
-                                </div> : false}
+                                {!!loading ? (<Loading />) : false}
                             </div>
                         </>)}
                 </div>

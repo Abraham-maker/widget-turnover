@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import Loading from '../../../common/Loading'
 import { WebContext } from '../../../config/Context/Context'
 import './Styles/ReturnProductStore.css'
+
 
 const ReturnProductStore = ({ setOpenModal }) => {
     const { setLoading, loading } = useContext(WebContext);
@@ -104,11 +106,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
                 </>)}
             </div>
-            {!!loading ? (<>
-                <div className="background-spinner">
-                    <span className='spinner'></span>
-                </div>
-            </>) : false}
+            {!!loading ? (<Loading />) : false}
 
 
             {
