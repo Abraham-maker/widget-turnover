@@ -28,7 +28,9 @@ const ListOrders = ({ setOpenModal }) => {
 
       <h3 id='title-listOrders'>Devoluciones</h3>
       <div id='container-table'>
-        {Object.entries(order).length === 0 ? (<><div className='spinner'></div></>) :
+        {Object.entries(order).length === 0 ? (<> <div className="background-spinner">
+          <span className='spinner'></span>
+        </div></>) :
           (<>
             <Table data={table} rowsPerPage={5} />
           </>)}

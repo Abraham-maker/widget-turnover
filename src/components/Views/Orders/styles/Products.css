@@ -1,5 +1,4 @@
 #container-product {
-    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +13,6 @@
 
 #article-product {
     width: 80vw;
-    height: 641px;
     max-height: 641px;
     border-radius: 12px;
     border: solid 1px #808083;

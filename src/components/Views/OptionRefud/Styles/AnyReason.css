@@ -6,7 +6,6 @@
 }
 
 #container-any__reason {
-    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +137,6 @@
 }
 
 #any-btnNext-active {
-    margin: 20px;
     cursor: pointer;
     width: 261px;
     height: 44px;

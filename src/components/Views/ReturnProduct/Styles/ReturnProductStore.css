@@ -1,10 +1,8 @@
 #container-return__store {
-    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
 }
 
 #return-store {
@@ -99,26 +97,4 @@
 
 #stores-div {
     margin-bottom: 2em;
-}
-
-.spinner2 {
-    position: absolute;
-    right: 50%;
-    left: 49%;
-    top: 55%;
-    content: "";
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top-color: #424242;
-    border-bottom-color: #424242;
-    animation: spinner 0.7s ease infinite;
-}
-
-
-@keyframes spinner {
-    to {
-        transform: rotate(360deg);
-    }
 }

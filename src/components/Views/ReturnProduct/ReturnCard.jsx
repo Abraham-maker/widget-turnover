@@ -148,7 +148,11 @@ const ReturnCard = ({ setOpenModal }) => {
                     </>) :
                     (<>
                         <button id='bt-card-active' onClick={validateCard}>Confirmar reembolso</button>
-                        {!!loading ? (<><div className='spinner'></div></>) : false}
+                        {!!loading ? (<>
+                            <div className="background-spinner">
+                                <span className='spinner'></span>
+                            </div>
+                        </>) : false}
                     </>)}
 
             </div>

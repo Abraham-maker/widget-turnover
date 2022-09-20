@@ -6,7 +6,7 @@
 }
 
 #refud-div-success {
-    height: 60vh;
+    height: auto;
     display: flex;
     justify-content: center;
 }
@@ -34,7 +34,7 @@
 
 #card-success {
     width: 450px;
-    height: 222px;
+    height: 180px;
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: #fff;
