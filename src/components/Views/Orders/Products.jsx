@@ -15,7 +15,7 @@ const Products = ({ setOpenModal }) => {
     const [products, setProducts] = useState({});
     const [selectProduct, setSelectProduct] = useState([]);
     let tipo_devolucion = JSON.parse(localStorage.getItem('tipo_devolucion', true))
-    console.log(selectProduct);
+
     useEffect(() => {
         if (selectProduct.length !== 0) {
             window.localStorage.setItem("product_id", JSON.stringify(selectProduct))
@@ -55,6 +55,7 @@ const Products = ({ setOpenModal }) => {
 
     return (
         <>
+            {!!loading ? (<Loading />) : false}
             <div className='container_icons'>
                 <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
                 <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
@@ -125,7 +126,6 @@ const Products = ({ setOpenModal }) => {
 
                     )
                     }
-                    {!!loading ? (<Loading />) : false}
                 </div>
                 {
                     selectProduct.length === 0 ?

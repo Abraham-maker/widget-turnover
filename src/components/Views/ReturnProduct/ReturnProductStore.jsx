@@ -47,6 +47,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
     return (
         <>
+            {!!loading ? (<Loading />) : false}
             <div className='container_icons'>
                 <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
                 <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
@@ -106,8 +107,6 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
                 </>)}
             </div>
-            {!!loading ? (<Loading />) : false}
-
 
             {
                 open ?

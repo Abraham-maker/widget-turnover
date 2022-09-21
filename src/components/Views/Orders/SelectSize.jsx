@@ -101,6 +101,7 @@ const SelectSize = ({ setOpenModal }) => {
 
   return (
     <>
+      {!!loading ? (<Loading />) : false}
       <div className='container_icons'>
         <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
@@ -193,11 +194,9 @@ const SelectSize = ({ setOpenModal }) => {
                       {seleckCheck.checkbox.length === 0 || selectOptions.talla.length === 0 || selectColor.color.length === 0 ?
                         (<div className='btn-product__center'>
                           <button id='next-size'><span id='next-span'>Continuar</span></button>
-                          {!!loading ? (<Loading />) : false}
                         </div>) :
                         (<div className='btn-product__center'>
                           <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
-                          {!!loading ? (<Loading />) : false}
                         </div>)
                       }
                     </>)

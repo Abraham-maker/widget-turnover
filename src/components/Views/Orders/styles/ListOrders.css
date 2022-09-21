@@ -1,8 +1,70 @@
-#container-table {
-    height: 50vh;
+#container-order_list {
+    margin: 0 auto;
+    width: 80vw;
+    overflow-y: auto;
+    max-height: 500px;
+    border-radius: 12px;
+    border: solid 1px #808083;
+    background-color: #fff;
+}
+
+#container-order {
+    display: flex;
+    height: 129px;
+    margin: 24px;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+}
+
+#active-order {
+    width: 196px;
+    border: none;
+    height: 44px;
+    color: #fff;
+    margin: 18px 0 0 0;
+    border-radius: 22px;
+    font-family: Poppins;
+    background-color: #424242;
+}
+
+#center-btn-order {
+    display: flex;
+    justify-content: center;
+}
+
+#disabled-order {
+    width: 196px;
+    border: 1px solid #424242;
+    height: 44px;
+    color: #000;
+    margin: 18px 0 0 0;
+    border-radius: 22px;
+    font-family: Poppins;
+    background-color: #fff;
+}
+
+#orders {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 40px;
+    margin-left: 25px;
+}
+
+#orders-flex {
+    display: flex;
+    gap: 10rem;
+    font-size: 16px;
+    font-weight: 500;
+    color: #141414;
+}
+
+#orders-text {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    font-size: 12px;
+    color: #141414;
+    gap: 10px;
 }
 
 #title-listOrders {
@@ -11,4 +73,3 @@
     font-weight: 500;
     color: #141414;
 }
-

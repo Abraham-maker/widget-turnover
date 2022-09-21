@@ -6,9 +6,10 @@
 }
 
 #container-any__reason {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #article-any {
@@ -145,4 +146,10 @@
     border-radius: 22px;
     border: none;
     background-color: #424242;
+}
+
+@media screen and (min-width:1300px) {
+    #container-any__reason {
+        margin-top: 4rem;
+    }
 }

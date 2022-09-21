@@ -6,20 +6,20 @@
 }
 
 #container-size {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #more-price {
     color: #00BB2D;
- }
+}
 
 #article-container {
     display: flex;
     gap: 4em;
     justify-content: center;
-    width: 90%;
 }
 
 #container-img>img {
@@ -181,4 +181,10 @@
 #text-size {
     font-size: 14px;
     font-weight: 500;
+}
+
+@media screen and (min-width:1300px) {
+    #container-size {
+        margin-top: 2rem;
+    }
 }
