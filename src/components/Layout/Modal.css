@@ -27,17 +27,11 @@
 footer {
   display: flex;
   justify-content: center;
-  position: relative;
-  top: 6em;
-  margin-bottom: 6em;
+  position: sticky;
 }
 
 footer span {
   font-family: Poppins;
   font-size: 10px;
   color: #424242;
-}
-
-.container-general {
-  margin-bottom: 3.5rem;
 }

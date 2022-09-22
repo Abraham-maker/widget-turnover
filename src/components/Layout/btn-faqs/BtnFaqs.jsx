@@ -1,7 +1,6 @@
-import React from 'react'
-import { useContext } from 'react'
+import { React, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { WebContext } from '../../../config/Context/Context'
+import { WebContext } from '../../Context/Context'
 import './BtnFaqs.css'
 
 

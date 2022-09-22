@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import './Styles/ReturnHome.css'
-import { WebContext } from '../../../config/Context/Context'
-import { useContext } from 'react'
+import './home.css'
+import { WebContext } from '../../Context/Context'
 import Loading from '../../../common/Loading'
 
 

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { WebContext } from '../../../config/Context/Context'
-import './stylesRefud/HomeRefud.css'
+import { WebContext } from '../../../Context/Context'
+import '../styles_home.css'
 import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
-import Loading from '../../../common/Loading'
+import Loading from '../../../../common/Loading'
 
 const HomeOptions = ({ setOpenModal }) => {
   const { push } = useHistory()

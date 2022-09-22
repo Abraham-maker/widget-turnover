@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 import Modal from "./components/Layout/Modal";
 import { Route, Switch } from "react-router-dom";
-import { WebProvider } from "./config/Context/Context";
-import "./App.css";
-import HomeRefud from "./components/Views/Home/HomeRefud";
-import HomeOptions from "./components/Views/Home/HomeOptions";
-import GetOrders from "./components/Views/Orders/GetOrders";
-import ListOrders from "./components/Views/Orders/ListOrders";
-import Login from "./components/Views/Auth/Login";
-import ForgotPassword from "./components/Views/Auth/ForgotPassword";
-import Register from "./components/Views/Auth/Register";
+import { WebProvider } from "./components/Context/Context";
+import HomeRefud from "./components/Views/Home_devolucion/Home_information/Home_information";
+import HomeOptions from "./components/Views/Home_devolucion/Home_options/Home_options";
+import GetOrders from "./components/Views/Home_devolucion/Home_orders/Home_orders";
+import Products from "./components/Views/Orders/List_products/List_Products";
+import SelectSize from "./components/Views/Orders/Options_product/Options_product";
+import ListOrders from "./components/Views/Orders/List_orders/List_orders";
+import AnyReason from "./components/Views/Options_devolution/Any_reason/Index";
+import RePayment from "./components/Views/Options_devolution/Re_payment/Index";
+import ReasonRefud from "./components/Views/Reason_devolution/Reason_devolution";
+import ReturnProductStore from "./components/Views/Return_products/Store";
+import ReturnHome from "./components/Views/Return_products/Home";
+import ReturnCard from "./components/Views/Return_products/Credit_card";
+import ViewRefudSuccess from "./components/Views/Code_devolution/Code_devolution";
+import RefudCardTurnOver from "./components/Views/Credit_card_devolution/Credit_card_devolution";
+import ViewRepayment from "./components/Views/Turn_over_devolution/Turn_over_devolution";
 import FAQS from "./components/Views/FAQS/FAQS";
-import Products from "./components/Views/Orders/Products";
-import SelectSize from "./components/Views/Orders/SelectSize";
-import ReasonRefud from "./components/Views/ReasonTheRefud/ReasonRefud";
-import AnyReason from "./components/Views/OptionRefud/AnyReason";
-import RePayment from "./components/Views/OptionRefud/RePayment";
-import ReturnProductStore from "./components/Views/ReturnProduct/ReturnProductStore";
-import ReturnHome from "./components/Views/ReturnProduct/ReturnHome";
-import ReturnCard from "./components/Views/ReturnProduct/ReturnCard";
-import ViewRefudSuccess from "./components/Views/ViewSuccess/ViewRefudSuccess";
-import ViewRepayment from "./components/Views/ViewSuccess/ViewRepayment";
-import RefudCardTurnOver from "./components/Views/ViewSuccess/RefudCardTurnOver";
 import Questionnaire from "./components/Views/questionnaire/Questionnaire";
-
+import "./App.css";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -38,15 +34,6 @@ function App() {
         <WebProvider>
           <Modal>
             <Switch>
-              <Route exact path="/login">
-                <Login setOpenModal={setModalOpen} />
-              </Route>
-              <Route exact path="/forgot-password">
-                <ForgotPassword setOpenModal={setModalOpen} />
-              </Route>
-              <Route exact path="/register">
-                <Register setOpenModal={setModalOpen} />
-              </Route>
               <Route exact path="/">
                 <HomeRefud setOpenModal={setModalOpen} />
               </Route>

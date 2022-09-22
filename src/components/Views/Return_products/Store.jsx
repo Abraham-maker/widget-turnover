@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import { useContext } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Loading from '../../../common/Loading'
-import { WebContext } from '../../../config/Context/Context'
-import './Styles/ReturnProductStore.css'
+import { WebContext } from '../../Context/Context'
+import './store.css'
 
 
 const ReturnProductStore = ({ setOpenModal }) => {

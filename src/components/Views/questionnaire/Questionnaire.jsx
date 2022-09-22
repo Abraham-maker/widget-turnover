@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import './styles/questionnaire.css'
+import './questionnaire.css'
 
 const Questionnaire = ({ setOpenModal }) => {
   const { push } = useHistory()

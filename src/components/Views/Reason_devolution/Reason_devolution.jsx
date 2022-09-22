@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import './ReasonRefud.css'
+import React, { useState, useContext, useEffect } from 'react'
+import './reason_devolution.css'
 import { useHistory, useParams } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
-import { WebContext } from '../../../config/Context/Context'
+import { WebContext } from '../../Context/Context'
 import Loading from '../../../common/Loading'
 
 

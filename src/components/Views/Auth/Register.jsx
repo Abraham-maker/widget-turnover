@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { WebContext } from '../../../config/Context/Context'
+import { WebContext } from '../../Context/Context'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 import './Styles/Register.css'
 import { useHistory } from 'react-router-dom'
@@ -121,7 +121,7 @@ const Register = ({ setOpenModal }) => {
 
       </div>
 
-      <BtnFaqs onClick={() => { console.log(15)} }/>
+      <BtnFaqs onClick={() => { console.log(15) }} />
 
       {open ?
         (<>

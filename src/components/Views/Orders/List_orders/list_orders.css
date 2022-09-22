@@ -25,6 +25,7 @@
     border-radius: 22px;
     font-family: Poppins;
     background-color: #424242;
+    cursor: pointer;
 }
 
 #center-btn-order {

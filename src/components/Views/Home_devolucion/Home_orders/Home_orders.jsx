@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import './styles/GetOrders.css'
-import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
-import { WebContext } from '../../../config/Context/Context'
+import '../styles_home_orders.css'
+import BtnFaqs from '../../../Layout/btn-faqs/BtnFaqs'
 import { useHistory } from 'react-router-dom'
-import Loading from '../../../common/Loading'
+import Loading from '../../../../common/Loading'
+import { WebContext } from '../../../Context/Context'
 
 const GetOrders = ({ setOpenModal }) => {
   const { push } = useHistory()

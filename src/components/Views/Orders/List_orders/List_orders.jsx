@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { WebContext } from '../../../config/Context/Context'
-import './styles/ListOrders.css'
+import { WebContext } from '../../../Context/Context'
+import './list_orders.css'
 import { useHistory } from 'react-router-dom'
 
 const ListOrders = ({ setOpenModal }) => {

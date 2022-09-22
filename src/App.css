@@ -11,6 +11,31 @@ body {
   font-family: "Poppins"
 }
 
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]+label:before {
+  text-align: center;
+  content: "\2714";
+  display: inline-block;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+  width: 24px;
+  height: 24px;
+  margin: 0 16px 0px 0;
+  border: solid 1px #808083;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked+label:before {
+  background-color: #424242;
+  border-color: #424242;
+  color: #fff;
+}
+
 .message-error {
   margin: 5px;
   padding: 0;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import './Styles/RefudCardTurnOver.css'
+import './turn_over_devolution.css'
 
 const RefudCardTurnOver = ({ setOpenModal }) => {
     const { push } = useHistory()

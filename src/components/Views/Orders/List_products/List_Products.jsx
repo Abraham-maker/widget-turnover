@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import Loading from '../../../common/Loading';
-import { WebContext } from '../../../config/Context/Context';
-import './styles/Products.css'
+import Loading from '../../../../common/Loading';
+import { WebContext } from '../../../Context/Context'
+import './list_products.css'
 
 
 const Products = ({ setOpenModal }) => {

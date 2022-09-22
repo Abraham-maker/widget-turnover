@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import './styles/SelectSize.css'
+import React, { useState, useEffect, useContext } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import { useContext } from 'react'
-import { WebContext } from '../../../config/Context/Context'
-import Loading from '../../../common/Loading'
+import { WebContext } from '../../../Context/Context'
+import Loading from '../../../../common/Loading'
+import './options_products.css'
 
 const SelectSize = ({ setOpenModal }) => {
   const { loading, setLoading } = useContext(WebContext);

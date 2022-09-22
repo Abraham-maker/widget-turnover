@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import './Styles/AnyReason.css';
-import { useContext } from 'react'
-import { WebContext } from '../../../config/Context/Context'
+import React, { useState, useContext } from 'react'
+import './Index.css';
+import { WebContext } from '../../../Context/Context'
 import { useHistory } from 'react-router-dom'
-import Loading from '../../../common/Loading';
+import Loading from '../../../../common/Loading';
 
 
 const AnyReason = ({ setOpenModal }) => {

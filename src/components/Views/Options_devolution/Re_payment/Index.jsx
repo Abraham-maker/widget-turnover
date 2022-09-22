@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useContext } from 'react'
-import { WebContext } from '../../../config/Context/Context'
-import './Styles/RePayment.css'
-import Loading from '../../../common/Loading'
+import { WebContext } from '../../../Context/Context'
+import './Index.css';
+import Loading from '../../../../common/Loading'
 
 const RePayment = ({ setOpenModal }) => {
     const { loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage } = useContext(WebContext)

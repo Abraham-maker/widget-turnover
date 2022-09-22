@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { WebContext } from '../../../config/Context/Context';
+import { WebContext } from '../../Context/Context'
 import './Styles/Login.css'
 import BtnFaqs from '../../Layout/btn-faqs/BtnFaqs'
 
