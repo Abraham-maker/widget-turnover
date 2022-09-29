@@ -17,6 +17,7 @@ import ReturnCard from "./components/Views/Return_products/Credit_card";
 import ViewRefudSuccess from "./components/Views/Code_devolution/Code_devolution";
 import RefudCardTurnOver from "./components/Views/Credit_card_devolution/Credit_card_devolution";
 import ViewRepayment from "./components/Views/Turn_over_devolution/Turn_over_devolution";
+import AddressDevolution from "./components/Views/Address_devolution/Address_devolution"
 import FAQS from "./components/Views/FAQS/FAQS";
 import Questionnaire from "./components/Views/questionnaire/Questionnaire";
 import "./App.css";
@@ -84,6 +85,9 @@ function App() {
               </Route>
               <Route exact path='/questionnaire'>
                 <Questionnaire setOpenModal={setModalOpen} />
+              </Route>
+              <Route exact path='/address-devolution'>
+                <AddressDevolution setOpenModal={setModalOpen} />
               </Route>
             </Switch>
           </Modal>
