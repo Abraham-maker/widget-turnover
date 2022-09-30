@@ -10,12 +10,24 @@ const HomeOptions = ({ setOpenModal }) => {
   const { listOrder, loading } = useContext(WebContext);
   const [open, setOpen] = useState(false);
   const [homeOptions, setHomeOptions] = useState(null);
+  const [optionsRefud, setOptionRefud] = useState({});
 
   useEffect(() => {
     if (homeOptions !== null) {
       window.localStorage.setItem("tipo_devolucion", JSON.stringify(homeOptions))
     }
   }, [homeOptions])
+
+  useEffect(() => {
+    const placeReturn = () => {
+      const url = 'https://www.turnover.gotopdev.com/api/v1/return-methods?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881'
+      fetch(url).then(res => res.json())
+        .then(({ data }) => {
+          setOptionRefud(data);
+        })
+    }
+    placeReturn();
+  }, [])
 
 
   const closeModal = () => {
@@ -26,11 +38,6 @@ const HomeOptions = ({ setOpenModal }) => {
 
   const differentSize = () => {
     setHomeOptions('Quiero una talla/color diferente');
-    return listOrder();
-  }
-
-  const differentStyle = () => {
-    setHomeOptions('Quiero un estilo/producto diferente')
     return listOrder();
   }
 
@@ -51,20 +58,27 @@ const HomeOptions = ({ setOpenModal }) => {
       <div className='container__home'>
 
         <div className='body__home'>
-          <div className='container__refud'>
-            <p className='paragraph__home'>Cambio</p>
-            <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-            <button className='btn-home-options' onClick={differentSize}><span className='span__home' > Iniciar devolución</span></button>
-          </div>
 
-          <div className='container__refud'>
-            <p className='paragraph__home'>Reembolso</p>
-            <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-            <button className='btn-home-options' onClick={iWantRefund}><span className='span__home' >Iniciar devolución</span></button>
-          </div>
+          {optionsRefud.has_change !== 0 ?
+            (<>
+              <div className='container__refud'>
+                <p className='paragraph__home'>Cambio</p>
+                <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                <button className='btn-home-options' onClick={differentSize}><span className='span__home' > Iniciar devolución</span></button>
+              </div>
+            </>) : false}
+
+          {optionsRefud.has_refud !== 0 ?
+            (<>
+              <div className='container__refud'>
+                <p className='paragraph__home'>Reembolso</p>
+                <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                <button className='btn-home-options' onClick={iWantRefund}><span className='span__home' >Iniciar devolución</span></button>
+              </div>
+            </>) : false}
+
         </div>
       </div>
-
 
 
       {open ?

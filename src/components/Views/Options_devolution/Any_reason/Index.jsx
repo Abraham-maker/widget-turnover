@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './Index.css';
 import { WebContext } from '../../../Context/Context'
 import { useHistory } from 'react-router-dom'
@@ -10,9 +10,9 @@ const AnyReason = ({ setOpenModal }) => {
     const { push } = useHistory()
     const [open, setOpen] = useState(false);
     const [radios, setRadios] = useState(false)
+    const [returnPlace, setReturnPlace] = useState({})
 
     const closeModal = () => {
-        window.localStorage.removeItem('InfoLogin', true)
         push('/')
         setOpenModal(false)
     }
@@ -25,16 +25,27 @@ const AnyReason = ({ setOpenModal }) => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false)
-
             if (radios === 'Devolver tu producto en Tienda') {
                 return push('/return-product')
             } else if (radios === 'Devolver tu producto en Domicilio') {
-                return push('/return-home')
+                return push('/address-devolution')
             }
 
         }, 1000);
         window.localStorage.setItem("devolver_producto", radios)
     }
+
+    useEffect(() => {
+        const placeReturn = () => {
+            const url = 'https://www.turnover.gotopdev.com/api/v1/place-of-return?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881'
+            fetch(url).then(res => res.json())
+                .then(({ data }) => {
+                    setReturnPlace(data);
+                })
+        }
+        placeReturn();
+    }, [])
+
 
     return (
         <>
@@ -44,7 +55,7 @@ const AnyReason = ({ setOpenModal }) => {
                 <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
             </div>
 
-            <h3 id='title-any'>Devoluciones</h3>
+            {/* <h3 id='title-any'>Devoluciones</h3> */}
 
             <div id="container-any__reason">
                 <div id="any-container">
@@ -92,32 +103,65 @@ const AnyReason = ({ setOpenModal }) => {
                         <span id='span-any'>Selecciona un método de devolución</span>
 
                         <div id='container-radios__any'>
-                            <div>
-                                <div className='container-radio'>
-                                    <label htmlFor="test1" className='label-radio'>
-                                        <input type="radio" id="test1" name="radio-group" value='Devolver tu producto en Tienda' onChange={changeRadios} />
-                                        <span>Devolver tu producto en Tienda</span>
-                                    </label>
-                                    <span className='span-free'>Gratuito</span>
-                                </div>
-                                <div>
-                                    <p className='any-date'>Estimada hasta el marte 08 sep. - martes 15 sep.</p>
-                                    <p className='any-info'>+ info</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div className='container-radio'>
-                                    <label htmlFor="test2" className='label-radio'>
-                                        <input type="radio" id="test2" name="radio-group" value='Devolver tu producto en Domicilio' onChange={changeRadios} />
-                                        <span>Devolver tu producto en Domicilio</span>
-                                    </label>
-                                    <span className='span-free'>Gratuito</span>
-                                </div>
-                                <div>
-                                    <p className='any-date' >Estimada hasta el jueves 10 sep. - martes 15 sep.</p>
-                                    <p className='any-info'>+ info</p>
-                                </div>
-                            </div>
+
+                            {
+                                returnPlace.has_return_store !== 0 ?
+                                    (<>
+                                        <div>
+                                            <div className='container-radio'>
+                                                <label htmlFor="test1" className='label-radio'>
+                                                    <input type="radio" id="test1" name="radio-group" value='Devolver tu producto en Tienda' onChange={changeRadios} />
+                                                    <span>Devolver tu producto en Tienda</span>
+                                                </label>
+                                                <span className='span-free'>Gratuito</span>
+                                            </div>
+                                            <div>
+                                                <p className='any-date' >Estimada hasta el jueves 10 sep. - martes 15 sep.</p>
+                                                <p className='any-info'>+ info</p>
+                                            </div>
+                                        </div>
+                                    </>) : false
+                            }
+
+                            {
+                                returnPlace.has_return_home !== 0 ?
+                                    (<>
+                                        <div>
+                                            <div className='container-radio'>
+                                                <label htmlFor="test2" className='label-radio'>
+                                                    <input type="radio" id="test2" name="radio-group" value='Devolver tu producto en Domicilio' onChange={changeRadios} />
+                                                    <span>Devolver tu producto en Domicilio</span>
+                                                </label>
+                                                <span className='span-free'>Gratuito</span>
+                                            </div>
+                                            <div>
+                                                <p className='any-date' >Estimada hasta el jueves 10 sep. - martes 15 sep.</p>
+                                                <p className='any-info'>+ info</p>
+                                            </div>
+                                        </div>
+                                    </>) : false
+                            }
+
+                            {
+                                returnPlace.has_return_mail !== 0 ?
+                                    (<>
+                                        <div>
+                                            <div className='container-radio'>
+                                                <label htmlFor="test3" className='label-radio'>
+                                                    <input type="radio" id="test3" name="radio-group" value='Enviar a Tienda/Almacén' onChange={changeRadios} />
+                                                    <span>Enviar a Tienda/Almacén</span>
+                                                </label>
+                                                <span className='span-free'>Gratuito</span>
+                                            </div>
+                                            <div>
+                                                <p className='any-date' >Estimada hasta el jueves 10 sep. - martes 15 sep.</p>
+                                                <p className='any-info'>+ info</p>
+                                            </div>
+                                        </div>
+                                    </>) :
+                                    false
+                            }
+
                         </div>
                     </div>
 
