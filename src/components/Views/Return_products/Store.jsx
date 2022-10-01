@@ -46,65 +46,68 @@ const ReturnProductStore = ({ setOpenModal }) => {
     return (
         <>
             {!!loading ? (<Loading />) : false}
-            <div className='container_icons'>
-                <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-            </div>
+            <div className="container-general">
 
-            <h3 id='title-store'>Devoluciones</h3>
+                <div className='container_icons'>
+                    <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                    <h3 className='title__icons'>Devoluciones</h3>
+                    <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+                </div>
 
-            <div id="container-return__store">
+                <div className="flex-general">
 
-                <div id="return-store">
-                    <div>
-                        <div className='container-radio'>
-                            <label htmlFor="test" className='label-radio'>
-                                <input type="radio" id="test1" name="radio-group" checked />
-                                <span>Devolver tu producto en Tienda</span>
-                            </label>
-                            <span id='span-store'>Gratuito</span>
-                        </div>
+                    <div id="return-store">
                         <div>
-                            <p className='store-date'>Estimada hasta al marte 08 mar. - martes 15 mar.</p>
-                            <p className='store-info'>+ info</p>
+                            <div className='container-radio'>
+                                <label htmlFor="test" className='label-radio'>
+                                    <input type="radio" id="test1" name="radio-group" checked />
+                                    <span>Devolver tu producto en Tienda</span>
+                                </label>
+                                <span id='span-store'>Gratuito</span>
+                            </div>
+                            <div>
+                                <p className='store-date'>Estimada hasta al marte 08 mar. - martes 15 mar.</p>
+                                <p className='store-info'>+ info</p>
+                            </div>
+                            <p id='paragraph-store'>Elegir tienda</p>
                         </div>
-                        <p id='paragraph-store'>Elegir tienda</p>
                     </div>
-                </div>
 
-                <div id="container-stores">
-                    <div id='stores'>
-                        {Object.entries(stores).length === 0 ?
-                            (<>
-                                <div className='spinner2'></div>
-                            </>) :
-                            (<>
-                                {stores.map((items) => {
+                    <div id="container-stores">
+                        <div id='stores'>
+                            {Object.entries(stores).length === 0 ?
+                                (<>
+                                    <div className='spinner2'></div>
+                                </>) :
+                                (<>
+                                    {stores.map((items) => {
 
-                                    return (<>
-                                        <div id='stores-div' key={items.id}>
-                                            <label htmlFor={items.id} className='label-radio' >
-                                                <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} />
-                                                <span>{items.name}</span>
-                                            </label>
+                                        return (<>
+                                            <div id='stores-div' key={items.id}>
+                                                <label htmlFor={items.id} className='label-radio' >
+                                                    <input type="radio" id={items.id} name="stores" value={items.id} onChange={changeStore} />
+                                                    <span>{items.name}</span>
+                                                </label>
 
-                                            <div>
-                                                <p className='store-date'>{items.address}</p>
+                                                <div>
+                                                    <p className='store-date'>{items.address}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </>)
-                                })}
-                            </>)}
+                                        </>)
+                                    })}
+                                </>)}
+                        </div>
                     </div>
+
+                    {Object.entries(idStore).length === 0 ? (<>
+                        <button id='btn-stores'>Confirmar devolución</button>
+                    </>) : (<>
+                        <button id='btn-stores-active' onClick={getCodeStore}>Confirmar devolución</button>
+
+                    </>)}
                 </div>
-
-                {Object.entries(idStore).length === 0 ? (<>
-                    <button id='btn-stores'>Confirmar devolución</button>
-                </>) : (<>
-                    <button id='btn-stores-active' onClick={getCodeStore}>Confirmar devolución</button>
-
-                </>)}
             </div>
+
 
             {
                 open ?

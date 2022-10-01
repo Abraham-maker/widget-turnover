@@ -1,18 +1,3 @@
-#container__getorder {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#container__getorder>img {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -50%);
-    width: 220px;
-}
-
 #form-getOrders {
     display: flex;
     flex-direction: column;
@@ -51,4 +36,13 @@
     font-family: "Poppins";
     font-size: 16px;
     color: #fff;
+}
+
+.flex-general {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
 }

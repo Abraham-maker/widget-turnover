@@ -12,6 +12,7 @@
 }
 
 #article-cuestionario {
+    margin-top: 40px;
     width: 550px;
     display: flex;
     align-items: center;

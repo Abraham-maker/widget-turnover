@@ -5,6 +5,10 @@
     color: #141414;
 }
 
+#any-container {
+    margin-top: 40px;
+}
+
 #container-any__reason {
     position: absolute;
     top: 50%;

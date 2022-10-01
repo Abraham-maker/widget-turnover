@@ -129,91 +129,94 @@ const ReturnHome = ({ setOpenModal }) => {
     return (
         <>
             {!!loading ? (<Loading />) : false}
-            <div className='container_icons'>
-                <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-            </div>
+            <div className="container-general">
 
-            <h3 id='title-home'>Devoluciones</h3>
+                <div className='container_icons'>
+                    <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                    <h3 className='title__icons'>Devoluciones</h3>
+                    <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+                </div>
 
-            <div id="return-home">
-                {Object.entries(addressUser).length === 0 ?
-                    (<>
-                        <div className='spinner'></div>
-                    </>) :
-                    (<>
-                        <div id="return-home__container">
-                            <div id='container-btn-radio'>
-                                <div>
-
-                                    <div className='container-radio'>
-                                        <label htmlFor="test" className='label-radio'>
-                                            <input type="radio" id="test1" name="radio-group" checked />
-                                            <span>Devolver tu producto en Domicilio</span>
-                                        </label>
-                                        <span id='span-free__home'>Gratuito</span>
-                                    </div>
+                <div className="flex-general">
+                    {Object.entries(addressUser).length === 0 ?
+                        (<>
+                            <div className='spinner'></div>
+                        </>) :
+                        (<>
+                            <div id="return-home__container">
+                                <div id='container-btn-radio'>
                                     <div>
-                                        <p className='home-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
-                                        <p className='home-info'>+ info</p>
+
+                                        <div className='container-radio'>
+                                            <label htmlFor="test" className='label-radio'>
+                                                <input type="radio" id="test1" name="radio-group" checked />
+                                                <span>Devolver tu producto en Domicilio</span>
+                                            </label>
+                                            <span id='span-free__home'>Gratuito</span>
+                                        </div>
+                                        <div>
+                                            <p className='home-date' >Estimada hasta al jueves 10 Mar. - martes 15 mar.</p>
+                                            <p className='home-info'>+ info</p>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <p>Facturación</p>
+
+                                <div id="div-inputs">
+                                    <div>
+                                        <input type="text" maxLength={20} id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='País' />
+                                        {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
+                                    </div>
+                                    <div className='div-flex'>
+                                        <div>
+                                            <input type="text" maxLength={20} id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
+                                            {alertNombre ? (<><span className='message-error'>{alertNombre}</span></>) : false}
+                                        </div>
+                                        <div>
+                                            <input type="text" id='apellido' maxLength={20} onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
+                                            {alertApellido ? (<><span className='message-error'>{alertApellido}</span></>) : false}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="text" id='linea1' maxLength={50} onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
+                                        {alertDireccion1 ? (<><span className='message-error'>{alertDireccion1}</span></>) : false}
+                                    </div>
+                                    <div>
+                                        <input type="text" id='linea2' maxLength={50} onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
+                                        {alertDireccion2 ? (<><span className='message-error'>{alertDireccion2}</span></>) : false}
+                                    </div>
+                                    <div className='div-flex'>
+                                        <div>
+                                            <input type="text" maxLength={20} id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
+                                            {alertCodePostal ? (<><span className='message-error'>{alertCodePostal}</span></>) : false}
+                                        </div>
+                                        <div>
+                                            <input type="text" maxLength={20} id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
+                                            {alertCiudad ? (<><span className='message-error'>{alertCiudad}</span></>) : false}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="checkbox" id="term-home" name="terms" onChange={() => { setCheck(!check) }} />
+                                <label htmlFor="term-home">Estoy de acuerdo con los <span id='terminos-home'>Términos y Condiciones</span></label>
                             </div>
 
-                            <p>Facturación</p>
+                            {changeAddress.nombre === undefined || changeAddress.nombre.length === 0 || changeAddress.apellido === undefined || changeAddress.apellido.length === 0 || changeAddress.pais === undefined || changeAddress.pais.length === 0 || changeAddress.linea1 === undefined || changeAddress.linea1.length === 0 || changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0 || changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0 || check === false ?
+                                (<>
+                                    <button id='bt-home'>Confirmar devolución</button>
+                                </>)
+                                :
+                                (<>
+                                    <button id='bt-home-active' onClick={validate}>Confirmar devolución</button>
+                                </>)
+                            }
 
-                            <div id="div-inputs">
-                                <div>
-                                    <input type="text" maxLength={20} id='direccion' onChange={addressChange} name='pais' defaultValue={addressUser?.shipping_address?.country?.name} placeholder='País' />
-                                    {alertPais ? (<><span className='message-error'>{alertPais}</span></>) : false}
-                                </div>
-                                <div className='div-flex'>
-                                    <div>
-                                        <input type="text" maxLength={20} id='nombre' onChange={addressChange} name='nombre' defaultValue={addressUser?.customer?.first_name} placeholder='Nombre' />
-                                        {alertNombre ? (<><span className='message-error'>{alertNombre}</span></>) : false}
-                                    </div>
-                                    <div>
-                                        <input type="text" id='apellido' maxLength={20} onChange={addressChange} name='apellido' defaultValue={addressUser?.customer?.last_name} placeholder='Apellido' />
-                                        {alertApellido ? (<><span className='message-error'>{alertApellido}</span></>) : false}
-                                    </div>
-                                </div>
-                                <div>
-                                    <input type="text" id='linea1' maxLength={50} onChange={addressChange} name='linea1' defaultValue={addressUser?.shipping_address?.address1} placeholder='Dirección (línea 1)' />
-                                    {alertDireccion1 ? (<><span className='message-error'>{alertDireccion1}</span></>) : false}
-                                </div>
-                                <div>
-                                    <input type="text" id='linea2' maxLength={50} onChange={addressChange} name='linea2' defaultValue={addressUser?.shipping_address?.address2} placeholder='Dirección (línea 2)' />
-                                    {alertDireccion2 ? (<><span className='message-error'>{alertDireccion2}</span></>) : false}
-                                </div>
-                                <div className='div-flex'>
-                                    <div>
-                                        <input type="text" maxLength={20} id='codigo_postal' onChange={addressChange} name='codigo_postal' defaultValue={addressUser?.shipping_address?.postcode} placeholder='Código postal' />
-                                        {alertCodePostal ? (<><span className='message-error'>{alertCodePostal}</span></>) : false}
-                                    </div>
-                                    <div>
-                                        <input type="text" maxLength={20} id='ciudad' onChange={addressChange} name='ciudad' defaultValue={addressUser?.shipping_address?.city} placeholder='Ciudad' />
-                                        {alertCiudad ? (<><span className='message-error'>{alertCiudad}</span></>) : false}
-                                    </div>
-                                </div>
-                            </div>
+                        </>)}
 
-                            <input type="checkbox" id="term-home" name="terms" onChange={() => { setCheck(!check) }} />
-                            <label htmlFor="term-home">Estoy de acuerdo con los <span id='terminos-home'>Términos y Condiciones</span></label>
-                        </div>
-
-                        {changeAddress.nombre === undefined || changeAddress.nombre.length === 0 || changeAddress.apellido === undefined || changeAddress.apellido.length === 0 || changeAddress.pais === undefined || changeAddress.pais.length === 0 || changeAddress.linea1 === undefined || changeAddress.linea1.length === 0 || changeAddress.codigo_postal === undefined || changeAddress.codigo_postal.length === 0 || changeAddress.ciudad === undefined || changeAddress.ciudad.length === 0 || check === false ?
-                            (<>
-                                <button id='bt-home'>Confirmar devolución</button>
-                            </>)
-                            :
-                            (<>
-                                <button id='bt-home-active' onClick={validate}>Confirmar devolución</button>
-                            </>)
-                        }
-
-                    </>)}
-
+                </div>
             </div>
+
 
 
             {open ?

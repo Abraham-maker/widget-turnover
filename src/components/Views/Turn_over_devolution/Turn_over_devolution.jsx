@@ -14,30 +14,33 @@ const RefudCardTurnOver = ({ setOpenModal }) => {
 
     return (
         <>
-            <div className='container_icons'>
-                <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-            </div>
+            <div className="container-general">
 
-            <h3 id='title-card-refud'>Devoluciones</h3>
+                <div className='container_icons'>
+                    <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                    <h3 className='title__icons'>Devoluciones</h3>
+                    <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+                </div>
 
-            <div id="card-div-success">
-                <div id="article-card-success">
-                    <p id='title-card-success'>Tu solicitud de reembolso se ha efectuado con éxito.</p>
-                    <p id='paragraph-card-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
+                <div className="flex-general">
+                    <div id="article-card-success">
+                        <p id='title-card-success'>Tu solicitud de reembolso se ha efectuado con éxito.</p>
+                        <p id='paragraph-card-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
 
-                    <div id='card-refud-success'>
-                        <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={100} />
-                        <div id='card-texts-refud'>
-                            <p id='title-fondos'>Saldo TurnOver:</p>
-                            <p id='text-fondos'>59,90€</p>
+                        <div id='card-refud-success'>
+                            <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={100} />
+                            <div id='card-texts-refud'>
+                                <p id='title-fondos'>Saldo TurnOver:</p>
+                                <p id='text-fondos'>59,90€</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <p id='title-about'>*Esta tarjeta es una tarjeta virtual</p>
-                    <button id='btn-stores-success' onClick={() => { push('/questionnaire') }}>Ir a la tienda</button>
+                        <p id='title-about'>*Esta tarjeta es una tarjeta virtual</p>
+                        <button id='btn-stores-success' onClick={() => { push('/questionnaire') }}>Ir a la tienda</button>
+                    </div>
                 </div>
             </div>
+
 
             {open ?
                 (<>

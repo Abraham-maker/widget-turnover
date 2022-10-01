@@ -5,13 +5,6 @@
     color: #141414;
 }
 
-#container-size {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
 #more-price {
     color: #00BB2D;
 }
@@ -181,10 +174,4 @@
 #text-size {
     font-size: 14px;
     font-weight: 500;
-}
-
-@media screen and (min-width:1300px) {
-    #container-size {
-        margin-top: 2rem;
-    }
 }

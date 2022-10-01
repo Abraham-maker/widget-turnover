@@ -8,30 +8,34 @@ const HomeRefud = ({ setOpenModal }) => {
   const { push } = useHistory();
 
   const closeModal = () => {
-    window.localStorage.removeItem('InfoLogin', true)
     push('/')
     setOpenModal(false)
   }
 
   return (
     <>
-      <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-      <div className='header__home'>
-        <h1 className='title__home'>Devoluciones</h1>
-      </div>
-      <div className='container__home'>
-        <div className='body__home'>
-          <div className='container__refud'>
-            <p className='paragraph__home'>Cambio</p>
-            <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+      <div className="container-general">
+        <div className='container_icons'>
+          <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+          <h3 className='title__icons'>Devoluciones</h3>
+          <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+        </div>
+
+        <div className="flex-general">
+          <div>
+            <div className='container__refud'>
+              <p className='paragraph__home'>Cambio</p>
+              <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <div className='container__refud'>
+              <p className='paragraph__home'>Reembolso</p>
+              <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+            <button className='btn-home' onClick={() => { push('/get-orders') }}><span className='span__home' >Iniciar devolución</span></button>
           </div>
-          <div className='container__refud'>
-            <p className='paragraph__home'>Reembolso</p>
-            <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          </div>
-          <button className='btn-home' onClick={() => { push('/get-orders') }}><span className='span__home' >Iniciar devolución</span></button>
         </div>
       </div>
+
 
       <BtnFaqs />
       {open ?

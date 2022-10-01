@@ -33,22 +33,26 @@ const FAQS = ({ setOpenModal }) => {
 
     return (
         <>
-            <div className='container_icons'>
-                <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-            </div>
+            <div className='container-general'>
 
-            <div id='container-acordion'>
-                <h1 id='title-refud'>Devoluciones</h1>
-                <p id='paragraph-refud'>Tu devolución será gestionada por TurnOver.</p>
-                <div id="accordion">
-                    {accordionData.map(({ title, content }) => (
-                        <Accordion title={title} content={content} />
-                    ))}
+                <div className='container_icons'>
+                    <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                    <h3 className='title__icons'>Devoluciones</h3>
+                    <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
                 </div>
 
-                <button id='start-refud' onClick={() => {push('/get-orders')}}>Empezar devolución</button>
+                <div className='flex-general'>
+                    <p id='paragraph-refud'>Tu devolución será gestionada por TurnOver.</p>
+                    <div id="accordion">
+                        {accordionData.map(({ title, content }) => (
+                            <Accordion title={title} content={content} />
+                        ))}
+                    </div>
+
+                    <button id='start-refud' onClick={() => { push('/get-orders') }}>Empezar devolución</button>
+                </div>
             </div>
+
 
             {open ?
                 (<>

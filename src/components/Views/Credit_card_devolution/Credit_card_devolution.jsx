@@ -14,29 +14,32 @@ const ViewRepayment = ({ setOpenModal }) => {
 
     return (
         <>
-            <div className='container_icons'>
-                <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-            </div>
+            <div className="container-general">
 
-            <h3 id='title-success-refud'>Devoluciones</h3>
+                <div className='container_icons'>
+                    <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                    <h3 className='title__icons'>Devoluciones</h3>
+                    <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+                </div>
 
-            <div id="refud-div-success">
-                <div id="article-refud-success">
-                    <p id='title-refud-success'>Tu solicitud de reembolso se ha efectuado con éxito.</p>
-                    <p id='paragraph-refud-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
+                <div className="flex-general">
+                    <div id="article-refud-success">
+                        <p id='title-refud-success'>Tu solicitud de reembolso se ha efectuado con éxito.</p>
+                        <p id='paragraph-refud-success'>Hemos enviado a tu correo electrónico los detalles de tu reembolso.</p>
 
-                    <div id='card-success'>
-                        <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={100} />
-                        <div id='card-texts'>
-                            <span id='title-card-saldo'>Saldo TurnOver:</span>
-                            <span id='text-card'>59,90€</span>
+                        <div id='card-success'>
+                            <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" width={100} />
+                            <div id='card-texts'>
+                                <span id='title-card-saldo'>Saldo TurnOver:</span>
+                                <span id='text-card'>59,90€</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <button id='btn-store-success' onClick={() => { push('/questionnaire') }}>Ir a la tienda</button>
+                        <button id='btn-store-success' onClick={() => { push('/questionnaire') }}>Ir a la tienda</button>
+                    </div>
                 </div>
             </div>
+
 
             {open ?
                 (<>

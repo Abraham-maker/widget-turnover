@@ -1,4 +1,5 @@
 #container-product {
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,9 +13,10 @@
 }
 
 #article-product {
-    width: 80vw;
-    max-height: 641px;
+    max-height: 500px;
+    min-height: 500px;
     border-radius: 12px;
+    overflow-y: auto;
     border: solid 1px #808083;
     background-color: #fff;
 }

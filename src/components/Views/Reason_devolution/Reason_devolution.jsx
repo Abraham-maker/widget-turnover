@@ -57,51 +57,53 @@ const ReasonRefud = ({ setOpenModal }) => {
     return (
         <>
             {!!loading ? (<Loading />) : false}
-            <div className='container_icons'>
-                <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-            </div>
+            <div className="container-general">
 
-            <h3 id='title-reason'>Devoluciones</h3>
+                <div className='container_icons'>
+                    <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                    <h3 className='title__icons'>Devoluciones</h3>
+                    <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+                </div>
 
-            <div id="container-reason">
-                <div id="article-reason">
-                    <span id='reason-refud'>Indica la razón de tu devolución</span>
+                <div className="flex-general">
+                    <div id="article-reason">
+                        <span id='reason-refud'>Indica la razón de tu devolución</span>
 
-                    <div id='container-radios'>
-                        {Object.entries(reason).length === 0 ? (<><div className='spinner'></div></>) : (<>
-                            {reason.map((text_reason) => {
-                                return (
-                                    <>
-                                        <label htmlFor={text_reason.id} className='label-radio'>
-                                            <input type="radio" id={text_reason.id} name="razon_devolucion" value={text_reason.name} onChange={changeRadio} />
-                                            <span>{text_reason.name}</span>
-                                        </label>
-                                    </>
-                                )
-                            })
-                            }
-                        </>)}
+                        <div id='container-radios'>
+                            {Object.entries(reason).length === 0 ? (<><div className='spinner'></div></>) : (<>
+                                {reason.map((text_reason) => {
+                                    return (
+                                        <>
+                                            <label htmlFor={text_reason.id} className='label-radio'>
+                                                <input type="radio" id={text_reason.id} name="razon_devolucion" value={text_reason.name} onChange={changeRadio} />
+                                                <span>{text_reason.name}</span>
+                                            </label>
+                                        </>
+                                    )
+                                })
+                                }
+                            </>)}
+
+                        </div>
+
+                        <div id='container-input'>
+                            <label htmlFor="comentary" id='comentary-label'>Comentarios (opcional)</label>
+                            <textarea type="text" id='comentary' name='comentario' placeholder='Escribe aquí' onChange={changeRadio} />
+                        </div>
+
+                        {!radio.razon_devolucion ?
+                            (<>
+                                <div id='container-btn-reason'>
+                                    <button id='btn-reason'><span>Confirmar devolución</span></button>
+                                </div>
+                            </>) :
+                            (<>
+                                <div id='container-btn-reason' onClick={submitReason}>
+                                    <button id='btn-reason-active'><span>Confirmar devolución</span></button>
+                                </div>
+                            </>)}
 
                     </div>
-
-                    <div id='container-input'>
-                        <label htmlFor="comentary" id='comentary-label'>Comentarios (opcional)</label>
-                        <input type="text" id='comentary' name='comentario' placeholder='Escribe aquí' onChange={changeRadio} />
-                    </div>
-
-                    {!radio.razon_devolucion ?
-                        (<>
-                            <div id='container-btn-reason'>
-                                <button id='btn-reason'><span>Confirmar devolución</span></button>
-                            </div>
-                        </>) :
-                        (<>
-                            <div id='container-btn-reason' onClick={submitReason}>
-                                <button id='btn-reason-active'><span>Confirmar devolución</span></button>
-                            </div>
-                        </>)}
-
                 </div>
             </div>
 

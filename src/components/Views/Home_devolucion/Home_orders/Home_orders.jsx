@@ -26,18 +26,22 @@ const GetOrders = ({ setOpenModal }) => {
   return (
     <>
       {!!loading ? (<Loading />) : false}
-      <div className='container_icons'>
-        <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
-        <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
-      </div>
-
-      <div id='container__getorder'>
-        <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" alt="turnover" />
-        <div id='form-getOrders'>
-          <input type="text" name="email" placeholder='Introduce tu e-mail' onChange={inputChange} />
-          {status === 'Error' ? (<p className='message-error'>{message}</p>) : false}
-          <button id='btn-orders' onClick={onFindOrder}><span id='span-orders'>Obtener órdenes</span></button>
+      <div className="container-general">
+        <div className='container_icons'>
+          <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+          <h3 className='title__icons'>Devoluciones</h3>
+          <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
         </div>
+
+        <div className="flex-general">
+          <img src="https://www.turnover.gotopdev.com/assets/images/LogoAzul.png" id='img-logo' alt="turnover" width={250} />
+          <div id='form-getOrders'>
+            <input type="text" name="email" placeholder='Introduce tu e-mail' onChange={inputChange} />
+            {status === 'Error' ? (<p className='message-error'>{message}</p>) : false}
+            <button id='btn-orders' onClick={onFindOrder}><span id='span-orders'>Obtener órdenes</span></button>
+          </div>
+        </div>
+
       </div>
 
       <BtnFaqs />

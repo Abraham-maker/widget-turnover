@@ -1,8 +1,8 @@
 #container-order_list {
-    margin: 0 auto;
+    margin-top: 40px;
     width: 80vw;
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 480px;
     border-radius: 12px;
     border: solid 1px #808083;
     background-color: #fff;
@@ -21,7 +21,6 @@
     border: none;
     height: 44px;
     color: #fff;
-    margin: 18px 0 0 0;
     border-radius: 22px;
     font-family: Poppins;
     background-color: #424242;
@@ -30,6 +29,7 @@
 
 #center-btn-order {
     display: flex;
+    margin: 20px;
     justify-content: center;
 }
 
@@ -38,7 +38,6 @@
     border: 1px solid #424242;
     height: 44px;
     color: #000;
-    margin: 18px 0 0 0;
     border-radius: 22px;
     font-family: Poppins;
     background-color: #fff;

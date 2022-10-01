@@ -49,37 +49,35 @@ const HomeOptions = ({ setOpenModal }) => {
   return (
     <>
       {!!loading ? (<Loading />) : false}
-      <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+      <div className="container-general">
 
-      <div className='header__home'>
-        <h1 className='title__home'>Devoluciones</h1>
-      </div>
+        <div className='container_icons'>
+          <div className='icon__arrow' onClick={() => { return window.history.back() }}><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+          <h3 className='title__icons'>Devoluciones</h3>
+          <div className="icon__close" onClick={() => { setOpen(true) }}><i className="fa fa-times"></i></div>
+        </div>
 
-      <div className='container__home'>
-
-        <div className='body__home'>
-
-          {optionsRefud.has_change !== 0 ?
-            (<>
-              <div className='container__refud'>
-                <p className='paragraph__home'>Cambio</p>
-                <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-                <button className='btn-home-options' onClick={differentSize}><span className='span__home' > Iniciar devolución</span></button>
-              </div>
-            </>) : false}
-
-          {optionsRefud.has_refud !== 0 ?
-            (<>
-              <div className='container__refud'>
-                <p className='paragraph__home'>Reembolso</p>
-                <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-                <button className='btn-home-options' onClick={iWantRefund}><span className='span__home' >Iniciar devolución</span></button>
-              </div>
-            </>) : false}
-
+        <div className="flex-general">
+          <div className='body__home'>
+            {optionsRefud.has_change !== 0 ?
+              (<>
+                <div className='container__refud'>
+                  <p className='paragraph__home'>Cambio</p>
+                  <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                  <button className='btn-home-options' onClick={differentSize}><span className='span__home' > Iniciar devolución</span></button>
+                </div>
+              </>) : false}
+            {optionsRefud.has_refud !== 0 ?
+              (<>
+                <div className='container__refud'>
+                  <p className='paragraph__home'>Reembolso</p>
+                  <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                  <button className='btn-home-options' onClick={iWantRefund}><span className='span__home' >Iniciar devolución</span></button>
+                </div>
+              </>) : false}
+          </div>
         </div>
       </div>
-
 
       {open ?
         (<>
