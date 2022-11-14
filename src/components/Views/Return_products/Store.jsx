@@ -21,7 +21,7 @@ const ReturnProductStore = ({ setOpenModal }) => {
 
     useEffect(() => {
         const findId = async () => {
-            const initialUrl = `https://www.turnover.gotopdev.com/api/v1/branch-stores?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&product_id=${product_id}`
+            const initialUrl = `https://www.turnover.gotopdev.com/api/v1/stores-branchs?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881`
             fetch(initialUrl)
                 .then(response => response.json())
                 .then(({ data }) => {
