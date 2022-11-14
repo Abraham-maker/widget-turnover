@@ -76,9 +76,9 @@ const AnyReason = ({ setOpenModal }) => {
                                 </span>
                                 {Object.entries(color_storage).length !== 0 ?
                                     (<>
-                                        <p id='size-any'>Talla : {radios_storage.talla.talla}</p>
+                                        <p id='size-any'>{radios_storage.talla.talla ? `"Talla : " ${radios_storage.talla.talla}` : false}</p>
                                         <div id='container-colors__any'>
-                                            <span>Color :</span>
+                                            <span>{color_storage.color ? false : "Color :"}</span>
                                             {color_storage.color.color === '4' ? (<><span>Red</span></>) :
                                                 color_storage.color.color === '3' ? (<><span>Blue</span></>) :
                                                     color_storage.color.color === '1' ? (<><span>Green</span></>) :
@@ -86,7 +86,7 @@ const AnyReason = ({ setOpenModal }) => {
                                             }
                                         </div>
                                         <div id='container-check__flex'>
-                                            <span>Checkbox :</span>
+                                            <span>{Object.entries(check_storage.checkbox).length !== 0 ? "CheckBox :" : false}</span>
                                             {check_storage.checkbox.map((storage) => {
                                                 return (
                                                     <>
@@ -98,6 +98,7 @@ const AnyReason = ({ setOpenModal }) => {
                                     </>) : false}
 
                             </div>
+
                         </div>
                         <div id="any-options">
                             <span id='span-any'>Selecciona un método de devolución</span>
