@@ -14,7 +14,7 @@ const ReasonRefud = ({ setOpenModal }) => {
     const [radio, setRadio] = useState(false)
     const [reason, setReason] = useState({})
     let tipo_devolucion = JSON.parse(localStorage.getItem('tipo_devolucion', true))
-
+    
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
@@ -28,16 +28,16 @@ const ReasonRefud = ({ setOpenModal }) => {
 
     const submitReason = () => {
         setLoading(true);
+        window.localStorage.setItem("razones_devolucion", JSON.stringify(radio))
         setTimeout(() => {
             setLoading(false)
-            if (tipo_devolucion === 'Quiero Reembolso') {
+            if (tipo_devolucion === 'Reembolso') {
                 return push('/re-payment')
-            } else if (tipo_devolucion === 'Quiero un estilo/producto diferente' || tipo_devolucion === 'Quiero una talla/color diferente') {
+            } else if (tipo_devolucion === 'Cambio') {
                 return push('/any-reason')
             }
 
         }, 1000);
-        window.localStorage.setItem("razones_devolucion", radio)
     }
 
 

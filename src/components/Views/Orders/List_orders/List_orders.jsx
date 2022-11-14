@@ -8,7 +8,7 @@ const ListOrders = ({ setOpenModal }) => {
   const [open, setOpen] = useState(false);
   const { orderList } = useContext(WebContext);
   const [order_id, setOrderId] = useState(false)
-  const { order } = orderList
+  const { order } = orderList ?? false
 
   const closeModal = () => {
     window.localStorage.removeItem('InfoLogin', true)

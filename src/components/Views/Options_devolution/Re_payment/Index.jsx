@@ -11,7 +11,6 @@ const RePayment = ({ setOpenModal }) => {
     const [open, setOpen] = useState(false);
     let infoProduct = JSON.parse(window.localStorage.getItem('info_product', true))
 
-
     const closeModal = () => {
         window.localStorage.removeItem('InfoLogin', true)
         push('/')
@@ -52,28 +51,38 @@ const RePayment = ({ setOpenModal }) => {
                         <p>Tu reembolso se efectuará en el instante.</p>
                         <div id="article-re">
                             <div id="re-img">
-                                <img src={dates.images[0].http_path} alt="" />
+                                {dates ? (<>
+                                    <img src={dates.images[0].http_path} alt="" />
+                                </>) : false}
                             </div>
                             <div>
                                 <div id='re-flex'>
-                                    <span>{dates.name} {dates.u_model}</span>
+                                    {dates ? (<>
+                                        <span>{dates.name} {dates.u_model}</span>
+                                    </>) : false}
                                     <div>
-                                        <span>{dates.price}€</span>
+                                        {dates ? (<>
+                                            <span>{dates.price}€</span>
+                                        </>) : false}
                                     </div>
                                 </div>
-                                <p id='ref-re'>Ref. {dates.id}</p>
-                                {Object.entries(color_storage).length !== 0 ?
-                                    (<>
-                                        <p id='size-any'>Talla : {radios_storage.talla.talla}</p>
-                                        <div id='container-colors__any'>
-                                            <span>Color :</span>
-                                            {color_storage.color.color === '4' ? (<><span>Red</span></>) :
-                                                color_storage.color.color === '3' ? (<><span>Blue</span></>) :
-                                                    color_storage.color.color === '1' ? (<><span>Green</span></>) :
-                                                        color_storage.color.color === '2' ? (<><span>Yellow</span></>) : false
-                                            }
-                                        </div>
-                                    </>) : false}
+
+
+                                {dates ? (<>
+                                    <p id='ref-re'>Ref. {dates.id}</p>
+                                    {Object.entries(color_storage).length !== 0 ?
+                                        (<>
+                                            <p id='size-any'>Talla : {radios_storage.talla.talla}</p>
+                                            <div id='container-colors__any'>
+                                                <span>Color :</span>
+                                                {color_storage.color.color === '4' ? (<><span>Red</span></>) :
+                                                    color_storage.color.color === '3' ? (<><span>Blue</span></>) :
+                                                        color_storage.color.color === '1' ? (<><span>Green</span></>) :
+                                                            color_storage.color.color === '2' ? (<><span>Yellow</span></>) : false
+                                                }
+                                            </div>
+                                        </>) : false}
+                                </>) : false}
                             </div>
                         </div>
                         <div id="re-options">
@@ -86,7 +95,9 @@ const RePayment = ({ setOpenModal }) => {
                                             <input type="radio" id="test1" name="radio-group" value='Reembolso a una tarjeta' onChange={radiosChangeRefud} />
                                             <span>Reembolso a una tarjeta</span>
                                         </label>
-                                        <span id='span-free__re'>{dates.price}€</span>
+                                        {dates ? (<>
+                                            <span id='span-free__re'>{dates.price}€</span>
+                                        </>) : false}
                                     </div>
                                     <div>
                                         <p className='any-date'>Estimada hasta el martes 08 sep. - martes 15 sep.</p>
@@ -99,7 +110,7 @@ const RePayment = ({ setOpenModal }) => {
                                             <input type="radio" id="test2" name="radio-group" value='Tarjeta TurnOver' onChange={radiosChangeRefud} />
                                             <span>Tarjeta TurnOver</span>
                                         </label>
-                                        <span id='span-free2__re'>{dates.price}€</span>
+                                        {/* <span id='span-free2__re'>{dates.price}€</span> */}
                                     </div>
                                     <div>
                                         <p className='any-date' >Estimada hasta el jueves 10 Mar. - martes 15 mar.</p>

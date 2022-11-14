@@ -14,8 +14,8 @@ const Products = ({ setOpenModal }) => {
     const [open, setOpen] = useState(false);
     const [products, setProducts] = useState({});
     const [selectProduct, setSelectProduct] = useState([]);
+    
     let tipo_devolucion = JSON.parse(localStorage.getItem('tipo_devolucion', true))
-
     useEffect(() => {
         if (selectProduct.length !== 0) {
             window.localStorage.setItem("product_id", JSON.stringify(selectProduct))
@@ -45,9 +45,9 @@ const Products = ({ setOpenModal }) => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false)
-            if (tipo_devolucion === 'Quiero Reembolso') {
+            if (tipo_devolucion === 'Reembolso') {
                 return push(`/reason-refud/${selectProduct}`)
-            } else if (tipo_devolucion === 'Quiero un estilo/producto diferente' || tipo_devolucion === 'Quiero una talla/color diferente') {
+            } else if (tipo_devolucion === 'Cambio') {
                 push(`/about-product/${selectProduct}`)
             }
         }, 1000);
@@ -74,14 +74,13 @@ const Products = ({ setOpenModal }) => {
                             </>
                         ) : (<>
                             {products.map((items) => {
-
                                 return (
                                     <>
                                         <div id="item-product">
                                             <div id='items'>
                                                 <div id='container-checkBox'>
                                                     {items.quantity_in_inventory === 0 ?
-                                                        false :
+                                                        <div style={{ marginLeft: "30px" }}></div> :
                                                         (<>
                                                             <label htmlFor={items.product_id} className='label-radio'>
                                                                 <input type="radio" id={items.product_id} name="my-checkbox" onChange={() => { setSelectProduct(items.product_id) }} />
@@ -100,7 +99,8 @@ const Products = ({ setOpenModal }) => {
                                                 }
 
                                                 <div>
-                                                    <p id='text-header'>{items.name} {items.model}</p>
+                                                    <p id='text-header'>{items.name}
+                                                        <br />{items.model}</p>
                                                     <p className='text-normal'>Ref. : {items.product_id}</p>
                                                     {Object.entries(items.options).length === 0 ? false : (<>
                                                         <p className='text-normal'>Talla : {items.options[1]?.value}</p>

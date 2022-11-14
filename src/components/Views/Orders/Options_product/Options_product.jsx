@@ -130,7 +130,7 @@ const SelectSize = ({ setOpenModal }) => {
                     </div>
                   </div>
                   <p id='ref'>Ref. {aboutProduct.id}</p>
-                  {product_options.length === 0 ? false :
+                  {!radios || !color || !checkBox ? false :
                     (
                       <>
                         <p id='colors'>Selecciona el color</p>
@@ -138,22 +138,21 @@ const SelectSize = ({ setOpenModal }) => {
                         <select id='select' onChange={colorChange} name='color'>
                           <option selected disabled>Selecciona tu color</option>
 
-                          {color.option_items.map((colors) => {
+                          {color?.option_items.map((colors) => {
                             return (
                               <>
-                                <option title={colors.price} value={colors.price}>{colors.name} (+${colors.price})</option>
+                                <option title={colors?.price} value={colors?.price}>{colors?.name} (+${colors?.price})</option>
                               </>
                             )
                           })}
                         </select>
-
 
                         <div id="container-options">
 
                           <div id="container-radioo">
                             <span id='text-size'>Selecciona tu talla</span>
 
-                            {radios.option_items.map((radio) => {
+                            {radios?.option_items.map((radio) => {
                               return (
                                 <>
 
@@ -170,7 +169,7 @@ const SelectSize = ({ setOpenModal }) => {
                           <div id="container-check">
                             <span id='text-size'> Checkbox</span>
 
-                            {checkBox.option_items.map((checkBoxes) => {
+                            {checkBox?.option_items.map((checkBoxes) => {
                               return (
                                 <>
                                   <input type='checkbox' title={checkBoxes.price} id={checkBoxes.id} name={checkBoxes.name} value={checkBoxes.name} onChange={checkChange} />
@@ -186,7 +185,7 @@ const SelectSize = ({ setOpenModal }) => {
 
 
                   {
-                    product_options.length === 0 ? (<div className='btn-product__center'>
+                    !radios || !color || !checkBox ? (<div className='btn-product__center'>
                       <button id='next-size-active' onClick={nextOption}><span id='next-span-active'>Continuar</span></button>
                     </div>) :
                       (<>
@@ -206,24 +205,24 @@ const SelectSize = ({ setOpenModal }) => {
 
           </div>
         </div>
-        </div>
+      </div>
 
-        {open ?
-          (<>
-            <div className="background">
-              <div className="popup">
-                <div className="content">
-                  ¿Seguro que deseas salir?, Todo el estado actual se perderá.
-                </div>
-                <div className='container-btn'>
-                  <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
-                  <button className='btn-accept' onClick={closeModal}>Aceptar</button>
-                </div>
+      {open ?
+        (<>
+          <div className="background">
+            <div className="popup">
+              <div className="content">
+                ¿Seguro que deseas salir?, Todo el estado actual se perderá.
+              </div>
+              <div className='container-btn'>
+                <button className='btn-cancel' onClick={() => { setOpen(false) }}>Cancelar</button>
+                <button className='btn-accept' onClick={closeModal}>Aceptar</button>
               </div>
             </div>
-          </>) : false}
-      </>
-      )
+          </div>
+        </>) : false}
+    </>
+  )
 }
 
-      export default SelectSize
+export default SelectSize

@@ -37,12 +37,12 @@ const HomeOptions = ({ setOpenModal }) => {
   }
 
   const differentSize = () => {
-    setHomeOptions('Quiero una talla/color diferente');
+    setHomeOptions('Cambio');
     return listOrder();
   }
 
   const iWantRefund = () => {
-    setHomeOptions('Quiero Reembolso')
+    setHomeOptions('Reembolso')
     return listOrder();
   }
 
@@ -59,15 +59,15 @@ const HomeOptions = ({ setOpenModal }) => {
 
         <div className="flex-general">
           <div className='body__home'>
-            {optionsRefud.has_change !== 0 ?
-              (<>
+            {optionsRefud.has_changes === 0 ?
+              false : (<>
                 <div className='container__refud'>
                   <p className='paragraph__home'>Cambio</p>
                   <p className='paragraph__home-two'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
                   <button className='btn-home-options' onClick={differentSize}><span className='span__home' > Iniciar devolución</span></button>
                 </div>
-              </>) : false}
-            {optionsRefud.has_refud !== 0 ?
+              </>)}
+            {optionsRefud.has_refund !== 0 ?
               (<>
                 <div className='container__refud'>
                   <p className='paragraph__home'>Reembolso</p>
