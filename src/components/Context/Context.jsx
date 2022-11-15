@@ -36,6 +36,7 @@ function WebProvider(props) {
     const { email } = findOrder
     const [messageOrder, setMessageOrder] = useState({});
     const [orderList, setOrderlist] = useState({});
+    const [notOrder, setNotOrder] = useState("")
     {/* END FIND ORDER */ }
     {/* REQUEST LOGIN */ }
     const onSubmit = () => {
@@ -158,8 +159,9 @@ function WebProvider(props) {
         setLoading(true);
         await fetch(`https://www.turnover.gotopdev.com/api/v1/customer-orders?key=2c4c5a3b-5289-4b26-9cea-43b955bb1881&email=${email}`)
             .then(response => response.json())
-            .then(({ data }) => {
+            .then(({ data, message }) => {
                 setLoading(false);
+                setNotOrder(message)
                 setOrderlist(data);
                 push('/list-order')
             })
@@ -168,7 +170,7 @@ function WebProvider(props) {
     {/* END FIND ORDER */ }
 
     return (
-        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage }}>
+        <WebContext.Provider value={{ user, setUser, onSubmit, infoLogin, emailForgotPass, setEmailForgotPass, validateEmail, informationForgot, setInformationForgot, sendEmail, register, setRegister, onRegister, messageRegister, checked, setChecked, findOrder, setFindOrder, onFindOrder, messageOrder, listOrder, orderList, datosUser, loading, setLoading, dates, color_storage, total_storage, radios_storage, check_storage, notOrder }}>
             {props.children}
         </WebContext.Provider>
     )
